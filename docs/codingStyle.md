@@ -19,7 +19,7 @@ const ALL_CAPS_SNAKE = 5;
 
 ## Functions
 
-Open Brackets in next line
+Open Brackets in next line, with the exception of anonymous functions.
 
 ```php
 function camelCase()
