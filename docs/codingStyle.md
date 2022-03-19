@@ -101,7 +101,7 @@ Files should be in PascalCase `Example.php`, `OtherExample.blade.php`.
 
 ## Associative Arrays
 
-For associative arrays with more than three or more elements you should first create the empty array and push one item per line.
+For associative arrays with three or more elements you should first create the empty array and push one item per line.
 
 ```php
 $associativeArray = []; // This is okay
