@@ -80,7 +80,7 @@ while($j < 5){
 ```
 
 ## Chaining Functions
-When chaining functions each function should be in a new line, with the exception of getters.
+When chaining functions each function should be in a new line, with the exception of getters and blade files.
 ```php
 aFunction('some parameters')
 ->anotherFunction('more parametes')
