@@ -25,6 +25,9 @@ Route::get('/foodshop', 'App\Http\Controllers\ShopController@foodShop')
 Route::get('/species', 'App\Http\Controllers\SpecieController@index')
 ->name('specie.index');
 
+Route::get('/species/{id}', 'App\Http\Controllers\SpecieController@show')
+->name("specie.show");
+
 Route::get('/register', 'App\Http\Controllers\AuthController@registerScreen')
 ->name('auth.registerScreen');
 
