@@ -13,6 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'App\Http\Controllers\ShopController@index')
+->name('shop.index');
+
+Route::get('/petshop', 'App\Http\Controllers\ShopController@petShop')
+->name('shop.petShop');
+
+Route::get('/foodshop', 'App\Http\Controllers\ShopController@foodShop')
+->name('shop.foodShop');
+
+Route::get('/species', 'App\Http\Controllers\SpecieController@index')
+->name('specie.index');
+
+Route::get('/register', 'App\Http\Controllers\AuthController@registerScreen')
+->name('auth.registerScreen');
+
+Route::get('/login', 'App\Http\Controllers\AuthController@loginScreen')
+->name('auth.loginScreen');
+

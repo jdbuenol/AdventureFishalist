@@ -1,0 +1,27 @@
+body{
+    margin: 0px;
+}
+
+a{
+    color: black;
+    text-decoration-line: none;
+}
+
+.red-text{
+    color: red;
+}
+
+.NavBar{
+    display: flex;
+    justify-content: space-between;
+    height: 5vh;
+    background-image: url('/images/navBarBackground.png');
+    background-size: contain;
+}
+
+.NavLinks{
+    display: flex;
+    list-style-type: none;
+    gap: 1.5em;
+    margin-right: 1.5em;
+}
