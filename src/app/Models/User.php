@@ -76,6 +76,21 @@ class User extends Authenticatable
         return $this->isAdmin;
     }
 
+    function setAdmin($admin)
+    {
+        $this->isAdmin = $admin;
+    }
+
+    function getPassword()
+    {
+        return $this->password;
+    }
+
+    function setPassword($password)
+    {
+        $this->password = $password;
+    }
+
     function orders()
     {
         return $this->hasMany(Order);
