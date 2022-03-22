@@ -1,16 +1,23 @@
 <!-- AUTHOR: JULIAN BUENO -->
-@extends('layouts.CustomerApp')
-@section('title', "LOGIN")
+@extends('layouts.AdminApp')
+@section('title', "NEW USER")
 @section('content')
 <div class="PostsHeader">
     <h1>
-        LOGIN
+        NEW USER
     </h1>
-    <form action="{{ route('auth.login') }}" method="POST" class="SubmitForm">
+    <form action="{{ route('admin.createUser') }}" method="POST" class="SubmitForm">
         @csrf
         <div class="form-group">
+            <label for="name" class="label">Name</label>
+            <input type="text" name="name" id="name" placeholder="name" value="{{ old('name') }}" class="form-control">
+        </div>
+        @error('name')
+            <p class="red-text">{{ $message }}</p>
+        @enderror
+        <div class="form-group">
             <label for="email" class="label">E-MAIL</label>
-            <input type="email" name="email" id="email" placeholder="email" class="form-control">
+            <input type="email" name="email" id="email" placeholder="email" value="{{ old('email') }}" class="form-control">
         </div>
         @error('email')
             <p class="red-text">{{ $message }}</p>
@@ -19,16 +26,10 @@
             <label for="password" class="label">PASSWORD</label>
             <input type="password" name="password" id="password" placeholder="password" class="form-control">
         </div>
-        <div class="form-group mt-3">
-            <input type="checkbox" name="remember" id="remember"> REMEMBER ME
-        </div>
         @error('password')
             <p class="red-text">{{ $message }}</p>
         @enderror
-        @if(session('viewData'))
-            <p class="red-text">{{ session('viewData') }}</p>
-        @endif
-        <button class="btn btn-primary mt-3">
+        <button type="submit" class="btn btn-primary my-5">
             SUBMIT
         </button>
     </form>

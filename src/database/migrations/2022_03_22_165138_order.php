@@ -1,5 +1,4 @@
 <?php
-//AUTHOR: Juanjose Madrigal
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -14,9 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('specie_locations', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->float('poblationalDensity');
+            $table->float('totalPrice', 8, 2);
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('specie_locations');
+        Schema::dropIfExists('orders');
     }
 };

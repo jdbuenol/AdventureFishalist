@@ -1,3 +1,4 @@
+<!-- AUTHOR: JULIAN BUENO -->
 @extends('layouts.CustomerApp')
 @section('title', "PET-SHOP")
 @section('content')

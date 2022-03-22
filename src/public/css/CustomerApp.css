@@ -1,10 +1,18 @@
+/* AUTHOR: JULIAN BUENO */
+
 body{
     margin: 0px;
 }
 
-a{
+.nav--link{
     color: black;
     text-decoration-line: none;
+    border: 0px;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.nav--link:hover{
+    color: blueviolet;
 }
 
 .red-text{
@@ -24,4 +32,16 @@ a{
     list-style-type: none;
     gap: 1.5em;
     margin-right: 1.5em;
+}
+
+.PostsHeader{
+    margin-top: 5em;
+    padding: 1em;
+    text-align: center;
+    background-color: white;
+    width: 60vw;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    border-radius: 8px;
+    overflow: hidden;
 }

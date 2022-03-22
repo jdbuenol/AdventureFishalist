@@ -1,4 +1,5 @@
 <?php
+//AUTHOR: Juanjose Madrigal
 
 namespace App\Models;
 

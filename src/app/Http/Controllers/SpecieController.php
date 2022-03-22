@@ -1,5 +1,6 @@
 <?php
-// AUTHOR: Juan Jose Madrigal
+// AUTHOR: Julian Bueno
+
 namespace App\Http\Controllers;
 
 use Illuminate\Database\Eloquent\ModelNotFoundException;
