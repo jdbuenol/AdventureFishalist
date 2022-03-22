@@ -23,12 +23,12 @@
   </table>
   <div class="align-self-center center-text">
     @if($viewData->currentPage() > 1)
-    <a href="{{ route("admin.users", ['page' => $viewData->currentPage() - 1]) }}" class="mx-3">
+    <a href="{{ route("admin.species", ['page' => $viewData->currentPage() - 1]) }}" class="mx-3">
         PREVIOUS
     </a>
     @endif
     @if($viewData->currentPage() < $viewData->lastPage())
-    <a href="{{ route("admin.users", ['page' => $viewData->currentPage() + 1]) }}" class="mx-3">
+    <a href="{{ route("admin.species", ['page' => $viewData->currentPage() + 1]) }}" class="mx-3">
         NEXT
     </a>
     @endif
