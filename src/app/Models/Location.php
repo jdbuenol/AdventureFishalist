@@ -12,58 +12,58 @@ class Location extends Model
 
     /**
      * PRODUCT ATTRIBUTES
-     * $this->attributes['id'] - int - contains the product primary key (id)
-     * $this->attributes['name'] - string - contains the location name
-     * $this->attributes['geoLatitude'] - float - contains the geoLatitude value of the location 
-     * $this->attributes['geoLongitude'] - float - contains the geoLongitude value of the location 
-     * $this->attributes['country'] - string - contains the country name of the Location
+     * $this->id - int - contains the product primary key (id)
+     * $this->name - string - contains the location name
+     * $this->geoLatitude - float - contains the geoLatitude value of the location 
+     * $this->geoLongitude - float - contains the geoLongitude value of the location 
+     * $this->country - string - contains the country name of the Location
     */
 
     protected $fillable = ['name','geoLatitude','geoLongitude','country'];
 
     public function getId()
     {
-        return $this->attributes['id'];
+        return $this->id;
     }
 
     public function getName()
     {
-        return $this->attributes['name'];
+        return $this->name;
     }
 
     public function setName($name)
     {
-        $this->attributes['name'] = $name;
+        $this->name = $name;
     }
 
     public function getGeoLatitude()
     {
-        return $this->attributes['geoLatitude'];
+        return $this->geoLatitude;
     }
 
     public function setGeoLatitude($geoLatitude)
     {
-        $this->attributes['geoLatitude'] = $geoLatitude;
+        $this->geoLatitude = $geoLatitude;
     }
 
     public function getGeoLongitude()
     {
-        return $this->attributes['geoLongitude'];
+        return $this->geoLongitude;
     }
 
     public function setGeoLongitude($geoLongitude)
     {
-        $this->attributes['geoLongitude'] = $geoLongitude;
+        $this->geoLongitude = $geoLongitude;
     }
 
     public function getCountry()
     {
-        return $this->attributes['country'];
+        return $this->country;
     }
 
     public function setCountry($country)
     {
-        $this->attributes['country'] = $country;
+        $this->country = $country;
     }
 
     public function specieLocations()

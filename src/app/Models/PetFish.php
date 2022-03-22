@@ -12,57 +12,57 @@ class PetFish extends Model
 
     /**
      * PRODUCT ATTRIBUTES
-     * $this->attributes['id'] - int - contains the pet fish primary key (id)
-     * $this->attributes['image'] - string - contains the URL to the image of the pet fish
-     * $this->attributes['size'] - string - contains the size of the pet fish 
-     * $this->attributes['price'] - float - contains the price value of the pet fish 
-     * $this->attributes['inventory'] - integer - contains the inventory value of the pet fish
+     * $this->id - int - contains the pet fish primary key (id)
+     * $this->image - string - contains the URL to the image of the pet fish
+     * $this->size - string - contains the size of the pet fish 
+     * $this->price - float - contains the price value of the pet fish 
+     * $this->inventory - integer - contains the inventory value of the pet fish
     */
 
     protected $fillable = ['image','size','price','inventory'];
 
     public function getId()
     {
-        return $this->attributes['id'];
+        return $this->id;
     }
 
     public function getImage()
     {
-        return $this->attributes['image'];
+        return $this->image;
     }
 
     public function setImage($image)
     {
-        $this->attributes['image'] = $image;
+        $this->image = $image;
     }
 
     public function getSize()
     {
-        return $this->attributes['size'];
+        return $this->size;
     }
 
     public function setSize($size)
     {
-        $this->attributes['size'] = $size;
+        $this->size = $size;
     }
 
     public function getPrice()
     {
-        return $this->attributes['price'];
+        return $this->price;
     }
 
     public function setPrice($price)
     {
-        $this->attributes['price'] = $price;
+        $this->price = $price;
     }
 
     public function getInventory()
     {
-        return $this->attributes['inventory'];
+        return $this->inventory;
     }
 
     public function setInventory($inventory)
     {
-        $this->attributes['inventory'] = $inventory;
+        $this->inventory = $inventory;
     }
 }

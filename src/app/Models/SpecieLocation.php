@@ -12,27 +12,27 @@ class SpecieLocation extends Model
 
     /**
      * PRODUCT ATTRIBUTES
-     * $this->attributes['id'] - int - contains the specie primary key (id)
-     * $this->attributes['poblationalDensity'] - float - contains the fish Poblational Density value of the specie in the location
-     * $this->attributes['location_id'] - string - contains the id of the location of this specie-location relation
-     * $this->attributes['specie_id'] - string - contains the id of the specie of this specie-location relation
+     * $this->id - int - contains the specie primary key (id)
+     * $this->poblationalDensity - float - contains the fish Poblational Density value of the specie in the location
+     * $this->location_id - string - contains the id of the location of this specie-location relation
+     * $this->specie_id - string - contains the id of the specie of this specie-location relation
     */
 
     protected $fillable = ['poblationalDensity'];
 
     public function getId()
     {
-        return $this->attributes['id'];
+        return $this->id;
     }
 
     public function getPoblationalDensity()
     {
-        return $this->attributes['poblationalDensity'];
+        return $this->poblationalDensity;
     }
 
     public function setPoblationalDensity($poblationalDensity)
     {
-        $this->attributes['poblationalDensity'] = $poblationalDensity;
+        $this->poblationalDensity = $poblationalDensity;
     }
 
     public function location()

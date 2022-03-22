@@ -18,7 +18,8 @@ class ShopController extends Controller
     {
         $viewData=[];
         $viewData['petfishs'] = PetFish::all();
-        return view('shop.PetShop')->with("viewData",$viewData);
+        return view('shop.PetShop')
+        ->with("viewData",$viewData);
     }
 
     public function petShow($id)
@@ -27,7 +28,8 @@ class ShopController extends Controller
             $viewData = [];
             $petFish = PetFish::findOrFail($id);
             $viewData["petfish"] = $petFish;
-            return view('shop.PetShopShow')->with("viewData", $viewData);
+            return view('shop.PetShopShow')
+            ->with("viewData", $viewData);
         } catch (ModelNotFoundException $e) {
             return back();
         }
@@ -37,7 +39,8 @@ class ShopController extends Controller
     {
         $viewData=[];
         $viewData['foodfishs'] = FoodFish::all();
-        return view('shop.FoodShop')->with("viewData",$viewData);
+        return view('shop.FoodShop')
+        ->with("viewData",$viewData);
     }
 
     public function foodShow($id)
@@ -46,7 +49,8 @@ class ShopController extends Controller
             $viewData = [];
             $foodFish = FoodFish::findOrFail($id);
             $viewData["foodfish"] = $foodFish;
-            return view('shop.FoodShopShow')->with("viewData", $viewData);
+            return view('shop.FoodShopShow')
+            ->with("viewData", $viewData);
         } catch (ModelNotFoundException $e) {
             return back();
         }
