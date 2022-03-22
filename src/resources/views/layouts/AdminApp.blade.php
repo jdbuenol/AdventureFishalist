@@ -19,7 +19,7 @@
             <div class="sidebar-heading border-bottom bg-light"><a href="{{ route('admin.index') }}">Start Bootstrap</a></div>
             <div class="list-group list-group-flush">
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{ route('admin.users') }}">Users</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Orders</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{ route('admin.orders') }}">Orders</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Items</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Food Fishes</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Pet Fishes</a>

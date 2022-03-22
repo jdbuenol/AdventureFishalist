@@ -59,8 +59,26 @@ Route::get('/admin/user/{user}', 'App\Http\Controllers\adminCRUD\UsersCRUD@user'
 Route::post('/admin/user/create', 'App\Http\Controllers\adminCRUD\UsersCRUD@createUser')
 ->name('admin.createUser');
 
-Route::put('/admin/user/{user}/update', 'App\Http\Controllers\adminCRUD\UsersCRUD@updateUser')
+Route::put('/admin/user/{user}', 'App\Http\Controllers\adminCRUD\UsersCRUD@updateUser')
 ->name('admin.updateUser');
 
 Route::delete('/admin/user/{user}', 'App\Http\Controllers\adminCRUD\UsersCRUD@deleteUser')
 ->name('admin.deleteUser');
+
+Route::get('/admin/orders', 'App\Http\Controllers\adminCRUD\OrdersCRUD@orders')
+->name('admin.orders');
+
+Route::get('/admin/order/new', 'App\Http\Controllers\adminCRUD\OrdersCRUD@newOrder')
+->name('admin.newOrder');
+
+Route::get('/admin/order/{order}', 'App\Http\Controllers\adminCRUD\OrdersCRUD@order')
+->name('admin.order');
+
+Route::post('/admin/order/create', 'App\Http\Controllers\adminCRUD\OrdersCRUD@createOrder')
+->name('admin.createOrder');
+
+Route::put('/admin/order/{order}', 'App\Http\Controllers\adminCRUD\OrdersCRUD@updateOrder')
+->name('admin.updateOrder');
+
+Route::delete('/admin/order/{order}', 'App\Http\Controllers\adminCRUD\OrdersCRUD@deleteOrder')
+->name('admin.deleteOrder');

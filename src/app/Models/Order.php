@@ -12,12 +12,23 @@ class Order extends Model
     use HasFactory;
 
     protected $fillable = [
-        'totalPrice'
+        'totalPrice',
+        'user_id'
     ];
+
+    function getId()
+    {
+        return $this->id;
+    }
     
     function getTotalPrice()
     {
         return $this->totalPrice;
+    }
+
+    function setTotalPrice($totalPrice)
+    {
+        $this->totalPrice = $totalPrice;
     }
 
     function user()
@@ -28,5 +39,16 @@ class Order extends Model
     function getUser()
     {
         return $this->user;
+    }
+
+    function getUserId()
+    {
+        return $this->user_id;
+    }
+
+    function setUserId($userId)
+    {
+        $this->user_id = $userId;
+
     }
 }
