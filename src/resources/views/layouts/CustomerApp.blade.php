@@ -11,10 +11,10 @@
     <nav class="NavBar">
         <ul class="NavLinks">
             <li>
-                <b><a href="{{ route('shop.petShop') }}">PET-SHOP</a></b>
+                <b><a href="{{ route('shop.petshop') }}">PET-SHOP</a></b>
             </li>
             <li>
-                <b><a href="{{ route('shop.foodShop') }}">FOOD-SHOP</a></b>
+                <b><a href="{{ route('shop.foodshop') }}">FOOD-SHOP</a></b>
             </li>
             <li>
                 <b><a href="{{ route('specie.index') }}">SPECIES</a></b>
