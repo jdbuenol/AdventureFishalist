@@ -18,13 +18,13 @@ Route::get('/', 'App\Http\Controllers\ShopController@index')
 ->name('shop.index');
 
 Route::get('/petshop', 'App\Http\Controllers\ShopController@petShop')
-->name('shop.petshop');
+->name('shop.petShop');
 
 Route::get('/petshop/{id}', 'App\Http\Controllers\ShopController@petshow')
 ->name('shop.petshopshow');
 
 Route::get('/foodshop', 'App\Http\Controllers\ShopController@foodShop')
-->name('shop.foodshop');
+->name('shop.foodShop');
 
 Route::get('/foodshop/{id}', 'App\Http\Controllers\ShopController@foodshow')
 ->name('shop.foodshopshow');
@@ -53,6 +53,7 @@ Route::post('/login', 'App\Http\Controllers\AuthController@login')
 Route::get('/admin/dashboard', 'App\Http\Controllers\AdminController@index')
 ->name('admin.index');
 
+// USERS CRUD
 Route::get('/admin/users', 'App\Http\Controllers\adminCRUD\UsersCRUD@users')
 ->name('admin.users');
 
@@ -71,6 +72,7 @@ Route::put('/admin/user/{user}', 'App\Http\Controllers\adminCRUD\UsersCRUD@updat
 Route::delete('/admin/user/{user}', 'App\Http\Controllers\adminCRUD\UsersCRUD@deleteUser')
 ->name('admin.deleteUser');
 
+// ORDERS CRUD
 Route::get('/admin/orders', 'App\Http\Controllers\adminCRUD\OrdersCRUD@orders')
 ->name('admin.orders');
 
@@ -88,3 +90,22 @@ Route::put('/admin/order/{order}', 'App\Http\Controllers\adminCRUD\OrdersCRUD@up
 
 Route::delete('/admin/order/{order}', 'App\Http\Controllers\adminCRUD\OrdersCRUD@deleteOrder')
 ->name('admin.deleteOrder');
+
+// SPECIES CRUD
+Route::get('/admin/species', 'App\Http\Controllers\adminCRUD\SpeciesCRUD@species')
+->name('admin.species');
+
+Route::get('/admin/specie/new', 'App\Http\Controllers\adminCRUD\SpeciesCRUD@newSpecie')
+->name('admin.newSpecie');
+
+Route::get('/admin/specie/{specie}', 'App\Http\Controllers\adminCRUD\SpeciesCRUD@specie')
+->name('admin.specie');
+
+Route::post('/admin/specie/create', 'App\Http\Controllers\adminCRUD\SpeciesCRUD@createSpecie')
+->name('admin.createSpecie');
+
+Route::put('/admin/specie/{specie}', 'App\Http\Controllers\adminCRUD\SpeciesCRUD@updateSpecie')
+->name('admin.updateSpecie');
+
+Route::delete('/admin/specie/{specie}', 'App\Http\Controllers\adminCRUD\SpeciesCRUD@deleteSpecie')
+->name('admin.deleteSpecie');

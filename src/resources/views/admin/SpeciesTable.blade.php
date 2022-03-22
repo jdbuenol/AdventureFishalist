@@ -1,6 +1,6 @@
 <!-- AUTHOR: JULIAN BUENO -->
 @extends('layouts.AdminApp')
-@section('title', "USERS CRUD")
+@section('title', "SPECIES CRUD")
 @section('content')
 <div class="d-flex flex-column">
 <table class="table">
@@ -8,20 +8,14 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col">name</th>
-        <th scope="col">email</th>
-        <th scope="col">password</th>
-        <th scope="col">isAdmin</th>
       </tr>
     </thead>
     <tbody>
         @if($viewData->count())
-            @foreach ($viewData as $user)
+            @foreach ($viewData as $specie)
                 <tr>
-                    <td>{{ $user->getId() }}</td>
-                    <td><a href="{{ route('admin.user', $user->getId())}}">{{ $user->getName() }}</a></td>
-                    <td>{{ $user->getEmail() }}</td>
-                    <td>{{ $user->getPassword() }}</td>
-                    <td>{{ $user->isAdmin() }}</td>
+                    <td>{{ $specie->getId() }}</td>
+                    <td><a href="{{ route('admin.specie', $specie->getId())}}">{{ $specie->getName() }}</a></td>
                 </tr>
             @endforeach
         @endif
@@ -39,7 +33,7 @@
     </a>
     @endif
   </div>
-  <a href="{{ route('admin.newUser') }}" class="align-self-center center-text">
+  <a href="{{ route('admin.newSpecie') }}" class="align-self-center center-text">
       <button class="btn btn-primary"> NEW ENTRY </button>
   </a>
 </div>

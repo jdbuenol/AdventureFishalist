@@ -65,4 +65,14 @@ class Location extends Model
     {
         $this->attributes['country'] = $country;
     }
+
+    public function specieLocations()
+    {
+        return $this->hasMany(SpecieLocation::Class);
+    }
+
+    public function getSpecieLocations()
+    {
+        return $this->specieLocations;
+    }
 }

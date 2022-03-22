@@ -15,7 +15,7 @@
         @if($viewData->count())
             @foreach ($viewData as $order)
                 <tr>
-                    <td><a href="{{ route('admin.order', $order->id) }}">{{ $order->getId() }}</a></td>
+                    <td><a href="{{ route('admin.order', $order->getId()) }}">{{ $order->getId() }}</a></td>
                     <td>{{ $order->getTotalPrice() }}</td>
                     <td><a href="{{ route('admin.user', $order->getUserId() )}}">{{ $order->getUserId() }}</a></td>
                 </tr>

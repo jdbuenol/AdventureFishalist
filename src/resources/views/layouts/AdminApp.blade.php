@@ -23,7 +23,7 @@
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Items</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Food Fishes</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Pet Fishes</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Species</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{ route('admin.species') }}">Species</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Locations</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Species Locations</a>
             </div>

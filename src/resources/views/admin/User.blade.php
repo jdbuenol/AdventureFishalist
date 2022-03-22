@@ -26,7 +26,7 @@
     </div>
     <hr>
     <h1 class="display-2 align-self-center">UPDATE ENTRY</h1>
-    <form action="{{ route('admin.updateUser', $viewData->id) }}" method="POST" class="Submit-form align-self-center d-flex flex-column">
+    <form action="{{ route('admin.updateUser', $viewData->getId()) }}" method="POST" class="Submit-form align-self-center d-flex flex-column">
         @csrf
         @method('PUT')
         <div class="form-group">
@@ -59,7 +59,7 @@
         </button>
     </form>
     <hr>
-    <form action="{{ route('admin.deleteUser', $viewData->id )}}" method="POST" class="align-self-center d-flex flex-column">
+    <form action="{{ route('admin.deleteUser', $viewData->getId() )}}" method="POST" class="align-self-center d-flex flex-column">
         @csrf
         @method('DELETE')
         <button class="btn btn-danger">
