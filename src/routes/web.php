@@ -31,3 +31,11 @@ Route::get('/register', 'App\Http\Controllers\AuthController@registerScreen')
 Route::get('/login', 'App\Http\Controllers\AuthController@loginScreen')
 ->name('auth.loginScreen');
 
+Route::post('/registerUser', 'App\Http\Controllers\AuthController@registerUser')
+->name('auth.registerUser');
+
+Route::post('/logout', 'App\Http\Controllers\AuthController@logout')
+->name('auth.logout');
+
+Route::post('/login', 'App\Http\Controllers\AuthController@login')
+->name('auth.login');

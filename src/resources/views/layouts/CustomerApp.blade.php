@@ -1,3 +1,4 @@
+<!-- AUTHOR: JULIAN BUENO -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,42 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title')</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ asset('css/CustomerApp.css') }}">
 </head>
 <body>
     <nav class="NavBar">
         <ul class="NavLinks">
             <li>
-                <b><a href="{{ route('shop.petShop') }}">PET-SHOP</a></b>
+                <b><a href="{{ route('shop.petShop') }}" class="nav--link">PET-SHOP</a></b>
             </li>
             <li>
-                <b><a href="{{ route('shop.foodShop') }}">FOOD-SHOP</a></b>
+                <b><a href="{{ route('shop.foodShop') }}" class="nav--link">FOOD-SHOP</a></b>
             </li>
             <li>
-                <b><a href="{{ route('specie.index') }}">SPECIES</a></b>
+                <b><a href="{{ route('specie.index') }}" class="nav--link">SPECIES</a></b>
             </li>
         </ul>
-        <a href="{{ route('shop.index') }}"><h1>ADVENTURE FISHALIST</h1></a>
+        <a href="{{ route('shop.index') }}" class="nav--link"><h1>ADVENTURE FISHALIST</h1></a>
         @auth
         <ul class="NavLinks">
             <li>
-                <b><a>CART</a></b>
+                <b><a class="nav--link">CART</a></b>
             </li>
             <li>
-                <b><a>PROFILE</a></b>
+                <b><a class="nav--link">PROFILE</a></b>
             </li>
             <li>
-                <b><a>LOGOUT</a></b>
+                <form action="{{ route('auth.logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="nav--link"><b>LOGOUT</b></button>
+                </form>
             </li>
         </ul>
         @endauth
         @guest
         <ul class="NavLinks">
             <li>
-                <b><a href="{{ route('auth.loginScreen') }}">LOGIN</a></b>
+                <b><a href="{{ route('auth.loginScreen') }}" class="nav--link">LOGIN</a></b>
             </li>
             <li>
-                <b><a href="{{ route('auth.registerScreen') }}">REGISTER</a></b>
+                <b><a href="{{ route('auth.registerScreen') }}" class="nav--link">REGISTER</a></b>
             </li>
         </ul>
         @endguest
