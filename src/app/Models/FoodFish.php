@@ -12,57 +12,57 @@ class FoodFish extends Model
 
     /**
      * PRODUCT ATTRIBUTES
-     * $this->attributes['id'] - int - contains the food fish primary key (id)
-     * $this->attributes['image'] - string - contains the URL to the image of the food fish
-     * $this->attributes['cut'] - string - contains the cut of the food fish 
-     * $this->attributes['pricePerKG'] - float - contains the price value of the each KG of food fish 
-     * $this->attributes['inventoryKG'] - float - contains the inventory in KG of the food fish
+     * $this->id - int - contains the food fish primary key (id)
+     * $this->image - string - contains the URL to the image of the food fish
+     * $this->cut - string - contains the cut of the food fish 
+     * $this->pricePerKG - float - contains the price value of the each KG of food fish 
+     * $this->inventoryKG - float - contains the inventory in KG of the food fish
     */
 
     protected $fillable = ['image','cut','pricePerKG','inventoryKG'];
 
     public function getId()
     {
-        return $this->attributes['id'];
+        return $this->id;
     }
 
     public function getImage()
     {
-        return $this->attributes['image'];
+        return $this->image;
     }
 
     public function setImage($image)
     {
-        $this->attributes['image'] = $image;
+        $this->image = $image;
     }
 
     public function getCut()
     {
-        return $this->attributes['cut'];
+        return $this->cut;
     }
 
     public function setCut($cut)
     {
-        $this->attributes['cut'] = $cut;
+        $this->cut = $cut;
     }
 
     public function getPricePerKG()
     {
-        return $this->attributes['pricePerKG'];
+        return $this->pricePerKG;
     }
 
     public function setPricePerKG($pricePerKG)
     {
-        $this->attributes['pricePerKG'] = $pricePerKG;
+        $this->pricePerKG = $pricePerKG;
     }
 
     public function getInventoryKG()
     {
-        return $this->attributes['inventoryKG'];
+        return $this->inventoryKG;
     }
 
     public function setInventoryKG($inventoryKG)
     {
-        $this->attributes['inventoryKG'] = $inventoryKG;
+        $this->inventoryKG = $inventoryKG;
     }
 }

@@ -18,13 +18,13 @@ Route::get('/', 'App\Http\Controllers\ShopController@index')
 ->name('shop.index');
 
 Route::get('/petshop', 'App\Http\Controllers\ShopController@petShop')
-->name('shop.petshop');
+->name('shop.petShop');
 
 Route::get('/petshop/{id}', 'App\Http\Controllers\ShopController@petshow')
 ->name('shop.petshopshow');
 
 Route::get('/foodshop', 'App\Http\Controllers\ShopController@foodShop')
-->name('shop.foodshop');
+->name('shop.foodShop');
 
 Route::get('/foodshop/{id}', 'App\Http\Controllers\ShopController@foodshow')
 ->name('shop.foodshopshow');
