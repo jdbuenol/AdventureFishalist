@@ -8,7 +8,7 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col">totalPrice</th>
-        <th scope="col">user_id</th>
+        <th scope="col">user</th>
       </tr>
     </thead>
     <tbody>
@@ -17,7 +17,7 @@
                 <tr>
                     <td><a href="{{ route('admin.order', $order->getId()) }}">{{ $order->getId() }}</a></td>
                     <td>{{ $order->getTotalPrice() }}</td>
-                    <td><a href="{{ route('admin.user', $order->getUserId() )}}">{{ $order->getUserId() }}</a></td>
+                    <td><a href="{{ route('admin.user', $order->getUserId() )}}">{{ $order->getUser()->getName() }}</a></td>
                 </tr>
             @endforeach
         @endif

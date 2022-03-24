@@ -8,7 +8,7 @@
     <b>ID: </b>{{ $viewData->getId() }}
     </div>
     <div class="align-self-center center-text">
-    <b>POBLATIONAL DENSITY: </b>{{ $viewData->getPoblationalDensity() }}
+    <b>POBLATIONAL DENSITY(fishes/km&sup2;): </b>{{ $viewData->getPoblationalDensity() }}
     </div>
     <div class="align-self-center center-text">
     <b>LOCATION: </b><a href="{{ route('admin.location', $viewData->getLocationId())}}">{{ $viewData->getLocation()->getName() }}</a>

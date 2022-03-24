@@ -7,7 +7,7 @@
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">Poblational Density</th>
+        <th scope="col">Poblational Density (fishes/km&sup2;)</th>
         <th scope="col">Location</th>
         <th scope="col">Specie</th>
       </tr>
