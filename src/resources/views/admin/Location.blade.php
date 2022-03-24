@@ -6,9 +6,23 @@
     <h1 class="display-1 align-self-center">{{ $viewData->getName() }}</h1>
     <div class="align-self-center center-text">
     <b>ID: </b>{{ $viewData->getId() }}
+    </div>
+    <div class="align-self-center center-text">
     <b>GeoLatitude: </b>{{ $viewData->getGeoLatitude() }}
+    </div>
+    <div class="align-self-center center-text">
     <b>GeoLongitude: </b>{{ $viewData->getGeoLongitude() }}
+    </div>
+    <div class="align-self-center center-text">
     <b>Country: </b>{{ $viewData->getCountry() }}
+    </div>
+    <div class="align-self-center center-text">
+        <b>SPECIES LOCATIONS: </b>
+        [
+            @foreach ($viewData->getSpecieLocations() as $specieLocation)
+            <a href="{{ route('admin.specieLocation', $specieLocation->getId()) }}">{{ $specieLocation->getId() }}</a>
+            @endforeach
+        ]
     </div>
     <hr>
     <h1 class="display-2 align-self-center">UPDATE ENTRY</h1>

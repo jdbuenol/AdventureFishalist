@@ -18,7 +18,7 @@ class SpecieLocation extends Model
      * $this->specie_id - string - contains the id of the specie of this specie-location relation
     */
 
-    protected $fillable = ['poblationalDensity'];
+    protected $fillable = ['poblationalDensity', 'location_id', 'specie_id'];
 
     public function getId()
     {

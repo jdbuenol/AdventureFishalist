@@ -128,3 +128,22 @@ Route::put('/admin/location/{location}', 'App\Http\Controllers\adminCRUD\Locatio
 
 Route::delete('/admin/location/{location}', 'App\Http\Controllers\adminCRUD\LocationsCRUD@deleteLocation')
 ->name('admin.deleteLocation');
+
+// SPECIES LOCATIONS CRUD
+Route::get('/admin/speciesLocations', 'App\Http\Controllers\adminCRUD\SpeciesLocationsCRUD@speciesLocations')
+->name('admin.speciesLocations');
+
+Route::get('/admin/specieLocation/new', 'App\Http\Controllers\adminCRUD\SpeciesLocationsCRUD@newSpecieLocation')
+->name('admin.newSpecieLocation');
+
+Route::get('/admin/specieLocation/{specieLocation}', 'App\Http\Controllers\adminCRUD\SpeciesLocationsCRUD@specieLocation')
+->name('admin.specieLocation');
+
+Route::post('/admin/specieLocation/create', 'App\Http\Controllers\adminCRUD\SpeciesLocationsCRUD@createSpecieLocation')
+->name('admin.createSpecieLocation');
+
+Route::put('/admin/specieLocation/{specieLocation}', 'App\Http\Controllers\adminCRUD\SpeciesLocationsCRUD@updateSpecieLocation')
+->name('admin.updateSpecieLocation');
+
+Route::delete('/admin/specieLocation/{specieLocation}', 'App\Http\Controllers\adminCRUD\SpeciesLocationsCRUD@deleteSpecieLocation')
+->name('admin.deleteSpecieLocation');

@@ -11,7 +11,7 @@
     <b>Total Price: </b>{{ $viewData->getTotalPrice() }}
     </div>
     <div class="align-self-center center-text">
-    <b>USER ID: </b><a href="{{ route('admin.user', $viewData->getUserId()) }}">{{ $viewData->getUserId() }}</a>
+    <b>USER: </b><a href="{{ route('admin.user', $viewData->getUserId()) }}">{{ $viewData->getUser()->getName() }}</a>
     </div>
     <hr>
     <h1 class="display-2 align-self-center">UPDATE ENTRY</h1>

@@ -19,7 +19,7 @@
     <div class="align-self-center center-text">
         <b>ORDERS: </b>
         [
-            @foreach ($viewData->orders as $order)
+            @foreach ($viewData->getOrders() as $order)
             <a href="{{ route('admin.order', $order->getId()) }}">{{ $order->getId() }}</a>
             @endforeach
         ]

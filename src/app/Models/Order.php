@@ -33,7 +33,7 @@ class Order extends Model
 
     function user()
     {
-        return $this->belongsTo(User);
+        return $this->belongsTo(User::class);
     }
 
     function getUser()
