@@ -51,4 +51,24 @@ class Order extends Model
         $this->user_id = $userId;
 
     }
+
+    public function getCreated_at()
+    {
+        return $this->created_at;
+    }
+
+    public function setCreated_at($created_at)
+    {
+        $this->created_at = $created_at;
+    }
+
+    public function getUpdated_at()
+    {
+        return $this->updated_at;
+    }
+
+    public function setUpdated_at($updated_at)
+    {
+        $this->updated_at = $updated_at;
+    }
 }
