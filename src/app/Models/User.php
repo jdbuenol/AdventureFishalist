@@ -19,13 +19,15 @@ class User extends Authenticatable
      * +email: string
      * -password: string(hashed)
      * +orders: Order[]
+     * +balance: how much money does the user have
      */
 
     protected $fillable = [
         'name',
         'email',
         'password',
-        'isAdmin'
+        'isAdmin',
+        'balance'
     ];
 
     /**
@@ -60,6 +62,16 @@ class User extends Authenticatable
     function setName($name)
     {
         $this->name = $name;
+    }
+
+    function getBalance()
+    {
+        return $this->balance;
+    }
+
+    function setBalance($balance)
+    {
+        $this->balance = $balance;
     }
 
     function getEmail()

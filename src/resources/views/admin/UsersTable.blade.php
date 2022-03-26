@@ -8,6 +8,7 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col">name</th>
+        <th scope="col">balance</th>
         <th scope="col">email</th>
         <th scope="col">password</th>
         <th scope="col">isAdmin</th>
@@ -19,6 +20,7 @@
                 <tr>
                     <td>{{ $user->getId() }}</td>
                     <td><a href="{{ route('admin.user', $user->getId())}}">{{ $user->getName() }}</a></td>
+                    <td>{{ $user->getBalance() }}</td>
                     <td>{{ $user->getEmail() }}</td>
                     <td>{{ $user->getPassword() }}</td>
                     <td>{{ $user->isAdmin() }}</td>

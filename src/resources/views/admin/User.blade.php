@@ -8,6 +8,9 @@
     <b>ID: </b>{{ $viewData->getId() }}
     </div>
     <div class="align-self-center center-text">
+    <b>BALANCE: </b>{{ $viewData->getBalance() }}
+    </div>
+    <div class="align-self-center center-text">
     <b>EMAIL: </b>{{ $viewData->getEmail() }}
     </div>
     <div class="align-self-center center-text">
@@ -34,6 +37,13 @@
             <input type="text" name="name" id="name" placeholder="name" value="{{ old('name') }}" class="form-control">
         </div>
         @error('name')
+            <p class="red-text">{{ $message }}</p>
+        @enderror
+        <div class="form-group">
+            <label for="balance" class="label">Balance</label>
+            <input type="text" name="balance" id="balance" placeholder="109" value="{{ old('balance') }}" class="form-control">
+        </div>
+        @error('balance')
             <p class="red-text">{{ $message }}</p>
         @enderror
         <div class="form-group">

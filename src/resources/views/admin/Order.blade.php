@@ -27,13 +27,6 @@
         @csrf
         @method('PUT')
         <div class="form-group">
-            <label for="totalPrice" class="label">Total Price</label>
-            <input type="number" step="0.01" name="totalPrice" id="totalPrice" placeholder="69.00" value="{{ old('totalPrice') }}" class="form-control">
-        </div>
-        @error('totalPrice')
-            <p class="red-text">{{ $message }}</p>
-        @enderror
-        <div class="form-group">
             <label for="user_id" class="label center-text">USER ID</label>
             <input type="text" name="user_id" id="user_id" placeholder="user_id" value="{{ old('user_id') }}" class="form-control">
         </div>

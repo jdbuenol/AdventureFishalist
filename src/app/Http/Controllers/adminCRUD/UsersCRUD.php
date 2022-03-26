@@ -33,14 +33,16 @@ class UsersCRUD extends Controller
         $this->validate($request, [
             'name' => 'required|max:255',
             'email' => 'required|email|max:255',
-            'password' => 'required'
+            'password' => 'required',
+            'balance' => 'required|numeric|gte:0'
         ]);
 
         User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'isAdmin' => false
+            'isAdmin' => false,
+            'balance' => $request->balance
         ]);
         
         return redirect()->route('admin.users');
@@ -51,10 +53,12 @@ class UsersCRUD extends Controller
         $this->validate($request, [
             'name' => 'max:255',
             'email' => 'nullable|email|max:255',
+            'balance' => 'nullable|numeric|gte:0'
         ]);
         if($request->password) $user->setPassword(Hash::make($request->password));
         if($request->name) $user->setName($request->name);
         if($request->email) $user->setEmail($request->email);
+        if($request->balance) $user->setBalance($request->balance);
         $user->setAdmin($request->isAdmin ? 1 : 0);
         $user->save();
         return redirect()->route('admin.user', $user->getId());

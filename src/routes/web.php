@@ -50,7 +50,12 @@ Route::post('/logout', 'App\Http\Controllers\AuthController@logout')
 Route::post('/login', 'App\Http\Controllers\AuthController@login')
 ->name('auth.login');
 
+//ADMIN PANEL
+
 Route::get('/admin/dashboard', 'App\Http\Controllers\AdminController@index')
+->name('admin.index');
+
+Route::get('/admin', 'App\Http\Controllers\AdminController@index')
 ->name('admin.index');
 
 // USERS CRUD

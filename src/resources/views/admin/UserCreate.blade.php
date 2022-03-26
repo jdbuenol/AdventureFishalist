@@ -16,6 +16,13 @@
             <p class="red-text">{{ $message }}</p>
         @enderror
         <div class="form-group">
+            <label for="balance" class="label">Balance</label>
+            <input type="text" name="balance" id="balance" placeholder="109" value="{{ old('balance') }}" class="form-control">
+        </div>
+        @error('balance')
+            <p class="red-text">{{ $message }}</p>
+        @enderror
+        <div class="form-group">
             <label for="email" class="label">E-MAIL</label>
             <input type="email" name="email" id="email" placeholder="email" value="{{ old('email') }}" class="form-control">
         </div>
