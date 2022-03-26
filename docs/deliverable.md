@@ -2,7 +2,7 @@
 
 ## TEAM LOGO
 
-[WIP]
+![](images/SunCatchers.png)
 
 ## Description (Made by Juan Jose)
 
