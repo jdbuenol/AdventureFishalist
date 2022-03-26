@@ -19,7 +19,7 @@ class FoodFish extends Model
      * $this->inventoryKG - float - contains the inventory in KG of the food fish
     */
 
-    protected $fillable = ['image','cut','pricePerKG','inventoryKG'];
+    protected $fillable = ['image','cut','pricePerKG','inventoryKG', 'specie_id'];
 
     public function getId()
     {
@@ -64,5 +64,25 @@ class FoodFish extends Model
     public function setInventoryKG($inventoryKG)
     {
         $this->inventoryKG = $inventoryKG;
+    }
+    
+    public function specie()
+    {
+        return $this->belongsTo(Specie::class);
+    }
+
+    public function getSpecie()
+    {
+        return $this->specie;
+    }
+
+    public function getSpecieId()
+    {
+        return $this->specie_id;
+    }
+
+    public function setSpecieId($specieId)
+    {
+        $this->specie_id = $specieId;
     }
 }

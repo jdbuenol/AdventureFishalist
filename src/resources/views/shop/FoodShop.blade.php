@@ -2,7 +2,6 @@
 @extends('layouts.CustomerApp')
 @section('title', "FOOD-SHOP")
 @section('content')
-<p>THIS IS A FOOD SHOP</p>
 <div class="row">
   @foreach ($viewData["foodfishs"] as $foodfish)
   <div class="col-md-4 col-lg-3 mb-2">

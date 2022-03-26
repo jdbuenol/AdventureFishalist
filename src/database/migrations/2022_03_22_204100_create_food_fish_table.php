@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('food_fish', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('specie_id')->constrained()->onDelete('cascade');
             $table->string('image');
             $table->string('cut');
             $table->float('pricePerKG');

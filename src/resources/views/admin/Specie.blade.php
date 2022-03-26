@@ -23,6 +23,14 @@
             @endforeach
         ]
     </div>
+    <div class="align-self-center center-text">
+        <b>FOOD FISHES: </b>
+        [
+            @foreach ($viewData->getFoodFishes() as $foodFish)
+            <a href="{{ route('admin.foodFish', $foodFish->getId()) }}">{{ $foodFish->getId() }}</a>
+            @endforeach
+        ]
+    </div>
     <hr>
     <h1 class="display-2 align-self-center">UPDATE ENTRY</h1>
     <form action="{{ route('admin.updateSpecie', $viewData->getId()) }}" method="POST" class="Submit-form align-self-center d-flex flex-column">

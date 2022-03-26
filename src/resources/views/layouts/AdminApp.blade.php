@@ -21,7 +21,7 @@
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{ route('admin.users') }}">Users</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{ route('admin.orders') }}">Orders</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Items</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Food Fishes</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{ route('admin.foodFishes') }}">Food Fishes</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{ route('admin.petFishes') }}">Pet Fishes</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{ route('admin.species') }}">Species</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{ route('admin.locations') }}">Locations</a>

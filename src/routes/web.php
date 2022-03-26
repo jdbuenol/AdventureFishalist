@@ -166,3 +166,22 @@ Route::put('/admin/petFish/{petFish}', 'App\Http\Controllers\adminCRUD\PetFishes
 
 Route::delete('/admin/petFish/{petFish}', 'App\Http\Controllers\adminCRUD\PetFishesCRUD@deletePetFish')
 ->name('admin.deletePetFish');
+
+// PET FISHES CRUD
+Route::get('/adminfoodFishes', 'App\Http\Controllers\adminCRUD\FoodFishesCRUD@foodFishes')
+->name('admin.foodFishes');
+
+Route::get('/admin/foodFish/new', 'App\Http\Controllers\adminCRUD\FoodFishesCRUD@newFoodFish')
+->name('admin.newFoodFish');
+
+Route::get('/admin/foodFish/{foodFish}', 'App\Http\Controllers\adminCRUD\FoodFishesCRUD@foodFish')
+->name('admin.foodFish');
+
+Route::post('/admin/foodFish/create', 'App\Http\Controllers\adminCRUD\FoodFishesCRUD@createFoodFish')
+->name('admin.createFoodFish');
+
+Route::put('/admin/foodFish/{foodFish}', 'App\Http\Controllers\adminCRUD\FoodFishesCRUD@updateFoodFish')
+->name('admin.updateFoodFish');
+
+Route::delete('/admin/foodFish/{foodFish}', 'App\Http\Controllers\adminCRUD\FoodFishesCRUD@deleteFoodFish')
+->name('admin.deleteFoodFish');
