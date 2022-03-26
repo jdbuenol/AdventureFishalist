@@ -1,6 +1,6 @@
 # Deliverable
 
-## TEAM LOGO
+## TEAM LOGO (Made by Julian Bueno)
 
 ![](images/SunCatchers.png)
 
