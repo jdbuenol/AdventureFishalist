@@ -1,8 +1,7 @@
-<!-- AUTHOR: JULIAN BUENO -->
+<!-- AUTHOR: JUAN JOSE MADRIGAL -->
 @extends('layouts.CustomerApp')
 @section('title', "PET-SHOP")
 @section('content')
-<p>THIS IS A PET-SHOP</p>
 <div class="row">
   @foreach ($viewData["petfishs"] as $petfish)
   <div class="col-md-4 col-lg-3 mb-2">

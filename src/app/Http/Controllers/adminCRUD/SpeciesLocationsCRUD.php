@@ -22,7 +22,7 @@ class SpeciesLocationsCRUD extends Controller
     function specieLocation(SpecieLocation $specieLocation)
     {
         return view('admin.SpecieLocation')
-        ->with('viewData', $specieLocation);
+        ->with('viewData', ['specieLocation' => $specieLocation, 'error' => null]);
     }
 
     function newSpecieLocation(){
@@ -60,24 +60,28 @@ class SpeciesLocationsCRUD extends Controller
 
     function updateSpecieLocation(SpecieLocation $specieLocation, Request $request)
     {
-        if($request->poblationalDensity){
-            $this->validate($request, [
-                'poblationalDensity' => 'numeric|gt:0',
-            ]);
-        }
+        $this->validate($request, [
+            'poblationalDensity' => 'nullable|numeric|gt:0'
+        ]);
         if($request->location_id && ! Location::find($request->location_id)){
-            return view('admin.SpecieLocationCreate')
-            ->with('viewData', 'THIS LOCATION ID DOESN\'T EXIST');
+            $viewData = [];
+            $viewData['error'] = 'THIS LOCATION ID DOESN\'T EXIST';
+            $viewData['specieLocation'] = $specieLocation;
+            return view('admin.SpecieLocation')
+            ->with('viewData', $viewData);
         }
         if($request->specie_id && ! Specie::find($request->specie_id)){
-            return view('admin.SpecieLocationCreate')
-            ->with('viewData', 'THIS SPECIE ID DOESN\'T EXIST');
+            $viewData = [];
+            $viewData['error'] = 'THIS SPECIE ID DOESN\'T EXIST';
+            $viewData['specieLocation'] = $specieLocation;
+            return view('admin.SpecieLocation')
+            ->with('viewData', $viewData);
         }
         if($request->poblationalDensity) $specieLocation->setPoblationalDensity($request->poblationalDensity);
         if($request->specie_id) $specieLocation->setSpecieId($request->specie_id);
         if($request -> location_id) $specieLocation->setLocationId($request->location_id);
         $specieLocation->save();
-        return redirect()->route('admin.specieLocation', $specieLocation->id);
+        return redirect()->route('admin.specieLocation', $specieLocation->getId());
     }
 
     function deleteSpecieLocation(SpecieLocation $specieLocation)

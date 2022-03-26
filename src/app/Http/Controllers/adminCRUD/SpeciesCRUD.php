@@ -47,7 +47,7 @@ class SpeciesCRUD extends Controller
         ]);
         if($request->name) $specie->setName($request->name);
         $specie->save();
-        return redirect()->route('admin.specie', $specie->id);
+        return redirect()->route('admin.specie', $specie->getId());
     }
 
     function deleteSpecie(Specie $specie)

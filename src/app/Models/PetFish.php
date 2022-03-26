@@ -17,9 +17,10 @@ class PetFish extends Model
      * $this->size - string - contains the size of the pet fish 
      * $this->price - float - contains the price value of the pet fish 
      * $this->inventory - integer - contains the inventory value of the pet fish
+     * $this->specie_id - integer - contains the id of the specie
     */
 
-    protected $fillable = ['image','size','price','inventory'];
+    protected $fillable = ['image','size','price','inventory', 'specie_id'];
 
     public function getId()
     {
@@ -64,5 +65,25 @@ class PetFish extends Model
     public function setInventory($inventory)
     {
         $this->inventory = $inventory;
+    }
+
+    public function specie()
+    {
+        return $this->belongsTo(Specie::class);
+    }
+
+    public function getSpecie()
+    {
+        return $this->specie;
+    }
+
+    public function getSpecieId()
+    {
+        return $this->specie_id;
+    }
+
+    public function setSpecieId($specieId)
+    {
+        $this->specie_id = $specieId;
     }
 }

@@ -18,7 +18,9 @@ class User extends Authenticatable
      * +name: string
      * +email: string
      * -password: string(hashed)
+     * +orders: Order[]
      */
+
     protected $fillable = [
         'name',
         'email',

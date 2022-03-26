@@ -21,7 +21,7 @@ class OrdersCRUD extends Controller
     function order(Order $order)
     {
         return view('admin.Order')
-        ->with('viewData', $order);
+        ->with('viewData', ['order' => $order, 'error' => null]);
     }
 
     function newOrder(){
@@ -51,19 +51,20 @@ class OrdersCRUD extends Controller
 
     function updateOrder(Order $order, Request $request)
     {
-        if($request->totalPrice){
-            $this->validate($request, [
-                'totalPrice' => 'numeric|gt:0',
-            ]);
-        }
+        $this->validate($request, [
+            'totalPrice' => 'nullable|numeric|gt:0'
+        ]);
         if($request->user_id && ! User::find($request->user_id)){
-            return view('admin.OrderCreate')
-            ->with('viewData', 'THIS USER ID DOESN\'T EXIST');
+            $viewData = [];
+            $viewData['error'] = 'THIS USER ID DOESN\'T EXIST';
+            $viewData['order'] = $order;
+            return view('admin.Order')
+            ->with('viewData', $viewData);
         }
         if($request->totalPrice) $order->setTotalPrice($request->totalPrice);
         if($request->user_id) $order->setUserId($request->user_id);
         $order->save();
-        return redirect()->route('admin.order', $order->id);
+        return redirect()->route('admin.order', $order->getId());
     }
 
     function deleteOrder(Order $order)

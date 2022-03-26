@@ -50,18 +50,14 @@ class UsersCRUD extends Controller
     {
         $this->validate($request, [
             'name' => 'max:255',
+            'email' => 'nullable|email|max:255',
         ]);
-        if($request->email){
-            $this->validate($request, [
-                'email' => 'email|max:255',
-            ]);
-        }
         if($request->password) $user->setPassword(Hash::make($request->password));
         if($request->name) $user->setName($request->name);
         if($request->email) $user->setEmail($request->email);
         $user->setAdmin($request->isAdmin ? 1 : 0);
         $user->save();
-        return redirect()->route('admin.user', $user->id);
+        return redirect()->route('admin.user', $user->getId());
     }
 
     function deleteUser(User $user)

@@ -14,6 +14,7 @@ class Specie extends Model
      * PRODUCT ATTRIBUTES
      * $this->id - int - contains the specie primary key (id)
      * $this->name - string - contains the fish specie name
+     * $this->petFishes - PetFish[] - contains all the fishes of this species
     */
 
     protected $fillable = ['name'];
@@ -33,13 +34,23 @@ class Specie extends Model
         $this->name = $name;
     }
 
-    public function specieLocation($name)
+    public function specieLocations()
     {
-        return $this->hasMany(Location::class);
+        return $this->hasMany(SpecieLocation::class);
     }
 
     public function getSpecieLocations()
     {
-        return $this->specieLocation;
+        return $this->specieLocations;
+    }
+
+    public function petFishes()
+    {
+        return $this->hasMany(PetFish::class);
+    }
+
+    public function getPetFishes()
+    {
+        return $this->PetFishes;
     }
 }

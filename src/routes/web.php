@@ -147,3 +147,22 @@ Route::put('/admin/specieLocation/{specieLocation}', 'App\Http\Controllers\admin
 
 Route::delete('/admin/specieLocation/{specieLocation}', 'App\Http\Controllers\adminCRUD\SpeciesLocationsCRUD@deleteSpecieLocation')
 ->name('admin.deleteSpecieLocation');
+
+// PET FISHES CRUD
+Route::get('/admin/petFishes', 'App\Http\Controllers\adminCRUD\PetFishesCRUD@petFishes')
+->name('admin.petFishes');
+
+Route::get('/admin/petFish/new', 'App\Http\Controllers\adminCRUD\PetFishesCRUD@newPetFish')
+->name('admin.newPetFish');
+
+Route::get('/admin/petFish/{petFish}', 'App\Http\Controllers\adminCRUD\PetFishesCRUD@petFish')
+->name('admin.petFish');
+
+Route::post('/admin/petFish/create', 'App\Http\Controllers\adminCRUD\PetFishesCRUD@createPetFish')
+->name('admin.createPetFish');
+
+Route::put('/admin/petFish/{petFish}', 'App\Http\Controllers\adminCRUD\PetFishesCRUD@updatePetFish')
+->name('admin.updatePetFish');
+
+Route::delete('/admin/petFish/{petFish}', 'App\Http\Controllers\adminCRUD\PetFishesCRUD@deletePetFish')
+->name('admin.deletePetFish');

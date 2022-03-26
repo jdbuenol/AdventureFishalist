@@ -1,4 +1,4 @@
-<!-- AUTHOR: JULIAN BUENO -->
+<!-- AUTHOR: JUAN JOSE MADRIGAL -->
 @extends('layouts.CustomerApp')
 @section('title', "FOOD-SHOP")
 @section('content')

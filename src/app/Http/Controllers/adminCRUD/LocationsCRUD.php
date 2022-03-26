@@ -48,32 +48,19 @@ class LocationsCRUD extends Controller
 
     function updateLocation(location $location, Request $request)
     {
-        if($request->name){
-            $this->validate($request, [
-                'name' => 'max:255'
-            ]);
-        }
-        if($request->country){
-            $this->validate($request, [
-                'country' => 'max:255'
-            ]);
-        }
-        if($request->geoLatitude){
-            $this->validate($request, [
-                'geoLatitude' => 'numeric|between:-90,90'
-            ]);
-        }
-        if($request->geoLongitude){
-            $this->validate($request, [
-                'geoLongitude' => 'numeric|between:-180,180'
-            ]);
-        }
+
+        $this->validate($request, [
+            'name' => 'max:255',
+            'country' => 'max:255',
+            'geoLatitude' => 'nullable|numeric|between:-90,90',
+            'geoLongitude' => 'nullable|numeric|between:-180,180'
+        ]);
         if($request->name) $location->setName($request->name);
         if($request->country) $location->setCountry($request->country);
         if($request->geoLatitude) $location->setGeoLatitude($request->geoLatitude);
         if($request->geoLongitude) $location->setGeoLongitude($request->geoLongitude);
         $location->save();
-        return redirect()->route('admin.location', $location->id);
+        return redirect()->route('admin.location', $location->getId());
     }
 
     function deleteLocation(Location $location)
