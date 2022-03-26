@@ -4,7 +4,7 @@
 namespace App\Http\Controllers\adminCRUD;
 
 use Illuminate\Http\Request;
-use App\Models\FoodFish;
+use App\Models\FoodFishes;
 use App\Models\Specie;
 use App\Http\Controllers\Controller;
 
@@ -17,13 +17,13 @@ class foodFishesCRUD extends Controller
 {
     function foodFishes()
     {
-        $allFoodFishes = FoodFish::latest()
+        $allFoodFishes = FoodFishes::latest()
         ->paginate(10);
         return view('admin.FoodFishesTable')
         ->with('viewData', $allFoodFishes);
     }
 
-    function foodFish(foodFish $foodFish)
+    function foodFish(FoodFishes $foodFish)
     {
         return view('admin.FoodFish')
         ->with('viewData', ['fish' => $foodFish, 'error' => null]);
@@ -46,7 +46,7 @@ class foodFishesCRUD extends Controller
             return view('admin.FoodFishCreate')
             ->with('viewData', 'THIS SPECIE ID DOESN\'T EXIST');
         }
-        FoodFish::create([
+        FoodFishes::create([
             'specie_id' => $request->specie_id,
             'cut' => $request->cut,
             'image' => '/images/FoodFish'.IMAGES[array_rand(IMAGES, 1)],
@@ -58,7 +58,7 @@ class foodFishesCRUD extends Controller
         ->route('admin.foodFishes');
     }
 
-    function updateFoodFish(FoodFish $foodFish, Request $request)
+    function updateFoodFish(FoodFishes $foodFish, Request $request)
     {
         $this->validate($request, [
             'pricePerKG' => 'nullable|numeric|gt:0',
@@ -79,7 +79,7 @@ class foodFishesCRUD extends Controller
         return redirect()->route('admin.foodFish', $foodFish->getId());
     }
 
-    function deleteFoodFish(foodFish $foodFish)
+    function deleteFoodFish(FoodFishes $foodFish)
     {
         $foodFish->delete();
         return redirect()->route('admin.foodFishes');

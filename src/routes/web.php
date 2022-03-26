@@ -167,8 +167,8 @@ Route::put('/admin/petFish/{petFish}', 'App\Http\Controllers\adminCRUD\PetFishes
 Route::delete('/admin/petFish/{petFish}', 'App\Http\Controllers\adminCRUD\PetFishesCRUD@deletePetFish')
 ->name('admin.deletePetFish');
 
-// PET FISHES CRUD
-Route::get('/adminfoodFishes', 'App\Http\Controllers\adminCRUD\FoodFishesCRUD@foodFishes')
+// FOOD FISHES CRUD
+Route::get('/admin/foodFishes', 'App\Http\Controllers\adminCRUD\FoodFishesCRUD@foodFishes')
 ->name('admin.foodFishes');
 
 Route::get('/admin/foodFish/new', 'App\Http\Controllers\adminCRUD\FoodFishesCRUD@newFoodFish')
@@ -185,3 +185,22 @@ Route::put('/admin/foodFish/{foodFish}', 'App\Http\Controllers\adminCRUD\FoodFis
 
 Route::delete('/admin/foodFish/{foodFish}', 'App\Http\Controllers\adminCRUD\FoodFishesCRUD@deleteFoodFish')
 ->name('admin.deleteFoodFish');
+
+// FISH ORDERS CRUD
+Route::get('/admin/fishOrders', 'App\Http\Controllers\adminCRUD\FishOrdersCRUD@fishOrders')
+->name('admin.fishOrders');
+
+Route::get('/admin/fishOrder/new', 'App\Http\Controllers\adminCRUD\FishOrdersCRUD@newFishOrder')
+->name('admin.newFishOrder');
+
+Route::get('/admin/fishOrder/{fishOrder}', 'App\Http\Controllers\adminCRUD\FishOrdersCRUD@fishOrder')
+->name('admin.fishOrder');
+
+Route::post('/admin/fishOrder/create', 'App\Http\Controllers\adminCRUD\FishOrdersCRUD@createFishOrder')
+->name('admin.createFishOrder');
+
+Route::put('/admin/fishOrder/{fishOrder}', 'App\Http\Controllers\adminCRUD\FishOrdersCRUD@updateFishOrder')
+->name('admin.updateFishOrder');
+
+Route::delete('/admin/fishOrder/{fishOrder}', 'App\Http\Controllers\adminCRUD\FishOrdersCRUD@deleteFishOrder')
+->name('admin.deleteFishOrder');

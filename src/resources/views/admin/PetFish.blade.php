@@ -19,6 +19,14 @@
     <div class="align-self-center center-text">
     <b>SPECIE: </b><a href="{{ route('admin.specie', $viewData['fish']->getSpecieId()) }}">{{ $viewData['fish']->getSpecie()->getName() }}</a>
     </div>
+    <div class="align-self-center center-text">
+        <b>FISH ITEMS: </b>
+        [
+            @foreach ($viewData['fish']->getFishOrders() as $fishOrder)
+            <a href="{{ route('admin.fishOrder', $fishOrder->getId()) }}">{{ $fishOrder->getId() }}</a>
+            @endforeach
+        ]
+    </div>
     <hr>
     <h1 class="display-2 align-self-center">UPDATE ENTRY</h1>
     <form action="{{ route('admin.updatePetFish', $viewData['fish']->getId()) }}" method="POST" class="Submit-form align-self-center d-flex flex-column">

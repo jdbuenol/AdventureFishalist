@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{{ asset('/css/AdminApp.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/sideBar.css') }}">
     <script src="{{ asset('js/sideBar.js') }}"></script>
+    <script src="{{ asset('js/typeOrder.js') }}"></script>
 </head>
 <body>
     <div class="d-flex" id="wrapper">
@@ -20,7 +21,7 @@
             <div class="list-group list-group-flush">
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{ route('admin.users') }}">Users</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{ route('admin.orders') }}">Orders</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Items</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{ route('admin.fishOrders') }}">ITEMS</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{ route('admin.foodFishes') }}">Food Fishes</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{ route('admin.petFishes') }}">Pet Fishes</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{ route('admin.species') }}">Species</a>

@@ -12,23 +12,12 @@ class Order extends Model
     use HasFactory;
 
     protected $fillable = [
-        'totalPrice',
         'user_id'
     ];
 
     function getId()
     {
         return $this->id;
-    }
-    
-    function getTotalPrice()
-    {
-        return $this->totalPrice;
-    }
-
-    function setTotalPrice($totalPrice)
-    {
-        $this->totalPrice = $totalPrice;
     }
 
     function user()
@@ -46,9 +35,28 @@ class Order extends Model
         return $this->user_id;
     }
 
-    function setUserId($userId)
+    function setUserId($user_id)
     {
-        $this->user_id = $userId;
+        $this->user_id = $user_id;
 
+    }
+    
+    public function fishOrders()
+    {
+        return $this->hasMany(FishOrder::class);
+    }
+
+    public function getFishOrders()
+    {
+        return $this->fishOrders;
+    }
+
+    function getTotalPrice()
+    {
+        $totalPrice = 0;
+        foreach($this->getFishOrders() as $fishOrder){
+            $totalPrice += $fishOrder->getTotalPrice();
+        }
+        return $totalPrice;
     }
 }

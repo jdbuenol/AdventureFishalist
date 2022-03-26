@@ -46,7 +46,7 @@ class Specie extends Model
 
     public function petFishes()
     {
-        return $this->hasMany(PetFish::class);
+        return $this->hasMany(PetFishes::class);
     }
 
     public function getPetFishes()
@@ -56,7 +56,7 @@ class Specie extends Model
 
     public function foodFishes()
     {
-        return $this->hasMany(FoodFish::class);
+        return $this->hasMany(FoodFishes::class);
     }
 
     public function getFoodFishes()

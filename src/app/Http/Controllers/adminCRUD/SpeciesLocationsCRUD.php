@@ -13,7 +13,7 @@ class SpeciesLocationsCRUD extends Controller
 {
     function speciesLocations()
     {
-        $allSpeciesLocations = specieLocation::latest()
+        $allSpeciesLocations = SpecieLocation::latest()
         ->paginate(10);
         return view('admin.SpeciesLocationsTable')
         ->with('viewData', $allSpeciesLocations);
@@ -46,8 +46,6 @@ class SpeciesLocationsCRUD extends Controller
             return view('admin.SpecieLocationCreate')
             ->with('viewData', 'THIS LOCATION ID DOESN\'T EXIST');
         }
-        print($request->specie_id);
-        print($request->location_id);
         SpecieLocation::create([
             'poblationalDensity' => $request->poblationalDensity,
             'specie_id' => $request->specie_id,

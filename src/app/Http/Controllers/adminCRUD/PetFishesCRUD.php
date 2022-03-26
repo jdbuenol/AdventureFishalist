@@ -4,7 +4,7 @@
 namespace App\Http\Controllers\adminCRUD;
 
 use Illuminate\Http\Request;
-use App\Models\PetFish;
+use App\Models\PetFishes;
 use App\Models\Specie;
 use App\Http\Controllers\Controller;
 
@@ -17,14 +17,15 @@ class petFishesCRUD extends Controller
 {
     function petFishes()
     {
-        $allPetFishes = PetFish::latest()
+        $allPetFishes = PetFishes::latest()
         ->paginate(10);
         return view('admin.PetFishesTable')
         ->with('viewData', $allPetFishes);
     }
 
-    function petFish(petFish $petFish)
+    function petFish(PetFishes $petFish)
     {
+        error_log($petFish);
         return view('admin.PetFish')
         ->with('viewData', ['fish' => $petFish, 'error' => null]);
     }
@@ -46,7 +47,7 @@ class petFishesCRUD extends Controller
             return view('admin.PetFishCreate')
             ->with('viewData', 'THIS SPECIE ID DOESN\'T EXIST');
         }
-        PetFish::create([
+        PetFishes::create([
             'specie_id' => $request->specie_id,
             'size' => $request->size,
             'image' => '/images/PetFish'.IMAGES[array_rand(IMAGES, 1)],
@@ -58,7 +59,7 @@ class petFishesCRUD extends Controller
         ->route('admin.petFishes');
     }
 
-    function updatePetFish(PetFish $petFish, Request $request)
+    function updatePetFish(PetFishes $petFish, Request $request)
     {
         $this->validate($request, [
             'price' => 'nullable|numeric|gt:0',
@@ -79,7 +80,7 @@ class petFishesCRUD extends Controller
         return redirect()->route('admin.petFish', $petFish->getId());
     }
 
-    function deletePetFish(PetFish $petFish)
+    function deletePetFish(PetFishes $petFish)
     {
         $petFish->delete();
         return redirect()->route('admin.petFishes');

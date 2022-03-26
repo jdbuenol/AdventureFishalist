@@ -6,7 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PetFish extends Model
+class PetFishes extends Model
 {
     use HasFactory;
 
@@ -85,5 +85,15 @@ class PetFish extends Model
     public function setSpecieId($specieId)
     {
         $this->specie_id = $specieId;
+    }
+
+    public function fishOrders()
+    {
+        return $this->hasMany(FishOrder::class);
+    }
+
+    public function getFishOrders()
+    {
+        return $this->fishOrders;
     }
 }
