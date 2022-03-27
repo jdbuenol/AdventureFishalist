@@ -13,6 +13,7 @@ class OrdersCRUD extends Controller
     function orders()
     {
         $allOrders = Order::latest()
+        ->with('user')
         ->paginate(10);
         return view('admin.OrdersTable')
         ->with('viewData', $allOrders);
@@ -32,7 +33,6 @@ class OrdersCRUD extends Controller
     function createOrder(Request $request)
     {
         $this->validate($request, [
-            'totalPrice' => 'required|numeric|gt:0',
             'user_id' => 'required',
         ]);
 
@@ -41,7 +41,6 @@ class OrdersCRUD extends Controller
             ->with('viewData', 'THIS USER ID DOESN\'T EXIST');
         }
         Order::create([
-            'totalPrice' => $request->totalPrice,
             'user_id' => $request->user_id
         ]);
 

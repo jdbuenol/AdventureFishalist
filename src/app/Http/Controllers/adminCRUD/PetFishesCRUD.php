@@ -18,6 +18,7 @@ class petFishesCRUD extends Controller
     function petFishes()
     {
         $allPetFishes = PetFishes::latest()
+        ->with('specie')
         ->paginate(10);
         return view('admin.PetFishesTable')
         ->with('viewData', $allPetFishes);

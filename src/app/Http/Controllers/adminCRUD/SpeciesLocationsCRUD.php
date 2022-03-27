@@ -14,6 +14,7 @@ class SpeciesLocationsCRUD extends Controller
     function speciesLocations()
     {
         $allSpeciesLocations = SpecieLocation::latest()
+        ->with(['location', 'specie'])
         ->paginate(10);
         return view('admin.SpeciesLocationsTable')
         ->with('viewData', $allSpeciesLocations);

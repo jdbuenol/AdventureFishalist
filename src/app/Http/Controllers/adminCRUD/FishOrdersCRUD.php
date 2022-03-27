@@ -15,6 +15,7 @@ class FishOrdersCRUD extends Controller
     function fishOrders()
     {
         $allFishOrders = FishOrder::latest()
+        ->with(['petFishes', 'foodFishes', 'order'])
         ->paginate(10);
         return view('admin.FishOrdersTable')
         ->with('viewData', $allFishOrders);

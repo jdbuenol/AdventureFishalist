@@ -18,6 +18,7 @@ class foodFishesCRUD extends Controller
     function foodFishes()
     {
         $allFoodFishes = FoodFishes::latest()
+        ->with('specie')
         ->paginate(10);
         return view('admin.FoodFishesTable')
         ->with('viewData', $allFoodFishes);
