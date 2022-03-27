@@ -58,154 +58,162 @@ Route::get('/admin/dashboard', 'App\Http\Controllers\AdminController@index')
 Route::get('/admin', 'App\Http\Controllers\AdminController@index')
 ->name('admin.index');
 
-// USERS CRUD
-Route::get('/admin/users', 'App\Http\Controllers\adminCRUD\UsersCRUD@users')
-->name('admin.users');
+//CRUDS
+Route::group(['namespace' => 'App\Http\Controllers\adminCRUD', 'prefix' => 'admin'], function () {
 
-Route::get('/admin/user/new', 'App\Http\Controllers\adminCRUD\UsersCRUD@newUser')
-->name('admin.newUser');
+    //USERS CRUD
+    Route::get('users', 'UsersCRUD@users')
+    ->name('admin.users');
 
-Route::get('/admin/user/{user}', 'App\Http\Controllers\adminCRUD\UsersCRUD@user')
-->name('admin.user');
+    Route::get('user/new', 'UsersCRUD@newUser')
+    ->name('admin.newUser');
 
-Route::post('/admin/user/create', 'App\Http\Controllers\adminCRUD\UsersCRUD@createUser')
-->name('admin.createUser');
+    Route::get('user/{user}', 'UsersCRUD@user')
+    ->name('admin.user');
 
-Route::put('/admin/user/{user}', 'App\Http\Controllers\adminCRUD\UsersCRUD@updateUser')
-->name('admin.updateUser');
+    Route::post('user/create', 'UsersCRUD@createUser')
+    ->name('admin.createUser');
 
-Route::delete('/admin/user/{user}', 'App\Http\Controllers\adminCRUD\UsersCRUD@deleteUser')
-->name('admin.deleteUser');
+    Route::put('user/{user}', 'UsersCRUD@updateUser')
+    ->name('admin.updateUser');
 
-// ORDERS CRUD
-Route::get('/admin/orders', 'App\Http\Controllers\adminCRUD\OrdersCRUD@orders')
-->name('admin.orders');
+    Route::delete('user/{user}', 'UsersCRUD@deleteUser')
+    ->name('admin.deleteUser');
 
-Route::get('/admin/order/new', 'App\Http\Controllers\adminCRUD\OrdersCRUD@newOrder')
-->name('admin.newOrder');
+    // ORDERS CRUD
+    Route::get('orders', 'OrdersCRUD@orders')
+    ->name('admin.orders');
 
-Route::get('/admin/order/{order}', 'App\Http\Controllers\adminCRUD\OrdersCRUD@order')
-->name('admin.order');
+    Route::get('order/new', 'OrdersCRUD@newOrder')
+    ->name('admin.newOrder');
 
-Route::post('/admin/order/create', 'App\Http\Controllers\adminCRUD\OrdersCRUD@createOrder')
-->name('admin.createOrder');
+    Route::get('order/{order}', 'OrdersCRUD@order')
+    ->name('admin.order');
 
-Route::put('/admin/order/{order}', 'App\Http\Controllers\adminCRUD\OrdersCRUD@updateOrder')
-->name('admin.updateOrder');
+    Route::post('order/create', 'OrdersCRUD@createOrder')
+    ->name('admin.createOrder');
 
-Route::delete('/admin/order/{order}', 'App\Http\Controllers\adminCRUD\OrdersCRUD@deleteOrder')
-->name('admin.deleteOrder');
+    Route::put('order/{order}', 'OrdersCRUD@updateOrder')
+    ->name('admin.updateOrder');
 
-// SPECIES CRUD
-Route::get('/admin/species', 'App\Http\Controllers\adminCRUD\SpeciesCRUD@species')
-->name('admin.species');
+    Route::delete('order/{order}', 'OrdersCRUD@deleteOrder')
+    ->name('admin.deleteOrder');
 
-Route::get('/admin/specie/new', 'App\Http\Controllers\adminCRUD\SpeciesCRUD@newSpecie')
-->name('admin.newSpecie');
+    // SPECIES CRUD
+    Route::get('species', 'SpeciesCRUD@species')
+    ->name('admin.species');
 
-Route::get('/admin/specie/{specie}', 'App\Http\Controllers\adminCRUD\SpeciesCRUD@specie')
-->name('admin.specie');
+    Route::get('specie/new', 'SpeciesCRUD@newSpecie')
+    ->name('admin.newSpecie');
 
-Route::post('/admin/specie/create', 'App\Http\Controllers\adminCRUD\SpeciesCRUD@createSpecie')
-->name('admin.createSpecie');
+    Route::get('specie/{specie}', 'SpeciesCRUD@specie')
+    ->name('admin.specie');
 
-Route::put('/admin/specie/{specie}', 'App\Http\Controllers\adminCRUD\SpeciesCRUD@updateSpecie')
-->name('admin.updateSpecie');
+    Route::post('specie/create', 'SpeciesCRUD@createSpecie')
+    ->name('admin.createSpecie');
 
-Route::delete('/admin/specie/{specie}', 'App\Http\Controllers\adminCRUD\SpeciesCRUD@deleteSpecie')
-->name('admin.deleteSpecie');
+    Route::put('specie/{specie}', 'SpeciesCRUD@updateSpecie')
+    ->name('admin.updateSpecie');
 
-// LOCATIONS CRUD
-Route::get('/admin/locations', 'App\Http\Controllers\adminCRUD\LocationsCRUD@locations')
-->name('admin.locations');
+    Route::delete('specie/{specie}', 'SpeciesCRUD@deleteSpecie')
+    ->name('admin.deleteSpecie');
 
-Route::get('/admin/location/new', 'App\Http\Controllers\adminCRUD\LocationsCRUD@newLocation')
-->name('admin.newLocation');
+    // LOCATIONS CRUD
+    Route::get('locations', 'LocationsCRUD@locations')
+    ->name('admin.locations');
 
-Route::get('/admin/location/{location}', 'App\Http\Controllers\adminCRUD\LocationsCRUD@location')
-->name('admin.location');
+    Route::get('location/new', 'LocationsCRUD@newLocation')
+    ->name('admin.newLocation');
 
-Route::post('/admin/location/create', 'App\Http\Controllers\adminCRUD\LocationsCRUD@createLocation')
-->name('admin.createLocation');
+    Route::get('location/{location}', 'LocationsCRUD@location')
+    ->name('admin.location');
 
-Route::put('/admin/location/{location}', 'App\Http\Controllers\adminCRUD\LocationsCRUD@updateLocation')
-->name('admin.updateLocation');
+    Route::post('location/create', 'LocationsCRUD@createLocation')
+    ->name('admin.createLocation');
 
-Route::delete('/admin/location/{location}', 'App\Http\Controllers\adminCRUD\LocationsCRUD@deleteLocation')
-->name('admin.deleteLocation');
+    Route::put('location/{location}', 'LocationsCRUD@updateLocation')
+    ->name('admin.updateLocation');
 
-// SPECIES LOCATIONS CRUD
-Route::get('/admin/speciesLocations', 'App\Http\Controllers\adminCRUD\SpeciesLocationsCRUD@speciesLocations')
-->name('admin.speciesLocations');
+    Route::delete('location/{location}', 'LocationsCRUD@deleteLocation')
+    ->name('admin.deleteLocation');
 
-Route::get('/admin/specieLocation/new', 'App\Http\Controllers\adminCRUD\SpeciesLocationsCRUD@newSpecieLocation')
-->name('admin.newSpecieLocation');
+    // SPECIES LOCATIONS CRUD
+    Route::get('speciesLocations', 'SpeciesLocationsCRUD@speciesLocations')
+    ->name('admin.speciesLocations');
 
-Route::get('/admin/specieLocation/{specieLocation}', 'App\Http\Controllers\adminCRUD\SpeciesLocationsCRUD@specieLocation')
-->name('admin.specieLocation');
+    Route::get('specieLocation/new', 'SpeciesLocationsCRUD@newSpecieLocation')
+    ->name('admin.newSpecieLocation');
 
-Route::post('/admin/specieLocation/create', 'App\Http\Controllers\adminCRUD\SpeciesLocationsCRUD@createSpecieLocation')
-->name('admin.createSpecieLocation');
+    Route::get('specieLocation/{specieLocation}', 'SpeciesLocationsCRUD@specieLocation')
+    ->name('admin.specieLocation');
 
-Route::put('/admin/specieLocation/{specieLocation}', 'App\Http\Controllers\adminCRUD\SpeciesLocationsCRUD@updateSpecieLocation')
-->name('admin.updateSpecieLocation');
+    Route::post('specieLocation/create', 'SpeciesLocationsCRUD@createSpecieLocation')
+    ->name('admin.createSpecieLocation');
 
-Route::delete('/admin/specieLocation/{specieLocation}', 'App\Http\Controllers\adminCRUD\SpeciesLocationsCRUD@deleteSpecieLocation')
-->name('admin.deleteSpecieLocation');
+    Route::put('specieLocation/{specieLocation}', 'SpeciesLocationsCRUD@updateSpecieLocation')
+    ->name('admin.updateSpecieLocation');
 
-// PET FISHES CRUD
-Route::get('/admin/petFishes', 'App\Http\Controllers\adminCRUD\PetFishesCRUD@petFishes')
-->name('admin.petFishes');
+    Route::delete('specieLocation/{specieLocation}', 'SpeciesLocationsCRUD@deleteSpecieLocation')
+    ->name('admin.deleteSpecieLocation');
 
-Route::get('/admin/petFish/new', 'App\Http\Controllers\adminCRUD\PetFishesCRUD@newPetFish')
-->name('admin.newPetFish');
+    // PET FISHES CRUD
+    Route::get('petFishes', 'PetFishesCRUD@petFishes')
+    ->name('admin.petFishes');
 
-Route::get('/admin/petFish/{petFish}', 'App\Http\Controllers\adminCRUD\PetFishesCRUD@petFish')
-->name('admin.petFish');
+    Route::get('petFish/new', 'PetFishesCRUD@newPetFish')
+    ->name('admin.newPetFish');
 
-Route::post('/admin/petFish/create', 'App\Http\Controllers\adminCRUD\PetFishesCRUD@createPetFish')
-->name('admin.createPetFish');
+    Route::get('petFish/{petFish}', 'PetFishesCRUD@petFish')
+    ->name('admin.petFish');
 
-Route::put('/admin/petFish/{petFish}', 'App\Http\Controllers\adminCRUD\PetFishesCRUD@updatePetFish')
-->name('admin.updatePetFish');
+    Route::post('petFish/create', 'PetFishesCRUD@createPetFish')
+    ->name('admin.createPetFish');
 
-Route::delete('/admin/petFish/{petFish}', 'App\Http\Controllers\adminCRUD\PetFishesCRUD@deletePetFish')
-->name('admin.deletePetFish');
+    Route::put('petFish/{petFish}', 'PetFishesCRUD@updatePetFish')
+    ->name('admin.updatePetFish');
 
-// FOOD FISHES CRUD
-Route::get('/admin/foodFishes', 'App\Http\Controllers\adminCRUD\FoodFishesCRUD@foodFishes')
-->name('admin.foodFishes');
+    Route::delete('petFish/{petFish}', 'PetFishesCRUD@deletePetFish')
+    ->name('admin.deletePetFish');
 
-Route::get('/admin/foodFish/new', 'App\Http\Controllers\adminCRUD\FoodFishesCRUD@newFoodFish')
-->name('admin.newFoodFish');
+    // FOOD FISHES CRUD
+    Route::get('foodFishes', 'FoodFishesCRUD@foodFishes')
+    ->name('admin.foodFishes');
 
-Route::get('/admin/foodFish/{foodFish}', 'App\Http\Controllers\adminCRUD\FoodFishesCRUD@foodFish')
-->name('admin.foodFish');
+    Route::get('foodFish/new', 'FoodFishesCRUD@newFoodFish')
+    ->name('admin.newFoodFish');
 
-Route::post('/admin/foodFish/create', 'App\Http\Controllers\adminCRUD\FoodFishesCRUD@createFoodFish')
-->name('admin.createFoodFish');
+    Route::get('foodFish/{foodFish}', 'FoodFishesCRUD@foodFish')
+    ->name('admin.foodFish');
 
-Route::put('/admin/foodFish/{foodFish}', 'App\Http\Controllers\adminCRUD\FoodFishesCRUD@updateFoodFish')
-->name('admin.updateFoodFish');
+    Route::post('foodFish/create', 'FoodFishesCRUD@createFoodFish')
+    ->name('admin.createFoodFish');
 
-Route::delete('/admin/foodFish/{foodFish}', 'App\Http\Controllers\adminCRUD\FoodFishesCRUD@deleteFoodFish')
-->name('admin.deleteFoodFish');
+    Route::put('foodFish/{foodFish}', 'FoodFishesCRUD@updateFoodFish')
+    ->name('admin.updateFoodFish');
 
-// FISH ORDERS CRUD
-Route::get('/admin/fishOrders', 'App\Http\Controllers\adminCRUD\FishOrdersCRUD@fishOrders')
-->name('admin.fishOrders');
+    Route::delete('foodFish/{foodFish}', 'FoodFishesCRUD@deleteFoodFish')
+    ->name('admin.deleteFoodFish');
 
-Route::get('/admin/fishOrder/new', 'App\Http\Controllers\adminCRUD\FishOrdersCRUD@newFishOrder')
-->name('admin.newFishOrder');
+    // FISH ORDERS CRUD
+    Route::get('fishOrders', 'FishOrdersCRUD@fishOrders')
+    ->name('admin.fishOrders');
 
-Route::get('/admin/fishOrder/{fishOrder}', 'App\Http\Controllers\adminCRUD\FishOrdersCRUD@fishOrder')
-->name('admin.fishOrder');
+    Route::get('fishOrder/new', 'FishOrdersCRUD@newFishOrder')
+    ->name('admin.newFishOrder');
 
-Route::post('/admin/fishOrder/create', 'App\Http\Controllers\adminCRUD\FishOrdersCRUD@createFishOrder')
-->name('admin.createFishOrder');
+    Route::get('fishOrder/{fishOrder}', 'FishOrdersCRUD@fishOrder')
+    ->name('admin.fishOrder');
 
-Route::put('/admin/fishOrder/{fishOrder}', 'App\Http\Controllers\adminCRUD\FishOrdersCRUD@updateFishOrder')
-->name('admin.updateFishOrder');
+    Route::post('fishOrder/create', 'FishOrdersCRUD@createFishOrder')
+    ->name('admin.createFishOrder');
 
-Route::delete('/admin/fishOrder/{fishOrder}', 'App\Http\Controllers\adminCRUD\FishOrdersCRUD@deleteFishOrder')
-->name('admin.deleteFishOrder');
+    Route::put('fishOrder/{fishOrder}', 'FishOrdersCRUD@updateFishOrder')
+    ->name('admin.updateFishOrder');
+
+    Route::delete('fishOrder/{fishOrder}', 'FishOrdersCRUD@deleteFishOrder')
+    ->name('admin.deleteFishOrder');
+});
+
+// Errors
+Route::get('/403', 'App\Http\Controllers\errorController@forbidden')
+->name('error.forbidden');
