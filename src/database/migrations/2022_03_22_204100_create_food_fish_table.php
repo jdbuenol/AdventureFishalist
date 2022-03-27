@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('cut');
             $table->float('pricePerKG');
             $table->float('inventoryKG');
+            $table->float('quantityBought');
             $table->timestamps();
         });
     }

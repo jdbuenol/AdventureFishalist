@@ -22,12 +22,23 @@ class ShopController extends Controller
         ->with("viewData",$viewData);
     }
 
-    public function petShow($id)
+    public function petShow($id, Request $request)
     {
         try {
+            
             $viewData = [];
             $petFish = PetFishes::findOrFail($id);
             $viewData["petfish"] = $petFish;
+            if($request->session()->has('cart')){
+                foreach($request->session()->get('cart') as $fishItem){
+                    if($fishItem["type"] == "PET" && $fishItem["fishId"] == $id){
+                        $viewData["cartButton"] = false;
+                        return view('shop.PetShopShow')
+                        ->with("viewData", $viewData);
+                    }
+                }
+            }
+            $viewData["cartButton"] = true;
             return view('shop.PetShopShow')
             ->with("viewData", $viewData);
         } catch (ModelNotFoundException $e) {
@@ -43,12 +54,22 @@ class ShopController extends Controller
         ->with("viewData",$viewData);
     }
 
-    public function foodShow($id)
+    public function foodShow($id, Request $request)
     {
         try {
             $viewData = [];
             $foodFish = FoodFishes::findOrFail($id);
             $viewData["foodfish"] = $foodFish;
+            if($request->session()->has('cart')){
+                foreach($request->session()->get('cart') as $fishItem){
+                    if($fishItem["type"] == "FOOD" && $fishItem["fishId"] == $id){
+                        $viewData["cartButton"] = false;
+                        return view('shop.FoodShopShow')
+                        ->with("viewData", $viewData);
+                    }
+                }
+            }
+            $viewData["cartButton"] = true;
             return view('shop.FoodShopShow')
             ->with("viewData", $viewData);
         } catch (ModelNotFoundException $e) {

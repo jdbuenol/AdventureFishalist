@@ -43,6 +43,18 @@ Route::get('/cart', 'App\Http\Controllers\OrderController@cart')
 ->name("order.cart")
 ->middleware(['auth']);
 
+Route::post('/cart/addPet/{petFishes}', 'App\Http\Controllers\OrderController@addPet')
+->name("order.addPet")
+->middleware(['auth']);
+
+Route::post('/cart/addFood/{foodFishes}', 'App\Http\Controllers\OrderController@addFood')
+->name("order.addFood")
+->middleware(['auth']);
+
+Route::delete('/cart/deleteItem', 'App\Http\Controllers\OrderController@deleteItem')
+->name("order.deleteItem")
+->middleware(['auth']);
+
 Route::post('/logout', 'App\Http\Controllers\AuthController@logout')
 ->name('auth.logout')
 ->middleware(['auth']);

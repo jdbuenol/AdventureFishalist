@@ -8,8 +8,11 @@
     <div class="card">
       <img src= {{ $foodfish->getImage() }} class="card-img-top img-card">
       <div class="card-body text-center">
+        <p class="card-title"><b>Specie:</b> {{ $foodfish->getSpecie()->getName() }}</p>
+        <p class="card-title"><b>Cut:</b> {{ $foodfish->getCut() }}</p>
+        <p class="card-title"><b>Inventory:</b> {{ $foodfish->getInventoryKG() }}KG</p>
         <a href="{{ route('shop.foodshopshow', $foodfish->getId()) }}"
-          class="btn bg-primary text-white">Id: {{ $foodfish->getId() }}</a>
+          class="btn bg-primary text-white">&dollar;{{ $foodfish->getPricePerKG() }} PER KG</a>
       </div>
     </div>
   </div>

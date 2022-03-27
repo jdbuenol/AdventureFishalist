@@ -29,6 +29,7 @@ class FoodFishesFactory extends Factory
             'cut' => CUTS[array_rand(CUTS)],
             'pricePerKG' => rand(1, 100000)/100,
             'inventoryKG' => rand(0, 10000)/100,
+            'quantityBought' => 0,
             'specie_id' => $randomSpecie
         ];
     }

@@ -29,6 +29,7 @@ class PetFishesFactory extends Factory
             'size' => SIZES[array_rand(SIZES)],
             'price' => rand(1, 100000)/100,
             'inventory' => rand(0, 100),
+            'quantityBought' => 0,
             'specie_id' => $randomSpecie
         ];
     }

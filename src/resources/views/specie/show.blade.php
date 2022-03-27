@@ -23,7 +23,7 @@
         <p class="card-title"><b>LOCATION:</b> {{ $SpecieLocation->getLocation()->getName() }}</p>
         <p class="card-title"><b>GEO POSITION:</b> [{{ $SpecieLocation->getLocation()->getGeoLatitude() }}, {{ $SpecieLocation->getLocation()->getGeoLongitude() }}]</p>
         <p class="card-title"><b>COUNTRY:</b> {{ $SpecieLocation->getLocation()->getCountry() }}</p>
-        <p class="card-text"><b>POBLATIONAL DENSITY:</b> {{ $SpecieLocation->getPoblationalDensity() }}</p>
+        <p class="card-text"><b>POBLATIONAL DENSITY (Fishes/KM&sup2;):</b> {{ $SpecieLocation->getPoblationalDensity() }}</p>
       </div>
     </div>
   </div>

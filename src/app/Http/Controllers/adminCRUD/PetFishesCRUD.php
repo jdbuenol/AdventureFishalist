@@ -53,7 +53,8 @@ class petFishesCRUD extends Controller
             'size' => $request->size,
             'image' => '/images/PetFish'.IMAGES[array_rand(IMAGES, 1)],
             'price' => $request->price,
-            'inventory' => $request->inventory
+            'inventory' => $request->inventory,
+            'quantityBought' => 0
         ]);
 
         return redirect()

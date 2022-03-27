@@ -45,3 +45,30 @@ body{
     border-radius: 8px;
     overflow: hidden;
 }
+
+.CartButton{
+    background-color: white;
+    border: 0px;
+}
+
+.Bordered{
+    border: 1px solid black;
+}
+
+.CartLink{
+    color: black;
+    text-decoration: none;
+}
+
+.CartLink:hover{
+    color: blue;
+}
+
+.TrashButton{
+    background-color: white;
+    border: 0px;
+}
+
+.TrashForm{
+    display: inline-block;
+}

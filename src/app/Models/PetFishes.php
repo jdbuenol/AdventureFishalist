@@ -18,9 +18,10 @@ class PetFishes extends Model
      * $this->price - float - contains the price value of the pet fish 
      * $this->inventory - integer - contains the inventory value of the pet fish
      * $this->specie_id - integer - contains the id of the specie
+     * $this->quantityBought - integer - contains the number of units life-long bought of this product
     */
 
-    protected $fillable = ['image','size','price','inventory', 'specie_id'];
+    protected $fillable = ['image','size','price','inventory', 'specie_id', 'quantityBought'];
 
     public function getId()
     {
@@ -65,6 +66,16 @@ class PetFishes extends Model
     public function setInventory($inventory)
     {
         $this->inventory = $inventory;
+    }
+
+    public function getQuantityBought()
+    {
+        return $this->quantityBought;
+    }
+
+    public function setQuantityBought($quantityBoguth)
+    {
+        $this->quantityBought = $quantityBoguth;
     }
 
     public function specie()
@@ -114,5 +125,11 @@ class PetFishes extends Model
     public function setUpdated_at($updated_at)
     {
         $this->updated_at = $updated_at;
+    }
+
+    public function buy($quantity)
+    {
+        $this->setInventory($this->getInventory() - $quantity);
+        $this->setQuantityBought($this->getQuantityBought() + $quantity);
     }
 }

@@ -17,9 +17,10 @@ class FoodFishes extends Model
      * $this->cut - string - contains the cut of the food fish 
      * $this->pricePerKG - float - contains the price value of the each KG of food fish 
      * $this->inventoryKG - float - contains the inventory in KG of the food fish
+     * $this->quantityBought - float - returns the life-long quantity bought of this product
     */
 
-    protected $fillable = ['image','cut','pricePerKG','inventoryKG', 'specie_id'];
+    protected $fillable = ['image','cut','pricePerKG','inventoryKG', 'specie_id', 'quantityBought'];
 
     public function getId()
     {
@@ -64,6 +65,16 @@ class FoodFishes extends Model
     public function setInventoryKG($inventoryKG)
     {
         $this->inventoryKG = $inventoryKG;
+    }
+
+    public function getQuantityBought()
+    {
+        return $this->quantityBought;
+    }
+
+    public function setQuantityBought($quantityBoguth)
+    {
+        $this->quantityBought = $quantityBoguth;
     }
     
     public function specie()
@@ -114,5 +125,11 @@ class FoodFishes extends Model
     public function setUpdated_at($updated_at)
     {
         $this->updated_at = $updated_at;
+    }
+
+    public function buy($quantity)
+    {
+        $this->setInventoryKG($this->getInventoryKG() - $quantity);
+        $this->setQuantityBought($this->getQuantityBought() + $quantity);
     }
 }

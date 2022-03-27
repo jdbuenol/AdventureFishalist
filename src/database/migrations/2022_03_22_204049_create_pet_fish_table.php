@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('size');
             $table->float('price');
             $table->integer('inventory');
+            $table->integer('quantityBought');
             $table->timestamps();
         });
     }

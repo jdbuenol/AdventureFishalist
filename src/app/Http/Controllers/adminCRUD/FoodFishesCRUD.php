@@ -52,7 +52,8 @@ class foodFishesCRUD extends Controller
             'cut' => $request->cut,
             'image' => '/images/FoodFish'.IMAGES[array_rand(IMAGES, 1)],
             'pricePerKG' => $request->pricePerKG,
-            'inventoryKG' => $request->inventoryKG
+            'inventoryKG' => $request->inventoryKG,
+            'quantityBought' => 0
         ]);
 
         return redirect()
