@@ -39,7 +39,7 @@ class AuthController extends Controller
             'password' => $request->password
         ]);
 
-        return redirect()->route('auth.loginScreen');
+        return redirect()->route('shop.index');
     }
 
     function logout()
@@ -61,6 +61,6 @@ class AuthController extends Controller
         ], $request->remember)){
             return back()->with('viewData', 'Invalid login details');
         }
-        return redirect()->route('auth.loginScreen');
+        return redirect()->route('shop.index');
     }
 }

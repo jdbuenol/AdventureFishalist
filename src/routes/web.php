@@ -36,30 +36,37 @@ Route::get('/species/{id}', 'App\Http\Controllers\SpecieController@show')
 ->name("specie.show");
 
 Route::get('/register', 'App\Http\Controllers\AuthController@registerScreen')
-->name('auth.registerScreen');
+->name('auth.registerScreen')
+->middleware(['guest']);
 
 Route::get('/login', 'App\Http\Controllers\AuthController@loginScreen')
-->name('auth.loginScreen');
+->name('auth.loginScreen')
+->middleware(['guest']);
 
 Route::post('/registerUser', 'App\Http\Controllers\AuthController@registerUser')
-->name('auth.registerUser');
+->name('auth.registerUser')
+->middleware(['guest']);
 
 Route::post('/logout', 'App\Http\Controllers\AuthController@logout')
-->name('auth.logout');
+->name('auth.logout')
+->middleware(['auth']);
 
 Route::post('/login', 'App\Http\Controllers\AuthController@login')
-->name('auth.login');
+->name('auth.login')
+->middleware(['guest']);
 
 //ADMIN PANEL
 
 Route::get('/admin/dashboard', 'App\Http\Controllers\AdminController@index')
-->name('admin.index');
+->name('admin.index')
+->middleware(['auth', 'admin']);
 
 Route::get('/admin', 'App\Http\Controllers\AdminController@index')
-->name('admin.index');
+->name('admin.index')
+->middleware(['auth', 'admin']);
 
 //CRUDS
-Route::group(['namespace' => 'App\Http\Controllers\adminCRUD', 'prefix' => 'admin'], function () {
+Route::group(['namespace' => 'App\Http\Controllers\adminCRUD', 'prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
 
     //USERS CRUD
     Route::get('users', 'UsersCRUD@users')
