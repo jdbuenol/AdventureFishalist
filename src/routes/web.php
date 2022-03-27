@@ -35,6 +35,18 @@ Route::get('/species', 'App\Http\Controllers\SpecieController@index')
 Route::get('/species/{id}', 'App\Http\Controllers\SpecieController@show')
 ->name("specie.show");
 
+Route::get('/profile', 'App\Http\Controllers\ProfileController@profile')
+->name("profile.profile")
+->middleware(['auth']);
+
+Route::get('/cart', 'App\Http\Controllers\OrderController@cart')
+->name("order.cart")
+->middleware(['auth']);
+
+Route::post('/logout', 'App\Http\Controllers\AuthController@logout')
+->name('auth.logout')
+->middleware(['auth']);
+
 Route::get('/register', 'App\Http\Controllers\AuthController@registerScreen')
 ->name('auth.registerScreen')
 ->middleware(['guest']);
@@ -46,10 +58,6 @@ Route::get('/login', 'App\Http\Controllers\AuthController@loginScreen')
 Route::post('/registerUser', 'App\Http\Controllers\AuthController@registerUser')
 ->name('auth.registerUser')
 ->middleware(['guest']);
-
-Route::post('/logout', 'App\Http\Controllers\AuthController@logout')
-->name('auth.logout')
-->middleware(['auth']);
 
 Route::post('/login', 'App\Http\Controllers\AuthController@login')
 ->name('auth.login')

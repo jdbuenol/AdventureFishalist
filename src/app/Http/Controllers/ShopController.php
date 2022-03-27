@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
-use App\Models\FoodFish;
-use App\Models\PetFish;
+use App\Models\FoodFishes;
+use App\Models\PetFishes;
 
 class ShopController extends Controller
 {
@@ -17,7 +17,7 @@ class ShopController extends Controller
     function petShop()
     {
         $viewData=[];
-        $viewData['petfishs'] = PetFish::all();
+        $viewData['petfishs'] = PetFishes::all();
         return view('shop.PetShop')
         ->with("viewData",$viewData);
     }
@@ -26,7 +26,7 @@ class ShopController extends Controller
     {
         try {
             $viewData = [];
-            $petFish = PetFish::findOrFail($id);
+            $petFish = PetFishes::findOrFail($id);
             $viewData["petfish"] = $petFish;
             return view('shop.PetShopShow')
             ->with("viewData", $viewData);
@@ -38,7 +38,7 @@ class ShopController extends Controller
     function foodShop()
     {
         $viewData=[];
-        $viewData['foodfishs'] = FoodFish::all();
+        $viewData['foodfishs'] = FoodFishes::all();
         return view('shop.FoodShop')
         ->with("viewData",$viewData);
     }
@@ -47,7 +47,7 @@ class ShopController extends Controller
     {
         try {
             $viewData = [];
-            $foodFish = FoodFish::findOrFail($id);
+            $foodFish = FoodFishes::findOrFail($id);
             $viewData["foodfish"] = $foodFish;
             return view('shop.FoodShopShow')
             ->with("viewData", $viewData);

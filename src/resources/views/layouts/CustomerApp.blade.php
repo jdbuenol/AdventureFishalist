@@ -27,10 +27,10 @@
         @auth
         <ul class="NavLinks">
             <li>
-                <b><a class="nav--link">CART</a></b>
+                <b><a href="{{ route('order.cart') }}" class="nav--link">CART</a></b>
             </li>
             <li>
-                <b><a class="nav--link">PROFILE</a></b>
+                <b><a href="{{ route('profile.profile') }}" class="nav--link">PROFILE</a></b>
             </li>
             <li>
                 <form action="{{ route('auth.logout') }}" method="POST">

@@ -3,6 +3,7 @@
 @section('title', "ADMIN PANEL")
 @section('content')
 <div class="PostsHeader">
+    <p class="display-2">WELCOME {{ auth()->user()->getName() }}!</p>
     <diV class="DashboardGrid">
         <a href="{{ route('admin.users') }}" class="GridSquare"><div>
             <p class="display-3">USERS</p>
