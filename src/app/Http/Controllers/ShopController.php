@@ -17,7 +17,9 @@ class ShopController extends Controller
     function petShop()
     {
         $viewData=[];
-        $viewData['petfishs'] = PetFishes::all();
+        $viewData['petfishs'] = PetFishes::orderBy('quantityBought', 'desc')
+        ->with(['specie'])
+        ->paginate(16);
         return view('shop.PetShop')
         ->with("viewData",$viewData);
     }
@@ -49,7 +51,9 @@ class ShopController extends Controller
     function foodShop()
     {
         $viewData=[];
-        $viewData['foodfishs'] = FoodFishes::all();
+        $viewData['foodfishs'] = FoodFishes::orderBy('quantityBought', 'desc')
+        ->with('specie')
+        ->paginate(16);
         return view('shop.FoodShop')
         ->with("viewData",$viewData);
     }

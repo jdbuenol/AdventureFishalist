@@ -17,5 +17,18 @@
     </div>
   </div>
   @endforeach
+  <div class="align-self-center center-text PostsHeader">
+    @if($viewData["petfishs"]->currentPage() > 1)
+    <a href="{{ route("shop.petShop", ['page' => $viewData["petfishs"]->currentPage() - 1]) }}" class="mx-3">
+        PREVIOUS
+    </a>
+    @endif
+    <b>{{ $viewData["petfishs"]->currentPage() }}</b>
+    @if($viewData["petfishs"]->currentPage() < $viewData["petfishs"]->lastPage())
+    <a href="{{ route("shop.petShop", ['page' => $viewData["petfishs"]->currentPage() + 1]) }}" class="mx-3">
+        NEXT
+    </a>
+    @endif
+  </div>
 </div>
 @endsection
