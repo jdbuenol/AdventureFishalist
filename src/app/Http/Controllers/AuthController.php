@@ -32,7 +32,8 @@ class AuthController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'isAdmin' => false
+            'isAdmin' => false,
+            'balance' => 1000
         ]);
         auth()->attempt([
             'email' => $request->email,

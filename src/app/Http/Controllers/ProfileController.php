@@ -9,6 +9,7 @@ class ProfileController extends Controller
 {
     function profile()
     {
-        return view('profile.Profile');
+        return view('profile.Profile')
+        ->with('viewData', auth()->user());
     }
 }

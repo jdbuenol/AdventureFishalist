@@ -55,6 +55,10 @@ Route::delete('/cart/deleteItem', 'App\Http\Controllers\OrderController@deleteIt
 ->name("order.deleteItem")
 ->middleware(['auth']);
 
+Route::post('/cart/checkout', 'App\Http\Controllers\OrderController@checkout')
+->name("order.checkout")
+->middleware(['auth']);
+
 Route::post('/logout', 'App\Http\Controllers\AuthController@logout')
 ->name('auth.logout')
 ->middleware(['auth']);

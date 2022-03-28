@@ -6,24 +6,28 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\PetFishes;
 use App\Models\FoodFishes;
+use App\Models\Order;
+use App\Models\FishOrder;
 
 class OrderController extends Controller
 {
     function cart(Request $request)
     {
         $viewData = [];
-        foreach($request->session()->get('cart') as $fishItem){
-            if($fishItem["type"] == "PET"){
-                array_push($viewData, ["fish" => PetFishes::find($fishItem["fishId"]), "quantity" => $fishItem["quantity"], "type" => "PET"]);
-            }
-            else{
-                array_push($viewData, ["fish" => FoodFishes::find($fishItem["fishId"]), "quantity" => $fishItem["quantity"], "type" => "FOOD"]);
+        $viewData['items'] = [];
+        $totalPrice = 0;
+        if($request->session()->has('cart')){
+            foreach($request->session()->get('cart') as $fishItem){
+                if($fishItem["type"] == "PET"){
+                    array_push($viewData['items'], ["fish" => PetFishes::find($fishItem["fishId"]), "quantity" => $fishItem["quantity"], "price" => $fishItem["price"], "type" => "PET"]);
+                }
+                else{
+                    array_push($viewData['items'], ["fish" => FoodFishes::find($fishItem["fishId"]), "quantity" => $fishItem["quantity"], "price" => $fishItem["price"], "type" => "FOOD"]);
+                }
+                $totalPrice += $fishItem['price'];
             }
         }
-        foreach($viewData as $item){
-            error_log($item["fish"]);
-            error_log("\n");
-        }
+        $viewData['price'] = $totalPrice;
         return view('order.Cart')
         ->with('viewData', $viewData);
     }
@@ -36,7 +40,7 @@ class OrderController extends Controller
         if(! $request->session()->has('cart')){
             $request->session()->put('cart', []);
         }
-        $request->session()->push('cart', ["type" => "PET", "quantity" => $request->quantity, "fishId" => $petFishes->getId()]);
+        $request->session()->push('cart', ["type" => "PET", "quantity" => $request->quantity, "fishId" => $petFishes->getId(), "price" => $petFishes->getPrice() * $request->quantity]);
         return redirect()->route('order.cart');
     }
 
@@ -48,7 +52,7 @@ class OrderController extends Controller
         if(! $request->session()->has('cart')){
             $request->session()->put('cart', []);
         }
-        $request->session()->push('cart', ["type" => "FOOD", "quantity" => $request->quantity, "fishId" => $foodFishes->getId()]);
+        $request->session()->push('cart', ["type" => "FOOD", "quantity" => $request->quantity, "fishId" => $foodFishes->getId(), "price" => $foodFishes->getPricePerKG() * $request->quantity]);
         return redirect()->route('order.cart');
     }
 
@@ -67,5 +71,65 @@ class OrderController extends Controller
         }
         $request->session()->put('cart', $cart);
         return redirect()->route('order.cart');
+    }
+
+    function checkout(Request $request)
+    {
+        $totalPrice = 0;
+        foreach($request->session()->get('cart') as $cartItem){
+            if($cartItem['type'] == "PET"){
+                $fish = PetFishes::find($cartItem["fishId"]);
+                if($fish->getInventory() < $cartItem["quantity"]){
+                    return view('order.NotEnoughBalance')
+                    ->with('viewData', 'Whoops! We don\'t have enough of '.$fish->getSpecie()->getName().' '.$fish->getSize().' at the moment.');
+                }
+            }
+            else{
+                $fish = FoodFishes::find($cartItem["fishId"]);
+                if($fish->getInventoryKG() < $cartItem["quantity"]){
+                    return view('order.NotEnoughBalance')
+                    ->with('viewData', 'Whoops! We don\'t have enough of '.$fish->getSpecie()->getName().' '.$fish->getCut().' at the moment.');
+                }
+            }
+            $totalPrice += $cartItem['price'];
+        }
+        if(auth()->user()->getBalance() < $totalPrice){
+            return view('order.NotEnoughBalance')
+            ->with('viewData', 'Whoops! It seems you don\'t have enough money, come back when you\'re a little Richer!');
+        }
+        $newOrder = Order::create([
+            'user_id' => auth()->user()->getId()
+        ]);
+        foreach($request->session()->get('cart') as $cartItem){
+            if($cartItem["type"] == "PET"){
+                $fish = PetFishes::find($cartItem["fishId"]);
+                FishOrder::create([
+                    'type' => "PET",
+                    'order_id' => $newOrder->getId(),
+                    'pet_fishes_id' => $cartItem["fishId"],
+                    'quantityFish' => $cartItem["quantity"],
+                    'food_fishes_id' => null,
+                    'quantityKG' => 0
+                ]);
+                $fish->buy($cartItem['quantity']);
+            }
+            else{
+                $fish = FoodFishes::find($cartItem["fishId"]);
+                FishOrder::create([
+                    'type' => "FOOD",
+                    'order_id' => $newOrder->getId(),
+                    'pet_fishes_id' => null,
+                    'quantityFish' => 0,
+                    'food_fishes_id' => $cartItem["fishId"],
+                    'quantityKG' => $cartItem['quantity']
+                ]);
+                $fish->buy($cartItem['quantity']);
+            }
+        }
+        auth()->user()->setBalance(auth()->user()->getBalance() - $totalPrice);
+        auth()->user()->save();
+        $request->session()->forget('cart');
+        return view('order.NotEnoughBalance')
+        ->with('viewData', 'THANKS FOR YOUR SHOPPING EXPERIENCE');
     }
 }

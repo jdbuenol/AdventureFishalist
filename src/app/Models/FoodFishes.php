@@ -131,5 +131,6 @@ class FoodFishes extends Model
     {
         $this->setInventoryKG($this->getInventoryKG() - $quantity);
         $this->setQuantityBought($this->getQuantityBought() + $quantity);
+        $this->save();
     }
 }

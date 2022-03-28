@@ -133,4 +133,13 @@ class User extends Authenticatable
     {
         $this->updated_at = $updated_at;
     }
+
+    public function getLifeLongExpenses()
+    {
+        $expenses = 0;
+        foreach($this->getOrders() as $order){
+            $expenses += $order->getTotalPrice();
+        }
+        return $expenses;
+    }
 }

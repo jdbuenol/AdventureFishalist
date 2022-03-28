@@ -131,5 +131,6 @@ class PetFishes extends Model
     {
         $this->setInventory($this->getInventory() - $quantity);
         $this->setQuantityBought($this->getQuantityBought() + $quantity);
+        $this->save();
     }
 }
