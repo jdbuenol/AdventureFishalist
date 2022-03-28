@@ -23,7 +23,7 @@ body{
     display: flex;
     justify-content: space-between;
     height: 5vh;
-    background-image: url('https://github.com/jdbuenol/AdventureFishalist/blob/main/src/public/images/navBarBackground.png');
+    background-image: url('https://github.com/jdbuenol/AdventureFishalist/blob/main/src/public/images/navBarBackground.png?raw=true');
     background-size: contain;
 }
 
