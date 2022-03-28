@@ -9,7 +9,7 @@
   @foreach ($viewData["foodfishs"] as $foodfish)
   <div class="col-md-4 col-lg-3 mb-2">
     <div class="card">
-      <img src= {{ $foodfish->getImage() }} class="card-img-top img-card">
+      <img src= {{ $foodfish->getImage() }} class="card-img-top img-card FishImage">
       <div class="card-body text-center">
         <p class="card-title"><b>Specie:</b> {{ $foodfish->getSpecie()->getName() }}</p>
         <p class="card-title"><b>Cut:</b> {{ $foodfish->getCut() }}</p>

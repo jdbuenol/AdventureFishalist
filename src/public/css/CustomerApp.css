@@ -78,3 +78,8 @@ body{
     grid-template-rows: 100%;
     grid-template-columns: repeat(2, 50%);
 }
+
+.FishImage{
+    width: 457px;
+    height: 457px;
+}

@@ -10,7 +10,7 @@
         <p class="display-6">POPULAR PETS</p>
         @foreach ($viewData['popularPets'] as $petfish)
         <div class="card">
-            <img src= {{ $petfish->getImage() }} class="card-img-top img-card">
+            <img src= {{ $petfish->getImage() }} class="card-img-top img-card FishImage">
             <div class="card-body text-center">
               <p class="card-text"><b>Specie:</b> {{ $petfish->getSpecie()->getName() }}</p>
               <p class="card-text"><b>Size:</b> {{ $petfish->getSize() }}</p>
@@ -27,7 +27,7 @@
         <p class="display-6">POPULAR FOOD</p>
         @foreach ($viewData['popularFood'] as $foodfish)
         <div class="card">
-            <img src= {{ $foodfish->getImage() }} class="card-img-top img-card">
+            <img src= {{ $foodfish->getImage() }} class="card-img-top img-card FishImage">
             <div class="card-body text-center">
               <p class="card-title"><b>Specie:</b> {{ $foodfish->getSpecie()->getName() }}</p>
               <p class="card-title"><b>Cut:</b> {{ $foodfish->getCut() }}</p>
