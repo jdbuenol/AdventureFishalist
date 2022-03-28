@@ -16,8 +16,11 @@ class AuthController extends Controller
         return view('auth.RegisterScreen');
     }
 
-    function loginScreen()
+    function loginScreen(Request $request)
     {
+        if($request->session()->has('cart')){
+            $request->session()->forget('cart');
+        }
         return view('auth.LoginScreen');
     }
 
@@ -43,8 +46,11 @@ class AuthController extends Controller
         return redirect()->route('shop.index');
     }
 
-    function logout()
+    function logout(Request $request)
     {
+        if($request->session()->has('cart')){
+            $request->session()->forget('cart');
+        }
         auth()->logout();
         return redirect()->route('auth.loginScreen');
     }

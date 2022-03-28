@@ -11,7 +11,16 @@ class ShopController extends Controller
 {
     function index()
     {
-        return view('shop.Index');
+        $popularPets = PetFishes::orderBy('quantityBought', 'desc')
+        ->with('specie')
+        ->take(5)
+        ->get();
+        $popularFood = FoodFishes::orderBy('quantityBought', 'desc')
+        ->with('specie')
+        ->take(5)
+        ->get();
+        return view('shop.Index')
+        ->with('viewData', ['popularPets' => $popularPets, 'popularFood' => $popularFood]);
     }
 
     function petShop()

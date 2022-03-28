@@ -72,3 +72,9 @@ body{
 .TrashForm{
     display: inline-block;
 }
+
+.PopularGrid{
+    display: grid;
+    grid-template-rows: 100%;
+    grid-template-columns: repeat(2, 50%);
+}
