@@ -1,0 +1,45 @@
+/* AUTHOR: JULIAN BUENO */
+.btn-danger{
+    width: 20vw;
+}
+
+.red-text{
+    color: red;
+}
+
+.PostsHeader{
+    margin-top: 5em;
+    padding: 1em;
+    text-align: center;
+    background-color: white;
+    width: 60vw;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.DashboardGrid{
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(4, auto);
+}
+
+.GridSquare{
+    color: black;
+    text-decoration: none;
+    border: 1px solid black;
+}
+
+.GridSquare:hover{
+    color:white;
+    background-color: black;
+}
+
+.logo{
+    width: 12rem;
+}
+
+.hidden{
+    display: none;
+}

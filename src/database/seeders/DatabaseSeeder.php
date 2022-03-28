@@ -1,4 +1,5 @@
 <?php
+// EDITED BY: JULIAN BUENO
 
 namespace Database\Seeders;
 
@@ -14,6 +15,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        if(! \App\Models\User::exists()){
+            \App\Models\User::factory(1)->create();
+        }
+        \App\Models\Specie::factory(10)->create();
+        \App\Models\Location::factory(10)->create();
+        \App\Models\SpecieLocation::factory(10)->create();
+        \App\Models\PetFishes::factory(10)->create();
+        \App\Models\FoodFishes::factory(10)->create();
     }
 }
