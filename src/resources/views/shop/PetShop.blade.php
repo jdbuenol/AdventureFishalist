@@ -2,6 +2,9 @@
 @extends('layouts.CustomerApp')
 @section('title', "PET-SHOP")
 @section('content')
+<div class="d-flex flex-column align-content-center text-center my-2">
+<a href="{{ route('shop.petRandom') }}"><button class="btn btn-primary">DON'T KNOW WHAT TO ORDER? TRY RANDOM</button></a>
+</div>
 <div class="row">
   @foreach ($viewData["petfishs"] as $petfish)
   <div class="col-md-4 col-lg-3 mb-2">

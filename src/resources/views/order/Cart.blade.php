@@ -4,7 +4,7 @@
 @section('content')
 <div class="PostsHeader Bordered">
 <p class="display-1">CART</p>
-@if(count($viewData))
+@if(count($viewData['items']))
 @foreach ($viewData['items'] as $cartItem)
     <p class="CartItem">
     <form class="TrashForm" action="{{ route('order.deleteItem', ["type" => $cartItem["type"], "fishId" => $cartItem["fish"]->getId()]) }}" method="POST">

@@ -20,14 +20,21 @@ Route::get('/', 'App\Http\Controllers\ShopController@index')
 Route::get('/petshop', 'App\Http\Controllers\ShopController@petShop')
 ->name('shop.petShop');
 
+Route::get('/petshop/random', 'App\Http\Controllers\ShopController@getRandomPet')
+->name('shop.petRandom');
+
 Route::get('/petshop/{id}', 'App\Http\Controllers\ShopController@petshow')
 ->name('shop.petshopshow');
 
 Route::get('/foodshop', 'App\Http\Controllers\ShopController@foodShop')
 ->name('shop.foodShop');
 
+Route::get('/foodshop/random', 'App\Http\Controllers\ShopController@getRandomFood')
+->name('shop.foodRandom');
+
 Route::get('/foodshop/{id}', 'App\Http\Controllers\ShopController@foodshow')
 ->name('shop.foodshopshow');
+
 
 Route::get('/species', 'App\Http\Controllers\SpecieController@index')
 ->name('specie.index');

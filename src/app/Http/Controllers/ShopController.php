@@ -80,4 +80,12 @@ class ShopController extends Controller
             return back();
         }
     }
+
+    public function getRandomPet(){
+        return redirect()->route('shop.petshopshow', PetFishes::inRandomOrder()->first()->getId());
+    }
+
+    public function getRandomFood(){
+        return redirect()->route('shop.foodshopshow', FoodFishes::inRandomOrder()->first()->getId());
+    }
 }
