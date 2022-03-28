@@ -9,7 +9,7 @@
   @foreach ($viewData["petfishs"] as $petfish)
   <div class="col-md-4 col-lg-3 mb-2">
     <div class="card">
-      <img src= {{ $petfish->getImage() }} class="card-img-top img-card FishImage">
+      <img src= {{ asset($petfish->getImage()) }} class="card-img-top img-card FishImage">
       <div class="card-body text-center">
         <p class="card-text"><b>Specie:</b> {{ $petfish->getSpecie()->getName() }}</p>
         <p class="card-text"><b>Size:</b> {{ $petfish->getSize() }}</p>
