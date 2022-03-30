@@ -91,10 +91,16 @@ class ShopController extends Controller
     }
 
     public function getRandomPet(){
-        return redirect()->route('shop.petshopshow', PetFishes::inRandomOrder()->first()->getId());
+        return redirect()
+        ->route('shop.petshopshow', PetFishes::inRandomOrder()
+        ->first()
+        ->getId());
     }
 
     public function getRandomFood(){
-        return redirect()->route('shop.foodshopshow', FoodFishes::inRandomOrder()->first()->getId());
+        return redirect()
+        ->route('shop.foodshopshow', FoodFishes::inRandomOrder()
+        ->first()
+        ->getId());
     }
 }
