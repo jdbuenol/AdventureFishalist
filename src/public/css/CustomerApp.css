@@ -4,34 +4,14 @@ body{
     margin: 0px;
 }
 
-.nav--link{
-    color: black;
-    text-decoration-line: none;
-    border: 0px;
-    background-color: rgba(0, 0, 0, 0);
-}
-
-.nav--link:hover{
-    color: blueviolet;
-}
-
 .red-text{
     color: red;
 }
 
 .NavBar{
-    display: flex;
-    justify-content: space-between;
     height: 5vh;
     background-image: url('https://github.com/jdbuenol/AdventureFishalist/blob/main/src/public/images/navBarBackground.png?raw=true');
     background-size: contain;
-}
-
-.NavLinks{
-    display: flex;
-    list-style-type: none;
-    gap: 1.5em;
-    margin-right: 1.5em;
 }
 
 .PostsHeader{
@@ -82,4 +62,17 @@ body{
 .FishImage{
     width: 457px;
     height: 457px;
+}
+
+.navlist{
+    justify-content: space-between;
+}
+
+.logout-btn{
+    border: 0px;
+    background: none;
+}
+
+.nav-link{
+    font-weight: bolder;
 }

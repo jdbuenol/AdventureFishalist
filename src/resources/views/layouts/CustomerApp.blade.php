@@ -12,45 +12,46 @@
     <link rel="stylesheet" href="{{ asset('css/CustomerApp.css') }}">
 </head>
 <body>
-    <nav class="NavBar">
-        <ul class="NavLinks">
-            <li>
-                <b><a href="{{ route('shop.petShop') }}" class="nav--link">PET-SHOP</a></b>
-            </li>
-            <li>
-                <b><a href="{{ route('shop.foodShop') }}" class="nav--link">FOOD-SHOP</a></b>
-            </li>
-            <li>
-                <b><a href="{{ route('specie.index') }}" class="nav--link">SPECIES</a></b>
-            </li>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light NavBar">
+    
+    <div class="collapse navbar-collapse navlist" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto mx-4">
+        <li class="nav-item active">
+            <a class="nav-link" href="{{ route('shop.petShop') }}">PET-SHOP</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="{{ route('shop.foodShop') }}">FOOD-SHOP</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="{{ route('specie.index') }}">SPECIES</a>
+        </li>
         </ul>
-        <a href="{{ route('shop.index') }}" class="nav--link"><h1>ADVENTURE FISHALIST</h1></a>
+        <a class="navbar-brand" href="{{ route('shop.index') }}">ADVENTURE FISHALIST (DELUXE)</a>
+        <ul class="navbar-nav mr-auto mx-4">
         @auth
-        <ul class="NavLinks">
-            <li>
-                <b><a href="{{ route('order.cart') }}" class="nav--link">CART</a></b>
-            </li>
-            <li>
-                <b><a href="{{ route('profile.profile') }}" class="nav--link">PROFILE</a></b>
-            </li>
-            <li>
-                <form action="{{ route('auth.logout') }}" method="POST">
-                    @csrf
-                    <button type="submit" class="nav--link"><b>LOGOUT</b></button>
-                </form>
-            </li>
-        </ul>
+        <li class="nav-item active">
+            <a class="nav-link" href="{{ route('order.cart') }}">CART</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="{{ route('profile.profile') }}">PROFILE</a>
+        </li>
+        <li class="nav-item active">
+            <form action="{{ route('auth.logout') }}" method="POST">
+                @csrf
+                <button type="submit" class="nav-link logout-btn"><b>LOGOUT</b></button>
+            </form>
+        </li>
         @endauth
         @guest
-        <ul class="NavLinks">
-            <li>
-                <b><a href="{{ route('auth.loginScreen') }}" class="nav--link">LOGIN</a></b>
-            </li>
-            <li>
-                <b><a href="{{ route('auth.registerScreen') }}" class="nav--link">REGISTER</a></b>
-            </li>
-        </ul>
+        <li class="nav-item active">
+            <a class="nav-link" href="{{ route('auth.loginScreen') }}">LOGIN</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="{{ route('auth.registerScreen') }}">REGISTER</a>
+        </li>
         @endguest
+        </ul>
+    </div>
     </nav>
     @yield('content')
 </body>
