@@ -11,14 +11,17 @@ class PetFishes extends Model
     use HasFactory;
 
     /**
-     * PRODUCT ATTRIBUTES
-     * $this->id - int - contains the pet fish primary key (id)
-     * $this->image - string - contains the URL to the image of the pet fish
-     * $this->size - string - contains the size of the pet fish 
-     * $this->price - float - contains the price value of the pet fish 
-     * $this->inventory - integer - contains the inventory value of the pet fish
-     * $this->specie_id - integer - contains the id of the specie
-     * $this->quantityBought - integer - contains the number of units life-long bought of this product
+     * PetFishes ATTRIBUTES
+     * $this->id - int - contains the PetFish primary key (id)
+     * $this->image - string - contains the path to the image that will be displayed
+     * $this->price - float - contains the price of this PetFish
+     * $this->inventory - int - Contains the total quantity in storage of this PetFish
+     * $this->quantityBought - int - contains the total quantity that has been bought in the lifetime of this PetFish
+     * $this->specieId - int - foreign key to the specie this petfish belongs to
+     * $this->specie - Specie - object of the specie this petfish belongs to
+     * $this->fishItems - FishOrder[] - contains an array of all fish orders that belongs to this pet fish
+     * $this->created_at - str - contains the date-time this petfish was created
+     * $this->upated_at - str - contains the date-time this petfish was updated
     */
 
     protected $fillable = ['image','size','price','inventory', 'specie_id', 'quantityBought'];

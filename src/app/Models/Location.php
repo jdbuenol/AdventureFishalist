@@ -11,12 +11,15 @@ class Location extends Model
     use HasFactory;
 
     /**
-     * PRODUCT ATTRIBUTES
-     * $this->id - int - contains the product primary key (id)
+     * Location ATTRIBUTES
+     * $this->id - int - contains the location primary key (id)
      * $this->name - string - contains the location name
      * $this->geoLatitude - float - contains the geoLatitude value of the location 
      * $this->geoLongitude - float - contains the geoLongitude value of the location 
      * $this->country - string - contains the country name of the Location
+     * $this->speciesLocations - SpecieLocation[] - contains an array with all the speciesLocations that belongs to this location
+     * $this->created_at - str - contains the date-time this location was created
+     * $this->upated_at - str - contains the date-time this location was updated
     */
 
     protected $fillable = ['name','geoLatitude','geoLongitude','country'];

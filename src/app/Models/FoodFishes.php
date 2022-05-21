@@ -11,13 +11,17 @@ class FoodFishes extends Model
     use HasFactory;
 
     /**
-     * PRODUCT ATTRIBUTES
-     * $this->id - int - contains the food fish primary key (id)
-     * $this->image - string - contains the URL to the image of the food fish
-     * $this->cut - string - contains the cut of the food fish 
-     * $this->pricePerKG - float - contains the price value of the each KG of food fish 
-     * $this->inventoryKG - float - contains the inventory in KG of the food fish
-     * $this->quantityBought - float - returns the life-long quantity bought of this product
+     * FoodFishes ATTRIBUTES
+     * $this->id - int - contains the FoodFish primary key (id)
+     * $this->image - string - contains the path to the image that will be displayed
+     * $this->pricePerKG - float - contains the price per KG of this foodfish
+     * $this->inventoryKG - float - Contains the total quantity in storage in KG
+     * $this->quantityBought - float - contains the total quantity that has been bought in the lifetime of this foodfish
+     * $this->specieId - int - foreign key to the specie this foodfish belongs to
+     * $this->specie - Specie - object of the specie this foodfish belongs to
+     * $this->fishItems - FishOrder[] - contains an array of all fish orders that belongs to this food fish
+     * $this->created_at - str - contains the date-time this foodfish was created
+     * $this->upated_at - str - contains the date-time this foodfish was updated
     */
 
     protected $fillable = ['image','cut','pricePerKG','inventoryKG', 'specie_id', 'quantityBought'];

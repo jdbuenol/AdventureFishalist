@@ -17,6 +17,9 @@
     <b>CUT: </b>{{ $viewData['fish']->getCut() }}
     </div>
     <div class="align-self-center center-text">
+    <b>QUANTITY BOUGHT: </b>{{ $viewData['fish']->getQuantityBought() }}
+    </div>
+    <div class="align-self-center center-text">
     <b>SPECIE: </b><a href="{{ route('admin.specie', $viewData['fish']->getSpecieId()) }}">{{ $viewData['fish']->getSpecie()->getName() }}</a>
     </div>
     <div class="align-self-center center-text">
@@ -26,6 +29,12 @@
             <a href="{{ route('admin.fishOrder', $fishOrder->getId()) }}">{{ $fishOrder->getId() }}</a>
             @endforeach
         ]
+    </div>
+    <div class="align-self-center center-text">
+    <b>CREATED AT: </b>{{ $viewData['fish']->getCreated_at() }}
+    </div>
+    <div class="align-self-center center-text">
+    <b>UPDATED AT: </b>{{ $viewData['fish']->getUpdated_at() }}
     </div>
     <hr>
     <h1 class="display-2 align-self-center">UPDATE ENTRY</h1>

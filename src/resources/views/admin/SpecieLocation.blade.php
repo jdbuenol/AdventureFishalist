@@ -16,6 +16,12 @@
     <div class="align-self-center center-text">
     <b>SPECIE: </b><a href="{{ route('admin.specie', $viewData['specieLocation']->getSpecieId()) }}">{{ $viewData['specieLocation']->getSpecie()->getName() }}</a>
     </div>
+    <div class="align-self-center center-text">
+    <b>CREATED AT: </b>{{ $viewData['specieLocation']->getCreated_at() }}
+    </div>
+    <div class="align-self-center center-text">
+    <b>UPDATED AT: </b>{{ $viewData['specieLocation']->getUpdated_at() }}
+    </div>
     <hr>
     <h1 class="display-2 align-self-center">UPDATE ENTRY</h1>
     <form action="{{ route('admin.updateSpecieLocation', $viewData['specieLocation']->getId()) }}" method="POST" class="Submit-form align-self-center d-flex flex-column">

@@ -11,14 +11,20 @@ class FishOrder extends Model
     use HasFactory;
 
     /**
-     * PRODUCT ATTRIBUTES
-     * $this->id - int - contains the product primary key (id)
+     * FishOrder ATTRIBUTES
+     * $this->id - int - contains the fishOrder primary key (id)
      * $this->type - string - contains the type of order (Pet or Food)
      * $this->petFishID - int - contains the foreign key of PetFish
+     * $this->petFish - PetFishes - Contains the object PetFish
      * $this->foodFishID - int - contains the foreign key of FoodFish
+     * $this->foodFish - FoodFishes - Contains the object FoodFish
      * $this->orderID - int - contains the foreign key of Order
+     * $this->order - Order - contains the object Order this item belongs to
      * $this->quantityFish - int - contains the units of pet fish the customer wants to buy
      * $this->quantityKG - float - contains the amount of food fish the customer wants to buy (in KG)
+     * $this->getTotalPrice() - float - returns the total price of this item (price of fish * quantity)
+     * $this->created_at - str - contains the date-time this item was created
+     * $this->upated_at - str - contains the date-time this item was updated
     */
 
     protected $fillable = ['type', 'pet_fishes_id', 'food_fishes_id', 'order_id', 'quantityFish', 'quantityKG'];
@@ -126,5 +132,25 @@ class FishOrder extends Model
         else{
             return $this->getFoodFishes()->getPricePerKG() * $this->getQuantityKG();
         }
+    }
+
+    public function getCreated_at()
+    {
+        return $this->created_at;
+    }
+
+    public function setCreated_at($created_at)
+    {
+        $this->created_at = $created_at;
+    }
+
+    public function getUpdated_at()
+    {
+        return $this->updated_at;
+    }
+
+    public function setUpdated_at($updated_at)
+    {
+        $this->updated_at = $updated_at;
     }
 }

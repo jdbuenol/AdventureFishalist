@@ -27,6 +27,12 @@
             @endforeach
         ]
     </div>
+    <div class="align-self-center center-text">
+    <b>CREATED AT: </b>{{ $viewData['fish']->getCreated_at() }}
+    </div>
+    <div class="align-self-center center-text">
+    <b>UPDATED AT: </b>{{ $viewData['fish']->getUpdated_at() }}
+    </div>
     <hr>
     <h1 class="display-2 align-self-center">UPDATE ENTRY</h1>
     <form action="{{ route('admin.updatePetFish', $viewData['fish']->getId()) }}" method="POST" class="Submit-form align-self-center d-flex flex-column">

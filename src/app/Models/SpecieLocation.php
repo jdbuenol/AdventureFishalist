@@ -11,11 +11,15 @@ class SpecieLocation extends Model
     use HasFactory;
 
     /**
-     * PRODUCT ATTRIBUTES
-     * $this->id - int - contains the specie primary key (id)
+     * SPECIE LOCATION ATTRIBUTES
+     * $this->id - int - contains the specieLocation primary key (id)
      * $this->poblationalDensity - float - contains the fish Poblational Density value of the specie in the location
      * $this->location_id - string - contains the id of the location of this specie-location relation
+     * $this->location - Location - contains the location this specie-location belongs to
      * $this->specie_id - string - contains the id of the specie of this specie-location relation
+     * $this->specie - Specie - contains the specie this specie-location belongs to
+     * $this->created_at - str - contains the date-time this specie was created
+     * $this->upated_at - str - contains the date-time this specie was updated
     */
 
     protected $fillable = ['poblationalDensity', 'location_id', 'specie_id'];

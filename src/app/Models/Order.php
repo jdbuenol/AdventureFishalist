@@ -11,6 +11,17 @@ class Order extends Model
 {
     use HasFactory;
 
+    /**
+     * Order ATTRIBUTES
+     * $this->id - int - contains the order primary key (id)
+     * $this->getTotalPrice() - float - contains the total price of the order (the sum of all items)
+     * $this->userId - int - foreign key with the user
+     * $this->user - User - contains the User this order belongs to
+     * $this->fishItems - FishOrder[] - contains an array of all the items that belongs to this order
+     * $this->created_at - str - contains the date-time this order was created
+     * $this->upated_at - str - contains the date-time this order was updated
+    */
+
     protected $fillable = [
         'user_id'
     ];

@@ -11,10 +11,14 @@ class Specie extends Model
     use HasFactory;
 
     /**
-     * PRODUCT ATTRIBUTES
+     * Specie ATTRIBUTES
      * $this->id - int - contains the specie primary key (id)
      * $this->name - string - contains the fish specie name
-     * $this->petFishes - PetFish[] - contains all the fishes of this species
+     * $this->petFishes - PetFishes[] - contains all the pet fishes that belong to specie
+     * $this->foodFishes - FoodFishes[] - contains all the food fishes that belong to this specie
+     * $this->specieLocations - SpecieLocation[] - contains all the the species locations that belong to this specie
+     * $this->created_at - str - contains the date-time this specie was created
+     * $this->upated_at - str - contains the date-time this specie was updated
     */
 
     protected $fillable = ['name'];

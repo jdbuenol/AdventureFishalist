@@ -14,13 +14,17 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
-     * +id: int
-     * +name: string
-     * +email: string
-     * -password: string(hashed)
-     * +orders: Order[]
-     * +balance: how much money does the user have
-     */
+     * USER ATTRIBUTES
+     * $this->id - int - contains the user primary key (id)
+     * $this->name - str - contains the name of the user
+     * $this->balance - float - contains the total money of the user
+     * $this->email - str - contains the email of this user
+     * $this->password - str - contains the HASHED password of the user
+     * $this->isAdmin - bool - contains a boolean that determiens if the user has admin privileges
+     * $this->orders - Order[] - contains an array of all the orders that belongs to this user
+     * $this->created_at - str - contains the date-time this specie was created
+     * $this->upated_at - str - contains the date-time this specie was updated
+    */
 
     protected $fillable = [
         'name',
