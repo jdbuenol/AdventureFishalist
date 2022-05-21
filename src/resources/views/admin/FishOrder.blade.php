@@ -46,7 +46,7 @@
         @method('PUT')
         <div class="form-group">
             <label for="order_id" class="label">ORDER ID</label>
-            <input type="text" name="order_id" id="order_id" value="{{ old('order_id') }}" class="form-control">
+            <input type="text" name="order_id" id="order_id" class="form-control" value="{{ $viewData['order']->getOrderId() }}">
         </div>
         @error('order_id')
             <p class="red-text">{{ $message }}</p>
@@ -54,14 +54,14 @@
         @if($viewData['order']->getType() == 'PET')
         <div class="form-group">
             <label for="petFish_id" class="label">PET FISH ID</label>
-            <input type="text" name="petFish_id" id="petFish_id" value="{{ old('petFish_id') }}" class="form-control">
+            <input type="text" name="petFish_id" id="petFish_id" class="form-control" value="{{ $viewData['order']->getPetFishesId() }}">
         </div>
         @error('petFish_id')
             <p class="red-text">{{ $message }}</p>
         @enderror
         <div class="form-group">
             <label for="quantityFish" class="label">QUANTITY</label>
-            <input type="number" step="1" name="quantityFish" id="quantityFish" value="{{ old('quantityFish') }}" class="form-control">
+            <input type="number" step="1" name="quantityFish" id="quantityFish" class="form-control" value="{{ $viewData['order']->getQuantityFish() }}">
         </div>
         @error('quantityFish')
             <p class="red-text">{{ $message }}</p>
@@ -69,14 +69,14 @@
         @else
         <div class="form-group">
             <label for="foodFish_id" class="label">FOOD FISH ID</label>
-            <input type="text" name="foodFish_id" id="foodFish_id" value="{{ old('foodFish_id') }}" class="form-control">
+            <input type="text" name="foodFish_id" id="foodFish_id" class="form-control" value="{{ $viewData['order']->getFoodFishesId() }}">
         </div>
         @error('foodFish_id')
             <p class="red-text">{{ $message }}</p>
         @enderror
         <div class="form-group">
             <label for="quantityKG" class="label">QUANTITY (KG)</label>
-            <input type="number" step="0.01" name="quantityKG" id="quantityKG" value="{{ old('quantityKG') }}" class="form-control">
+            <input type="number" step="0.01" name="quantityKG" id="quantityKG" class="form-control" value="{{ $viewData['order']->getQuantityKG() }}">
         </div>
         @error('quantityKG')
             <p class="red-text">{{ $message }}</p>

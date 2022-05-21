@@ -34,7 +34,7 @@
         @method('PUT')
         <div class="form-group">
             <label for="user_id" class="label center-text">USER ID</label>
-            <input type="text" name="user_id" id="user_id" placeholder="user_id" value="{{ old('user_id') }}" class="form-control">
+            <input type="text" name="user_id" id="user_id" placeholder="user_id" value="{{ $viewData['order']->getUserId() }}" class="form-control">
         </div>
         @if($viewData['error'])
             <p class="red-text">{{ $viewData['error'] }}</p>

@@ -29,21 +29,21 @@
         @method('PUT')
         <div class="form-group">
             <label for="poblatonalDensity" class="label">POBLATIONAL DENSITY (FISHES/KM&sup2;)</label>
-            <input type="number" step="0.01" name="poblationalDensity" id="poblationalDensity" placeholder="69.00" value="{{ old('poblationalDensity') }}" class="form-control">
+            <input type="number" step="0.01" name="poblationalDensity" id="poblationalDensity" placeholder="69.00" value="{{ $viewData["specieLocation"]->getPoblationalDensity() }}" class="form-control">
         </div>
         @error('poblationalDensity')
             <p class="red-text">{{ $message }}</p>
         @enderror
         <div class="form-group">
             <label for="location_id" class="label center-text">LOCATION ID</label>
-            <input type="text" name="location_id" id="location_id" placeholder="location_id" value="{{ old('location_id') }}" class="form-control">
+            <input type="text" name="location_id" id="location_id" placeholder="location_id" value="{{ $viewData["specieLocation"]->getLocationId() }}" class="form-control">
         </div>
         @error('location_id')
             <p class="red-text">{{ $message }}</p>
         @enderror
         <div class="form-group">
             <label for="specie_id" class="label center-text">SPECIE ID</label>
-            <input type="text" name="specie_id" id="specie_id" placeholder="specie_id" value="{{ old('specie_id') }}" class="form-control">
+            <input type="text" name="specie_id" id="specie_id" placeholder="specie_id" value="{{ $viewData["specieLocation"]->getSpecieId() }}" class="form-control">
         </div>
         @error('specie_id')
             <p class="red-text">{{ $message }}</p>

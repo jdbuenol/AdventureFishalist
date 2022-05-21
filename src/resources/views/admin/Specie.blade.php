@@ -44,7 +44,7 @@
         @method('PUT')
         <div class="form-group">
             <label for="name" class="label">Name</label>
-            <input type="text" name="name" id="name" placeholder="Clown Fish" value="{{ old('name') }}" class="form-control">
+            <input type="text" name="name" id="name" placeholder="Clown Fish" value="{{ $viewData['specie']->getName() }}" class="form-control">
         </div>
         @error('name')
             <p class="red-text">{{ $message }}</p>

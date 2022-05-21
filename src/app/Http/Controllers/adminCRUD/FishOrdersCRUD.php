@@ -121,7 +121,7 @@ class FishOrdersCRUD extends Controller
                 return view('admin.FishOrder')
                 ->with('viewData', $viewData);
             }
-            if($request->foodFish_id) $fishOrder->setFoodFishId($request->foodFish_id);
+            if($request->foodFish_id) $fishOrder->setFoodFishesId($request->foodFish_id);
             if($request->quantityKG) $fishOrder->setQuantityKG($request->quantityKG);
         }
         else{

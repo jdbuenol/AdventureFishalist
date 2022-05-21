@@ -43,14 +43,14 @@
         @method('PUT')
         <div class="form-group">
             <label for="pricePerKG" class="label">Price (PerKG)</label>
-            <input type="number" step="0.01" name="pricePerKG" id="pricePerKG" placeholder="69.00" value="{{ old('pricePerKG') }}" class="form-control">
+            <input type="number" step="0.01" name="pricePerKG" id="pricePerKG" placeholder="69.00" value="{{ $viewData['fish']->getPricePerKG() }}" class="form-control">
         </div>
         @error('pricePerKG')
             <p class="red-text">{{ $message }}</p>
         @enderror
         <div class="form-group">
             <label for="inventoryKG" class="label">INVENTORY (KG)</label>
-            <input type="number" step="1" name="inventoryKG" id="inventoryKG" placeholder="42" value="{{ old('inventoryKG') }}" class="form-control">
+            <input type="number" step="1" name="inventoryKG" id="inventoryKG" placeholder="42" value="{{ $viewData['fish']->getInventoryKG() }}" class="form-control">
         </div>
         @error('inventory')
             <p class="red-text">{{ $message }}</p>
@@ -59,9 +59,9 @@
             <label for="cut" class="label">CUT</label>
             <select class="form-control" name="cut" id="cut">
                 <option class="form-control" value=""></option>
-                <option class="form-control" value="BACK MEAT">BACK MEAT</option>
-                <option class="form-control" value="TAIL MEAT">TAIL MEAT</option>
-                <option class="form-control" value="ABDOMEN MEAT">ABDOMEN MEAT</option>
+                <option class="form-control" value="BACK MEAT" {{ $viewData['fish']->getCut() == "BACK MEAT" ? "selected" : ""}}>BACK MEAT</option>
+                <option class="form-control" value="TAIL MEAT" {{ $viewData['fish']->getCut() == "TAIL MEAT" ? "selected" : ""}}>TAIL MEAT</option>
+                <option class="form-control" value="ABDOMEN MEAT" {{ $viewData['fish']->getCut() == "ABDOMEN MEAT" ? "selected" : ""}}>ABDOMEN MEAT</option>
             </select>
         </div>
         @error('cut')
@@ -69,7 +69,7 @@
         @enderror
         <div class="form-group">
             <label for="specie_id" class="label">SPECIE ID</label>
-            <input type="text" name="specie_id" id="specie_id" placeholder="specie_id" value="{{ old('specie_id') }}" class="form-control">
+            <input type="text" name="specie_id" id="specie_id" placeholder="specie_id" value="{{ $viewData["fish"]->getSpecieId() }}" class="form-control">
         </div>
         @if($viewData['error'])
             <p class="red-text">{{ $viewData['error'] }}</p>
