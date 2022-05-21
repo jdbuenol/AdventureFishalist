@@ -34,7 +34,7 @@ class LocationsCRUD extends Controller
         $this->validate(
             $request, [
             'name' => 'required|max:255',
-            'geoLatitude' => 'required|numeric|between:-90,90',
+            'geoLatitude' => 'required|numeric|between:-85,85',
             'geoLongitude' => 'required|numeric|between:-180,180',
             'country' => 'required|max:255'
             ]
@@ -58,7 +58,7 @@ class LocationsCRUD extends Controller
             $request, [
             'name' => 'max:255',
             'country' => 'max:255',
-            'geoLatitude' => 'nullable|numeric|between:-90,90',
+            'geoLatitude' => 'nullable|numeric|between:-85,85',
             'geoLongitude' => 'nullable|numeric|between:-180,180'
             ]
         );
