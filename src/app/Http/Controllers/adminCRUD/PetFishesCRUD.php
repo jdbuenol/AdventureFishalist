@@ -18,8 +18,8 @@ class petFishesCRUD extends Controller
     function petFishes()
     {
         $allPetFishes = PetFishes::latest()
-        ->with('specie')
-        ->paginate(10);
+            ->with('specie')
+            ->paginate(10);
         return view('admin.PetFishesTable')
         ->with('viewData', ["allPetFishes" => $allPetFishes]);
     }
@@ -31,31 +31,36 @@ class petFishesCRUD extends Controller
         ->with('viewData', ['fish' => $petFish, 'error' => null]);
     }
 
-    function newPetFish(){
+    function newPetFish()
+    {
         return view('admin.PetFishCreate')
         ->with('viewData', ["message" => null]);
     }
 
     function createPetFish(Request $request)
     {
-        $this->validate($request, [
+        $this->validate(
+            $request, [
             'specie_id' => 'required',
             'size' => 'required',
             'price' => 'required|numeric|gt:0',
             'inventory' => 'required|numeric|gte:0'
-        ]);
-        if(! Specie::find($request->specie_id)){
+            ]
+        );
+        if(! Specie::find($request->specie_id)) {
             return view('admin.PetFishCreate')
             ->with('viewData', ["message" => 'THIS SPECIE ID DOESN\'T EXIST']);
         }
-        PetFishes::create([
+        PetFishes::create(
+            [
             'specie_id' => $request->specie_id,
             'size' => $request->size,
             'image' => '/images/PetFish'.IMAGES[array_rand(IMAGES, 1)],
             'price' => $request->price,
             'inventory' => $request->inventory,
             'quantityBought' => 0
-        ]);
+            ]
+        );
 
         return redirect()
         ->route('admin.petFishes');
@@ -63,21 +68,27 @@ class petFishesCRUD extends Controller
 
     function updatePetFish(PetFishes $petFish, Request $request)
     {
-        $this->validate($request, [
+        $this->validate(
+            $request, [
             'price' => 'nullable|numeric|gt:0',
             'inventory' => 'nullable|numeric|gte:0'
-        ]);
-        if($request->specie_id && ! Specie::find($request->specie_id)){
+            ]
+        );
+        if($request->specie_id && ! Specie::find($request->specie_id)) {
             $viewData = [];
             $viewData['fish'] = $petFish;
             $viewData['error'] = 'THIS SPECIE ID DOESN\'T EXIST';
             return view('admin.PetFish')
             ->with('viewData', $viewData);
         }
-        if($request->specie_id) $petFish->setSpecieId($request->specie_id);
-        if($request->size != '') $petFish->setSize($request->size);
-        if($request->inventory) $petFish->setInventory($request->inventory);
-        if($request->price) $petFish->setPrice($request->price);
+        if($request->specie_id) { $petFish->setSpecieId($request->specie_id);
+        }
+        if($request->size != '') { $petFish->setSize($request->size);
+        }
+        if($request->inventory) { $petFish->setInventory($request->inventory);
+        }
+        if($request->price) { $petFish->setPrice($request->price);
+        }
         $petFish->save();
         return redirect()->route('admin.petFish', $petFish->getId());
     }

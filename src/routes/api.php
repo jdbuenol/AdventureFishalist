@@ -17,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/locations', 'App\Http\Controllers\Api\LocationApi@index')
+->name("api.location.index");
+
+Route::get('/locations/paginate', 'App\Http\Controllers\Api\LocationApi@paginate')
+->name("api.location.paginate");

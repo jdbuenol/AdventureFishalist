@@ -14,8 +14,8 @@ class SpeciesLocationsCRUD extends Controller
     function speciesLocations()
     {
         $allSpeciesLocations = SpecieLocation::latest()
-        ->with(['location', 'specie'])
-        ->paginate(10);
+            ->with(['location', 'specie'])
+            ->paginate(10);
         return view('admin.SpeciesLocationsTable')
         ->with('viewData', ["allSpeciesLocations" => $allSpeciesLocations]);
     }
@@ -26,32 +26,37 @@ class SpeciesLocationsCRUD extends Controller
         ->with('viewData', ['specieLocation' => $specieLocation, 'error' => null]);
     }
 
-    function newSpecieLocation(){
+    function newSpecieLocation()
+    {
         return view('admin.SpecieLocationCreate')
         ->with('viewData', ["message" => null]);
     }
 
     function createSpecieLocation(Request $request)
     {
-        $this->validate($request, [
+        $this->validate(
+            $request, [
             'poblationalDensity' => 'required|numeric|gt:0',
             'specie_id' => 'required',
             'location_id' => 'required'
-        ]);
+            ]
+        );
 
-        if(! Specie::find($request->specie_id)){
+        if(! Specie::find($request->specie_id)) {
             return view('admin.SpecieLocationCreate')
             ->with('viewData', ["message" => 'THIS SPECIE ID DOESN\'T EXIST']);
         }
-        if(! Location::find($request->location_id)){
+        if(! Location::find($request->location_id)) {
             return view('admin.SpecieLocationCreate')
             ->with('viewData', ["message" => 'THIS LOCATION ID DOESN\'T EXIST']);
         }
-        SpecieLocation::create([
+        SpecieLocation::create(
+            [
             'poblationalDensity' => $request->poblationalDensity,
             'specie_id' => $request->specie_id,
             'location_id' => $request->location_id
-        ]);
+            ]
+        );
 
         return redirect()
         ->route('admin.speciesLocations');
@@ -59,26 +64,31 @@ class SpeciesLocationsCRUD extends Controller
 
     function updateSpecieLocation(SpecieLocation $specieLocation, Request $request)
     {
-        $this->validate($request, [
+        $this->validate(
+            $request, [
             'poblationalDensity' => 'nullable|numeric|gt:0'
-        ]);
-        if($request->location_id && ! Location::find($request->location_id)){
+            ]
+        );
+        if($request->location_id && ! Location::find($request->location_id)) {
             $viewData = [];
             $viewData['error'] = 'THIS LOCATION ID DOESN\'T EXIST';
             $viewData['specieLocation'] = $specieLocation;
             return view('admin.SpecieLocation')
             ->with('viewData', $viewData);
         }
-        if($request->specie_id && ! Specie::find($request->specie_id)){
+        if($request->specie_id && ! Specie::find($request->specie_id)) {
             $viewData = [];
             $viewData['error'] = 'THIS SPECIE ID DOESN\'T EXIST';
             $viewData['specieLocation'] = $specieLocation;
             return view('admin.SpecieLocation')
             ->with('viewData', $viewData);
         }
-        if($request->poblationalDensity) $specieLocation->setPoblationalDensity($request->poblationalDensity);
-        if($request->specie_id) $specieLocation->setSpecieId($request->specie_id);
-        if($request -> location_id) $specieLocation->setLocationId($request->location_id);
+        if($request->poblationalDensity) { $specieLocation->setPoblationalDensity($request->poblationalDensity);
+        }
+        if($request->specie_id) { $specieLocation->setSpecieId($request->specie_id);
+        }
+        if($request -> location_id) { $specieLocation->setLocationId($request->location_id);
+        }
         $specieLocation->save();
         return redirect()->route('admin.specieLocation', $specieLocation->getId());
     }

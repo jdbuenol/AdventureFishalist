@@ -23,29 +23,37 @@ class SpeciesCRUD extends Controller
         ->with('viewData', ["specie" => $specie]);
     }
 
-    function newSpecie(){
+    function newSpecie()
+    {
         return view('admin.SpecieCreate');
     }
 
     function createSpecie(Request $request)
     {
-        $this->validate($request, [
+        $this->validate(
+            $request, [
             'name' => 'required|max:255'
-        ]);
+            ]
+        );
 
-        Specie::create([
+        Specie::create(
+            [
             'name' => $request->name
-        ]);
+            ]
+        );
         
         return redirect()->route('admin.species');
     }
 
     function updateSpecie(Specie $specie, Request $request)
     {
-        $this->validate($request, [
+        $this->validate(
+            $request, [
             'name' => 'max:255',
-        ]);
-        if($request->name) $specie->setName($request->name);
+            ]
+        );
+        if($request->name) { $specie->setName($request->name);
+        }
         $specie->save();
         return redirect()->route('admin.specie', $specie->getId());
     }

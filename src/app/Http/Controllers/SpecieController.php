@@ -15,7 +15,7 @@ class SpecieController extends Controller
         $viewData['species'] = Specie::latest()
         ->paginate(16);
         return view('specie.Index')
-        ->with("viewData",$viewData);
+        ->with("viewData", $viewData);
     }
 
     public function show($id)

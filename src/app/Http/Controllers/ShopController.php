@@ -12,13 +12,13 @@ class ShopController extends Controller
     function index()
     {
         $popularPets = PetFishes::orderBy('quantityBought', 'desc')
-        ->with('specie')
-        ->take(5)
-        ->get();
+            ->with('specie')
+            ->take(5)
+            ->get();
         $popularFood = FoodFishes::orderBy('quantityBought', 'desc')
-        ->with('specie')
-        ->take(5)
-        ->get();
+            ->with('specie')
+            ->take(5)
+            ->get();
         return view('shop.Index')
         ->with('viewData', ['popularPets' => $popularPets, 'popularFood' => $popularFood]);
     }
@@ -27,10 +27,10 @@ class ShopController extends Controller
     {
         $viewData=[];
         $viewData['petfishs'] = PetFishes::orderBy('quantityBought', 'desc')
-        ->with(['specie'])
-        ->paginate(16);
+            ->with(['specie'])
+            ->paginate(16);
         return view('shop.PetShop')
-        ->with("viewData",$viewData);
+        ->with("viewData", $viewData);
     }
 
     public function petShow($id, Request $request)
@@ -41,9 +41,9 @@ class ShopController extends Controller
             $petFish = PetFishes::findOrFail($id);
             $viewData["petfish"] = $petFish;
             $viewData["cartButton"] = true;
-            if($request->session()->has('cart')){
+            if($request->session()->has('cart')) {
                 foreach($request->session()->get('cart') as $fishItem){
-                    if($fishItem["type"] == "PET" && $fishItem["fishId"] == $id){
+                    if($fishItem["type"] == "PET" && $fishItem["fishId"] == $id) {
                         $viewData["cartButton"] = false;
                         break;
                     }
@@ -60,10 +60,10 @@ class ShopController extends Controller
     {
         $viewData=[];
         $viewData['foodfishs'] = FoodFishes::orderBy('quantityBought', 'desc')
-        ->with('specie')
-        ->paginate(16);
+            ->with('specie')
+            ->paginate(16);
         return view('shop.FoodShop')
-        ->with("viewData",$viewData);
+        ->with("viewData", $viewData);
     }
 
     public function foodShow($id, Request $request)
@@ -73,9 +73,9 @@ class ShopController extends Controller
             $foodFish = FoodFishes::findOrFail($id);
             $viewData["foodfish"] = $foodFish;
             $viewData["cartButton"] = true;
-            if($request->session()->has('cart')){
+            if($request->session()->has('cart')) {
                 foreach($request->session()->get('cart') as $fishItem){
-                    if($fishItem["type"] == "FOOD" && $fishItem["fishId"] == $id){
+                    if($fishItem["type"] == "FOOD" && $fishItem["fishId"] == $id) {
                         $viewData["cartButton"] = false;
                         break;
                     }
@@ -88,17 +88,23 @@ class ShopController extends Controller
         }
     }
 
-    public function getRandomPet(){
+    public function getRandomPet()
+    {
         return redirect()
-        ->route('shop.petshopshow', PetFishes::inRandomOrder()
-        ->first()
-        ->getId());
+            ->route(
+                'shop.petshopshow', PetFishes::inRandomOrder()
+                    ->first()
+                    ->getId()
+            );
     }
 
-    public function getRandomFood(){
+    public function getRandomFood()
+    {
         return redirect()
-        ->route('shop.foodshopshow', FoodFishes::inRandomOrder()
-        ->first()
-        ->getId());
+            ->route(
+                'shop.foodshopshow', FoodFishes::inRandomOrder()
+                    ->first()
+                    ->getId()
+            );
     }
 }
