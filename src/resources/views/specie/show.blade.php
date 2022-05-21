@@ -18,7 +18,7 @@
 <div class="card mb-3">
   <div class="row g-0">
     <div class="col-12">
-      <img class="card-img-top" src="{{ asset('/images/map.png') }}">
+      <img class="card-img-top" src="{{ "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/".$SpecieLocation->getLocation()->getGeoLongitude().",".$SpecieLocation->getLocation()->getGeoLatitude().",5/1280x1280?access_token=".env("MAPBOX_KEY") }}">
       <div class="card-body">
         <p class="card-title"><b>LOCATION:</b> {{ $SpecieLocation->getLocation()->getName() }}</p>
         <p class="card-title"><b>GEO POSITION:</b> [{{ $SpecieLocation->getLocation()->getGeoLatitude() }}, {{ $SpecieLocation->getLocation()->getGeoLongitude() }}]</p>

@@ -17,7 +17,7 @@ class LocationFactory extends Factory
     {
         return [
             'name' => $this->faker->word.' '.$this->faker->word,
-            'geoLatitude' => rand(-9000, 9000)/100,
+            'geoLatitude' => rand(-8500, 8500)/100,
             'geoLongitude' => rand(-18000, 18000)/100,
             'country' => $this->faker->country
         ];
