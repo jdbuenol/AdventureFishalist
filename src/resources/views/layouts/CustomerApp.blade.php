@@ -11,7 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ asset('css/CustomerApp.css') }}">
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
     <nav class="navbar navbar-expand-lg navbar-light bg-light NavBar">
     
     <div class="collapse navbar-collapse navlist" id="navbarSupportedContent">
@@ -54,8 +54,10 @@
     </div>
     </nav>
     @yield('content')
-    <nav class="navbar navbar-light bg-light justify-content-center bottom-navbar mt-3">
-    <p class="display-5">powered by Laravel 9.2</p>
-    </nav>
+    <footer class="mt-auto">
+        <nav class="navbar navbar-light bg-light justify-content-center bottom-navbar">
+        <p class="display-5">powered by Laravel 9.2</p>
+        </nav>
+    </footer>
 </body>
 </html>
