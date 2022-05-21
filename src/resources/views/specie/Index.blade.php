@@ -13,18 +13,14 @@
     </div>
   </div>
   @endforeach
-  <div class="align-self-center center-text PostsHeader">
+  <ul class="pagination justify-content-center">
     @if($viewData["species"]->currentPage() > 1)
-    <a href="{{ route("specie.index", ['page' => $viewData["species"]->currentPage() - 1]) }}" class="mx-3">
-        PREVIOUS
-    </a>
+    <li class="page-item"><a class="page-link" href="{{ route("specie.index", ['page' => $viewData["species"]->currentPage() - 1]) }}">Previous</a></li>
     @endif
-    <b>{{ $viewData["species"]->currentPage() }}</b>
+    <li class="page-item disabled"><b class="page-link">{{ $viewData["species"]->currentPage() }}</b></li>
     @if($viewData["species"]->currentPage() < $viewData["species"]->lastPage())
-    <a href="{{ route("specie.index", ['page' => $viewData["species"]->currentPage() + 1]) }}" class="mx-3">
-        NEXT
-    </a>
+    <li class="page-item"><a class="page-link" href="{{ route("specie.index", ['page' => $viewData["species"]->currentPage() + 1]) }}">Next</a></li>
     @endif
-  </div>
+  </ul>
 </div>
 @endsection

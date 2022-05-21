@@ -20,18 +20,14 @@
     </div>
   </div>
   @endforeach
-  <div class="align-self-center center-text PostsHeader">
+  <ul class="pagination justify-content-center">
     @if($viewData["petfishs"]->currentPage() > 1)
-    <a href="{{ route("shop.petShop", ['page' => $viewData["petfishs"]->currentPage() - 1]) }}" class="mx-3">
-        PREVIOUS
-    </a>
+    <li class="page-item"><a class="page-link" href="{{ route("shop.petShop", ['page' => $viewData["petfishs"]->currentPage() - 1])}}">Previous</a></li>
     @endif
-    <b>{{ $viewData["petfishs"]->currentPage() }}</b>
+    <li class="page-item disabled"><b class="page-link">{{ $viewData["petfishs"]->currentPage() }}</b></li>
     @if($viewData["petfishs"]->currentPage() < $viewData["petfishs"]->lastPage())
-    <a href="{{ route("shop.petShop", ['page' => $viewData["petfishs"]->currentPage() + 1]) }}" class="mx-3">
-        NEXT
-    </a>
+    <li class="page-item"><a class="page-link" href="{{ route("shop.petShop", ['page' => $viewData["petfishs"]->currentPage() + 1]) }}">Next</a></li>
     @endif
-  </div>
+  </ul>
 </div>
 @endsection

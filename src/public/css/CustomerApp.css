@@ -76,3 +76,7 @@ body{
 .nav-link{
     font-weight: bolder;
 }
+
+.bottom-navbar{
+    background-color: blue;
+}

@@ -54,5 +54,8 @@
     </div>
     </nav>
     @yield('content')
+    <nav class="navbar navbar-light bg-light justify-content-center bottom-navbar mt-3">
+    <p class="display-5">powered by Laravel 9.2</p>
+    </nav>
 </body>
 </html>
