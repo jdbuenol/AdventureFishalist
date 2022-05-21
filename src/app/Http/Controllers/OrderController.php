@@ -17,12 +17,14 @@ class OrderController extends Controller
         $viewData['items'] = [];
         $totalPrice = 0;
         if($request->session()->has('cart')){
+            $allFishes = PetFishes::all();
+            $allFood = FoodFishes::all();
             foreach($request->session()->get('cart') as $fishItem){
                 if($fishItem["type"] == "PET"){
-                    array_push($viewData['items'], ["fish" => PetFishes::find($fishItem["fishId"]), "quantity" => $fishItem["quantity"], "price" => $fishItem["price"], "type" => "PET"]);
+                    array_push($viewData['items'], ["fish" => $allFishes->firstWhere("id", $fishItem["fishId"]), "quantity" => $fishItem["quantity"], "price" => $fishItem["price"], "type" => "PET"]);
                 }
                 else{
-                    array_push($viewData['items'], ["fish" => FoodFishes::find($fishItem["fishId"]), "quantity" => $fishItem["quantity"], "price" => $fishItem["price"], "type" => "FOOD"]);
+                    array_push($viewData['items'], ["fish" => $allFood->firstWhere("id", $fishItem["fishId"]), "quantity" => $fishItem["quantity"], "price" => $fishItem["price"], "type" => "FOOD"]);
                 }
                 $totalPrice += $fishItem['price'];
             }
@@ -81,21 +83,21 @@ class OrderController extends Controller
                 $fish = PetFishes::find($cartItem["fishId"]);
                 if($fish->getInventory() < $cartItem["quantity"]){
                     return view('order.NotEnoughBalance')
-                    ->with('viewData', 'Whoops! We don\'t have enough of '.$fish->getSpecie()->getName().' '.$fish->getSize().' at the moment.');
+                    ->with('viewData', ["message" => 'Whoops! We don\'t have enough of '.$fish->getSpecie()->getName().' '.$fish->getSize().' at the moment.']);
                 }
             }
             else{
                 $fish = FoodFishes::find($cartItem["fishId"]);
                 if($fish->getInventoryKG() < $cartItem["quantity"]){
                     return view('order.NotEnoughBalance')
-                    ->with('viewData', 'Whoops! We don\'t have enough of '.$fish->getSpecie()->getName().' '.$fish->getCut().' at the moment.');
+                    ->with('viewData', ["message" => 'Whoops! We don\'t have enough of '.$fish->getSpecie()->getName().' '.$fish->getCut().' at the moment.']);
                 }
             }
             $totalPrice += $cartItem['price'];
         }
         if(auth()->user()->getBalance() < $totalPrice){
             return view('order.NotEnoughBalance')
-            ->with('viewData', 'Whoops! It seems you don\'t have enough money, come back when you\'re a little Richer!');
+            ->with('viewData', ["message" => 'Whoops! It seems you don\'t have enough money, come back when you\'re a little Richer!']);
         }
         $newOrder = Order::create([
             'user_id' => auth()->user()->getId()
@@ -130,6 +132,6 @@ class OrderController extends Controller
         auth()->user()->save();
         $request->session()->forget('cart');
         return view('order.NotEnoughBalance')
-        ->with('viewData', 'THANKS FOR YOUR SHOPPING EXPERIENCE');
+        ->with('viewData', ["message" => 'THANKS FOR YOUR SHOPPING EXPERIENCE']);
     }
 }

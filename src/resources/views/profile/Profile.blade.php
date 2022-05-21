@@ -3,11 +3,11 @@
 @section('title', "PROFILE")
 @section('content')
 <div class="PostsHeader Bordered">
-    <p class="display-2">{{ $viewData->getName() }}</p>
-    <p><b>BALANCE:</b> {{ $viewData->getBalance() }}</p>
-    <p><b>EMAIL:</b> {{ $viewData->getEmail() }}</p>
-    <p><b>LIFE LONG EXPENSES:</b> {{ $viewData->getLifeLongExpenses() }}</p>
-    <p><b>TOTAL ORDERS:</b> {{ count($viewData->getOrders()) }}</p>
+    <p class="display-2">{{ $viewData["user"]->getName() }}</p>
+    <p><b>BALANCE:</b> {{ $viewData["user"]->getBalance() }}</p>
+    <p><b>EMAIL:</b> {{ $viewData["user"]->getEmail() }}</p>
+    <p><b>LIFE LONG EXPENSES:</b> {{ $viewData["user"]->getLifeLongExpenses() }}</p>
+    <p><b>TOTAL ORDERS:</b> {{ count($viewData["user"]->getOrders()) }}</p>
     <p><b>ORDERS:</b>
         <table class="table">
             <thead>
@@ -18,7 +18,7 @@
               </tr>
             </thead>
             <tbody>
-                @foreach ($viewData->getOrders() as $order)
+                @foreach ($viewData["user"]->getOrders() as $order)
                     <tr>
                         <td>{{ $order->getId() }}</td>
                         <td>{{ $order->getTotalPrice() }}</td>

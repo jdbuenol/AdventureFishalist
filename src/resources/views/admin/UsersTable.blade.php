@@ -15,8 +15,8 @@
       </tr>
     </thead>
     <tbody>
-        @if($viewData->count())
-            @foreach ($viewData as $user)
+        @if($viewData["allUsers"]->count())
+            @foreach ($viewData["allUsers"] as $user)
                 <tr>
                     <td>{{ $user->getId() }}</td>
                     <td><a href="{{ route('admin.user', $user->getId())}}">{{ $user->getName() }}</a></td>
@@ -30,13 +30,13 @@
     </tbody>
   </table>
   <div class="align-self-center center-text">
-    @if($viewData->currentPage() > 1)
-    <a href="{{ route("admin.users", ['page' => $viewData->currentPage() - 1]) }}" class="mx-3">
+    @if($viewData["allUsers"]->currentPage() > 1)
+    <a href="{{ route("admin.users", ['page' => $viewData["allUsers"]->currentPage() - 1]) }}" class="mx-3">
         PREVIOUS
     </a>
     @endif
-    @if($viewData->currentPage() < $viewData->lastPage())
-    <a href="{{ route("admin.users", ['page' => $viewData->currentPage() + 1]) }}" class="mx-3">
+    @if($viewData["allUsers"]->currentPage() < $viewData["allUsers"]->lastPage())
+    <a href="{{ route("admin.users", ['page' => $viewData["allUsers"]->currentPage() + 1]) }}" class="mx-3">
         NEXT
     </a>
     @endif

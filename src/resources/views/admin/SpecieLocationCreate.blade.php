@@ -29,8 +29,8 @@
         @error('specie_id')
             <p class="red-text">{{ $message }}</p>
         @enderror
-        @if($viewData)
-            <p class="red-text">{{ $viewData }}</p>
+        @if($viewData["message"])
+            <p class="red-text">{{ $viewData["message"] }}</p>
         @endif
         <button type="submit" class="btn btn-primary my-5">
             SUBMIT

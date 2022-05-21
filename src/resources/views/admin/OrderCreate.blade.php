@@ -12,8 +12,8 @@
             <label for="user_id" class="label">USER ID</label>
             <input type="text" name="user_id" id="user_id" placeholder="user_id" value="{{ old('user_id') }}" class="form-control">
         </div>
-        @if($viewData)
-            <p class="red-text">{{ $viewData }}</p>
+        @if($viewData["message"])
+            <p class="red-text">{{ $viewData["message"] }}</p>
         @endif
         @error('user_id')
             <p class="red-text">{{ $message }}</p>

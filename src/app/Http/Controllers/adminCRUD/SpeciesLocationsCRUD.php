@@ -17,7 +17,7 @@ class SpeciesLocationsCRUD extends Controller
         ->with(['location', 'specie'])
         ->paginate(10);
         return view('admin.SpeciesLocationsTable')
-        ->with('viewData', $allSpeciesLocations);
+        ->with('viewData', ["allSpeciesLocations" => $allSpeciesLocations]);
     }
 
     function specieLocation(SpecieLocation $specieLocation)
@@ -28,7 +28,7 @@ class SpeciesLocationsCRUD extends Controller
 
     function newSpecieLocation(){
         return view('admin.SpecieLocationCreate')
-        ->with('viewData', null);
+        ->with('viewData', ["message" => null]);
     }
 
     function createSpecieLocation(Request $request)
@@ -41,11 +41,11 @@ class SpeciesLocationsCRUD extends Controller
 
         if(! Specie::find($request->specie_id)){
             return view('admin.SpecieLocationCreate')
-            ->with('viewData', 'THIS SPECIE ID DOESN\'T EXIST');
+            ->with('viewData', ["message" => 'THIS SPECIE ID DOESN\'T EXIST']);
         }
         if(! Location::find($request->location_id)){
             return view('admin.SpecieLocationCreate')
-            ->with('viewData', 'THIS LOCATION ID DOESN\'T EXIST');
+            ->with('viewData', ["message" => 'THIS LOCATION ID DOESN\'T EXIST']);
         }
         SpecieLocation::create([
             'poblationalDensity' => $request->poblationalDensity,

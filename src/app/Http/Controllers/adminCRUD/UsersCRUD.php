@@ -15,13 +15,13 @@ class UsersCRUD extends Controller
         $allUsers = User::latest()
         ->paginate(10);
         return view('admin.UsersTable')
-        ->with('viewData', $allUsers);
+        ->with('viewData', ["allUsers" => $allUsers]);
     }
 
     function user(User $user)
     {
         return view('admin.User')
-        ->with('viewData', $user);
+        ->with('viewData', ["user" => $user]);
     }
 
     function newUser(){

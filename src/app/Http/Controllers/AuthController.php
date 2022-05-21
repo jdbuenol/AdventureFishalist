@@ -66,7 +66,7 @@ class AuthController extends Controller
             'email' => $request->email,
             'password' => $request->password
         ], $request->remember)){
-            return back()->with('viewData', 'Invalid login details');
+            return back()->with('viewData', ["message" => 'Invalid login details']);
         }
         return redirect()->route('shop.index');
     }

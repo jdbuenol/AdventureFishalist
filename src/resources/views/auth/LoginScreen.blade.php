@@ -26,7 +26,7 @@
             <p class="red-text">{{ $message }}</p>
         @enderror
         @if(session('viewData'))
-            <p class="red-text">{{ session('viewData') }}</p>
+            <p class="red-text">{{ session('viewData')["message"] }}</p>
         @endif
         <button class="btn btn-primary mt-3">
             SUBMIT

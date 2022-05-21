@@ -14,18 +14,18 @@ class LocationsCRUD extends Controller
         $allLocations = Location::latest()
         ->paginate(10);
         return view('admin.LocationsTable')
-        ->with('viewData', $allLocations);
+        ->with('viewData', ["allLocations" => $allLocations]);
     }
 
     function location(Location $location)
     {
         return view('admin.Location')
-        ->with('viewData', $location);
+        ->with('viewData', ["location" => $location]);
     }
 
     function newLocation(){
         return view('admin.LocationCreate')
-        ->with('viewData', null);
+        ->with('viewData', ["message" => null]);
     }
 
     function createLocation(Request $request)

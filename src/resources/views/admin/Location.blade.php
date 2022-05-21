@@ -3,30 +3,30 @@
 @section('title', "LOCATION")
 @section('content')
 <div class="d-flex flex-column">
-    <h1 class="display-1 align-self-center">{{ $viewData->getName() }}</h1>
+    <h1 class="display-1 align-self-center">{{ $viewData["location"]->getName() }}</h1>
     <div class="align-self-center center-text">
-    <b>ID: </b>{{ $viewData->getId() }}
+    <b>ID: </b>{{ $viewData["location"]->getId() }}
     </div>
     <div class="align-self-center center-text">
-    <b>GeoLatitude: </b>{{ $viewData->getGeoLatitude() }}
+    <b>GeoLatitude: </b>{{ $viewData["location"]->getGeoLatitude() }}
     </div>
     <div class="align-self-center center-text">
-    <b>GeoLongitude: </b>{{ $viewData->getGeoLongitude() }}
+    <b>GeoLongitude: </b>{{ $viewData["location"]->getGeoLongitude() }}
     </div>
     <div class="align-self-center center-text">
-    <b>Country: </b>{{ $viewData->getCountry() }}
+    <b>Country: </b>{{ $viewData["location"]->getCountry() }}
     </div>
     <div class="align-self-center center-text">
         <b>SPECIES LOCATIONS: </b>
         [
-            @foreach ($viewData->getSpecieLocations() as $specieLocation)
+            @foreach ($viewData["location"]->getSpecieLocations() as $specieLocation)
             <a href="{{ route('admin.specieLocation', $specieLocation->getId()) }}">{{ $specieLocation->getId() }}</a>
             @endforeach
         ]
     </div>
     <hr>
     <h1 class="display-2 align-self-center">UPDATE ENTRY</h1>
-    <form action="{{ route('admin.updateLocation', $viewData->getId()) }}" method="POST" class="Submit-form align-self-center d-flex flex-column">
+    <form action="{{ route('admin.updateLocation', $viewData["location"]->getId()) }}" method="POST" class="Submit-form align-self-center d-flex flex-column">
         @csrf
         @method('PUT')
         <div class="form-group">
@@ -62,7 +62,7 @@
         </button>
     </form>
     <hr>
-    <form action="{{ route('admin.deleteLocation', $viewData->getId() )}}" method="POST" class="align-self-center d-flex flex-column">
+    <form action="{{ route('admin.deleteLocation', $viewData["location"]->getId() )}}" method="POST" class="align-self-center d-flex flex-column">
         @csrf
         @method('DELETE')
         <button class="btn btn-danger">

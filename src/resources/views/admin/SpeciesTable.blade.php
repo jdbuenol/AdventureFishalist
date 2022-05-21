@@ -11,8 +11,8 @@
       </tr>
     </thead>
     <tbody>
-        @if($viewData->count())
-            @foreach ($viewData as $specie)
+        @if($viewData["allSpecies"]->count())
+            @foreach ($viewData["allSpecies"] as $specie)
                 <tr>
                     <td>{{ $specie->getId() }}</td>
                     <td><a href="{{ route('admin.specie', $specie->getId())}}">{{ $specie->getName() }}</a></td>
@@ -22,13 +22,13 @@
     </tbody>
   </table>
   <div class="align-self-center center-text">
-    @if($viewData->currentPage() > 1)
-    <a href="{{ route("admin.species", ['page' => $viewData->currentPage() - 1]) }}" class="mx-3">
+    @if($viewData["allSpecies"]->currentPage() > 1)
+    <a href="{{ route("admin.species", ['page' => $viewData["allSpecies"]->currentPage() - 1]) }}" class="mx-3">
         PREVIOUS
     </a>
     @endif
-    @if($viewData->currentPage() < $viewData->lastPage())
-    <a href="{{ route("admin.species", ['page' => $viewData->currentPage() + 1]) }}" class="mx-3">
+    @if($viewData["allSpecies"]->currentPage() < $viewData["allSpecies"]->lastPage())
+    <a href="{{ route("admin.species", ['page' => $viewData["allSpecies"]->currentPage() + 1]) }}" class="mx-3">
         NEXT
     </a>
     @endif

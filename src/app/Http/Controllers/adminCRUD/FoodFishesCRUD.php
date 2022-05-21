@@ -21,7 +21,7 @@ class foodFishesCRUD extends Controller
         ->with('specie')
         ->paginate(10);
         return view('admin.FoodFishesTable')
-        ->with('viewData', $allFoodFishes);
+        ->with('viewData', ["allFoodFishes" => $allFoodFishes]);
     }
 
     function foodFish(FoodFishes $foodFish)
@@ -32,7 +32,7 @@ class foodFishesCRUD extends Controller
 
     function newFoodFish(){
         return view('admin.FoodFishCreate')
-        ->with('viewData', null);
+        ->with('viewData', ["message" => null]);
     }
 
     function createFoodFish(Request $request)
@@ -45,7 +45,7 @@ class foodFishesCRUD extends Controller
         ]);
         if(! Specie::find($request->specie_id)){
             return view('admin.FoodFishCreate')
-            ->with('viewData', 'THIS SPECIE ID DOESN\'T EXIST');
+            ->with('viewData', ["message" => 'THIS SPECIE ID DOESN\'T EXIST']);
         }
         FoodFishes::create([
             'specie_id' => $request->specie_id,

@@ -3,6 +3,6 @@
 @section('title', "CART")
 @section('content')
 <div class="PostsHeader Bordered">
-    <p>{{ $viewData }}</p>
+    <p>{{ $viewData["message"] }}</p>
 </div>
 @endsection

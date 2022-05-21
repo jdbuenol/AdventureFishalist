@@ -14,8 +14,8 @@
       </tr>
     </thead>
     <tbody>
-        @if($viewData->count())
-            @foreach ($viewData as $foodFish)
+        @if($viewData["allFoodFishes"]->count())
+            @foreach ($viewData["allFoodFishes"] as $foodFish)
                 <tr>
                     <td><a href="{{ route('admin.foodFish', $foodFish->getId()) }}">{{ $foodFish->getId() }}</a></td>
                     <td>{{ $foodFish->getPricePerKG() }}</td>
@@ -28,13 +28,13 @@
     </tbody>
   </table>
   <div class="align-self-center center-text">
-    @if($viewData->currentPage() > 1)
-    <a href="{{ route("admin.foodFishes", ['page' => $viewData->currentPage() - 1]) }}" class="mx-3">
+    @if($viewData["allFoodFishes"]->currentPage() > 1)
+    <a href="{{ route("admin.foodFishes", ['page' => $viewData["allFoodFishes"]->currentPage() - 1]) }}" class="mx-3">
         PREVIOUS
     </a>
     @endif
-    @if($viewData->currentPage() < $viewData->lastPage())
-    <a href="{{ route("admin.foodFishes", ['page' => $viewData->currentPage() + 1]) }}" class="mx-3">
+    @if($viewData["allFoodFishes"]->currentPage() < $viewData["allFoodFishes"]->lastPage())
+    <a href="{{ route("admin.foodFishes", ['page' => $viewData["allFoodFishes"]->currentPage() + 1]) }}" class="mx-3">
         NEXT
     </a>
     @endif

@@ -21,7 +21,7 @@ class petFishesCRUD extends Controller
         ->with('specie')
         ->paginate(10);
         return view('admin.PetFishesTable')
-        ->with('viewData', $allPetFishes);
+        ->with('viewData', ["allPetFishes" => $allPetFishes]);
     }
 
     function petFish(PetFishes $petFish)
@@ -33,7 +33,7 @@ class petFishesCRUD extends Controller
 
     function newPetFish(){
         return view('admin.PetFishCreate')
-        ->with('viewData', null);
+        ->with('viewData', ["message" => null]);
     }
 
     function createPetFish(Request $request)
@@ -46,7 +46,7 @@ class petFishesCRUD extends Controller
         ]);
         if(! Specie::find($request->specie_id)){
             return view('admin.PetFishCreate')
-            ->with('viewData', 'THIS SPECIE ID DOESN\'T EXIST');
+            ->with('viewData', ["message" => 'THIS SPECIE ID DOESN\'T EXIST']);
         }
         PetFishes::create([
             'specie_id' => $request->specie_id,

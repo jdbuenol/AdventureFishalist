@@ -14,8 +14,8 @@
       </tr>
     </thead>
     <tbody>
-        @if($viewData->count())
-            @foreach ($viewData as $location)
+        @if($viewData["allLocations"]->count())
+            @foreach ($viewData["allLocations"] as $location)
                 <tr>
                     <td>{{ $location->getId() }}</td>
                     <td><a href="{{ route('admin.location', $location->getId())}}">{{ $location->getName() }}</a></td>
@@ -28,13 +28,13 @@
     </tbody>
   </table>
   <div class="align-self-center center-text">
-    @if($viewData->currentPage() > 1)
-    <a href="{{ route("admin.locations", ['page' => $viewData->currentPage() - 1]) }}" class="mx-3">
+    @if($viewData["allLocations"]->currentPage() > 1)
+    <a href="{{ route("admin.locations", ['page' => $viewData["allLocations"]->currentPage() - 1]) }}" class="mx-3">
         PREVIOUS
     </a>
     @endif
-    @if($viewData->currentPage() < $viewData->lastPage())
-    <a href="{{ route("admin.locations", ['page' => $viewData->currentPage() + 1]) }}" class="mx-3">
+    @if($viewData["allLocations"]->currentPage() < $viewData["allLocations"]->lastPage())
+    <a href="{{ route("admin.locations", ['page' => $viewData["allLocations"]->currentPage() + 1]) }}" class="mx-3">
         NEXT
     </a>
     @endif

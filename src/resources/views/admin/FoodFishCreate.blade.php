@@ -37,8 +37,8 @@
             <label for="specie_id" class="label">SPECIE ID</label>
             <input type="text" name="specie_id" id="specie_id" placeholder="specie_id" value="{{ old('specie_id') }}" class="form-control">
         </div>
-        @if($viewData)
-            <p class="red-text">{{ $viewData }}</p>
+        @if($viewData["message"])
+            <p class="red-text">{{ $viewData["message"] }}</p>
         @endif
         @error('specie_id')
             <p class="red-text">{{ $message }}</p>

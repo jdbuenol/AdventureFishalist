@@ -14,7 +14,8 @@ class SpecieController extends Controller
         $viewData=[];
         $viewData['species'] = Specie::latest()
         ->paginate(16);
-        return view('specie.Index')->with("viewData",$viewData);
+        return view('specie.Index')
+        ->with("viewData",$viewData);
     }
 
     public function show($id)
@@ -23,7 +24,8 @@ class SpecieController extends Controller
             $viewData = [];
             $specie = Specie::findOrFail($id);
             $viewData["specie"] = $specie;
-            return view('specie.show')->with("viewData", $viewData);
+            return view('specie.show')
+            ->with("viewData", $viewData);
         } catch (ModelNotFoundException $e) {
             return back();
         }

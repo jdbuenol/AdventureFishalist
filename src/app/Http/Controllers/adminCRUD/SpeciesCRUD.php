@@ -14,13 +14,13 @@ class SpeciesCRUD extends Controller
         $allSpecies = Specie::latest()
         ->paginate(10);
         return view('admin.SpeciesTable')
-        ->with('viewData', $allSpecies);
+        ->with('viewData', ["allSpecies" => $allSpecies]);
     }
 
     function specie(Specie $specie)
     {
         return view('admin.Specie')
-        ->with('viewData', $specie);
+        ->with('viewData', ["specie" => $specie]);
     }
 
     function newSpecie(){

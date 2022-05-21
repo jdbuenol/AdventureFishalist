@@ -15,8 +15,8 @@
       </tr>
     </thead>
     <tbody>
-        @if($viewData->count())
-            @foreach ($viewData as $fishOrder)
+        @if($viewData["allFishOrders"]->count())
+            @foreach ($viewData["allFishOrders"] as $fishOrder)
                 <tr>
                     <td><a href="{{ route('admin.fishOrder', $fishOrder->getId()) }}">{{ $fishOrder->getId() }}</a></td>
                     <td><a href="{{ route('admin.order', $fishOrder->getOrderId()) }}">{{ $fishOrder->getOrderId() }}</a></td>
@@ -35,13 +35,13 @@
     </tbody>
   </table>
   <div class="align-self-center center-text">
-    @if($viewData->currentPage() > 1)
-    <a href="{{ route("admin.fishOrders", ['page' => $viewData->currentPage() - 1]) }}" class="mx-3">
+    @if($viewData["allFishOrders"]->currentPage() > 1)
+    <a href="{{ route("admin.fishOrders", ['page' => $viewData["allFishOrders"]->currentPage() - 1]) }}" class="mx-3">
         PREVIOUS
     </a>
     @endif
-    @if($viewData->currentPage() < $viewData->lastPage())
-    <a href="{{ route("admin.fishOrders", ['page' => $viewData->currentPage() + 1]) }}" class="mx-3">
+    @if($viewData["allFishOrders"]->currentPage() < $viewData["allFishOrders"]->lastPage())
+    <a href="{{ route("admin.fishOrders", ['page' => $viewData["allFishOrders"]->currentPage() + 1]) }}" class="mx-3">
         NEXT
     </a>
     @endif

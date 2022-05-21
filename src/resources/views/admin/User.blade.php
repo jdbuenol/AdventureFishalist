@@ -3,33 +3,33 @@
 @section('title', "USER")
 @section('content')
 <div class="d-flex flex-column">
-    <h1 class="display-1 align-self-center">{{ $viewData->getName() }} </h1>
+    <h1 class="display-1 align-self-center">{{ $viewData["user"]->getName() }} </h1>
     <div class="align-self-center center-text">
-    <b>ID: </b>{{ $viewData->getId() }}
+    <b>ID: </b>{{ $viewData["user"]->getId() }}
     </div>
     <div class="align-self-center center-text">
-    <b>BALANCE: </b>{{ $viewData->getBalance() }}
+    <b>BALANCE: </b>{{ $viewData["user"]->getBalance() }}
     </div>
     <div class="align-self-center center-text">
-    <b>EMAIL: </b>{{ $viewData->getEmail() }}
+    <b>EMAIL: </b>{{ $viewData["user"]->getEmail() }}
     </div>
     <div class="align-self-center center-text">
-    <b>PASSWORD: </b>{{ $viewData->getPassword() }}
+    <b>PASSWORD: </b>{{ $viewData["user"]->getPassword() }}
     </div>
     <div class="align-self-center center-text">
-    <b>isAdmin: </b>{{ $viewData->isAdmin() }}
+    <b>isAdmin: </b>{{ $viewData["user"]->isAdmin() }}
     </div>
     <div class="align-self-center center-text">
         <b>ORDERS: </b>
         [
-            @foreach ($viewData->getOrders() as $order)
+            @foreach ($viewData["user"]->getOrders() as $order)
             <a href="{{ route('admin.order', $order->getId()) }}">{{ $order->getId() }}</a>
             @endforeach
         ]
     </div>
     <hr>
     <h1 class="display-2 align-self-center">UPDATE ENTRY</h1>
-    <form action="{{ route('admin.updateUser', $viewData->getId()) }}" method="POST" class="Submit-form align-self-center d-flex flex-column">
+    <form action="{{ route('admin.updateUser', $viewData["user"]->getId()) }}" method="POST" class="Submit-form align-self-center d-flex flex-column">
         @csrf
         @method('PUT')
         <div class="form-group">
@@ -69,7 +69,7 @@
         </button>
     </form>
     <hr>
-    <form action="{{ route('admin.deleteUser', $viewData->getId() )}}" method="POST" class="align-self-center d-flex flex-column">
+    <form action="{{ route('admin.deleteUser', $viewData["user"]->getId() )}}" method="POST" class="align-self-center d-flex flex-column">
         @csrf
         @method('DELETE')
         <button class="btn btn-danger">

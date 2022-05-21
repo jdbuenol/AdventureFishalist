@@ -18,7 +18,7 @@ class FishOrdersCRUD extends Controller
         ->with(['petFishes', 'foodFishes', 'order'])
         ->paginate(10);
         return view('admin.FishOrdersTable')
-        ->with('viewData', $allFishOrders);
+        ->with('viewData', ["allFishOrders" => $allFishOrders]);
     }
 
     function fishOrder(FishOrder $fishOrder)
@@ -29,7 +29,7 @@ class FishOrdersCRUD extends Controller
 
     function newFishOrder(){
         return view('admin.FishOrderCreate')
-        ->with('viewData', null);
+        ->with('viewData', ["message" => null]);
     }
 
     function createFishOrder(Request $request)
@@ -40,7 +40,7 @@ class FishOrdersCRUD extends Controller
         ]);
         if(! Order::find($request->order_id)){
             return view('admin.FishOrderCreate')
-            ->with('viewData', 'THIS ORDER ID DOESN\'T EXIST');
+            ->with('viewData', ["message" => 'THIS ORDER ID DOESN\'T EXIST']);
         }
 
         if($request->type == 'PET'){
@@ -50,7 +50,7 @@ class FishOrdersCRUD extends Controller
             ]);
             if(! PetFishes::find($request->petFish_id)){
                 return view('admin.FishOrderCreate')
-                ->with('viewData', 'THIS PET FISH ID DOESN\'T EXIST');
+                ->with('viewData', ["message" => 'THIS PET FISH ID DOESN\'T EXIST']);
             }
             FishOrder::create([
                 'type' => $request->type,
@@ -68,7 +68,7 @@ class FishOrdersCRUD extends Controller
             ]);
             if(! FoodFishes::find($request->foodFish_id)){
                 return view('admin.FishOrderCreate')
-                ->with('viewData', 'THIS FOOD FISH ID DOESN\'T EXIST');
+                ->with('viewData', ["message" => 'THIS FOOD FISH ID DOESN\'T EXIST']);
             }
             FishOrder::create([
                 'type' => $request->type,
@@ -80,8 +80,8 @@ class FishOrdersCRUD extends Controller
             ]);
         }
         else{
-            return view('admin.FishOrder')
-            ->with('viewData', 'INVALID TYPE OF ORDER');
+            return view('admin.FishOrderCreate')
+            ->with('viewData', ["message" => 'INVALID TYPE OF ORDER']);
         }
         return redirect()
         ->route('admin.fishOrders');

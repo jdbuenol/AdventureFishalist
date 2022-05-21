@@ -16,7 +16,7 @@ class OrdersCRUD extends Controller
         ->with('user')
         ->paginate(10);
         return view('admin.OrdersTable')
-        ->with('viewData', $allOrders);
+        ->with('viewData', ["allOrders" => $allOrders]);
     }
 
     function order(Order $order)
@@ -27,7 +27,7 @@ class OrdersCRUD extends Controller
 
     function newOrder(){
         return view('admin.OrderCreate')
-        ->with('viewData', null);
+        ->with('viewData', ["message" => null]);
     }
 
     function createOrder(Request $request)
@@ -38,7 +38,7 @@ class OrdersCRUD extends Controller
 
         if(! User::find($request->user_id)){
             return view('admin.OrderCreate')
-            ->with('viewData', 'THIS USER ID DOESN\'T EXIST');
+            ->with('viewData', ["message" => 'THIS USER ID DOESN\'T EXIST']);
         }
         Order::create([
             'user_id' => $request->user_id
