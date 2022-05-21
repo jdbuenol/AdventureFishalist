@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        if(! \App\Models\User::exists()){
+        if(! \App\Models\User::exists()) {
             \App\Models\User::factory(1)->create();
         }
         \App\Models\Specie::factory(10)->create();

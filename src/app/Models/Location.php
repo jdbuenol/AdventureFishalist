@@ -20,7 +20,7 @@ class Location extends Model
      * $this->speciesLocations - SpecieLocation[] - contains an array with all the speciesLocations that belongs to this location
      * $this->created_at - str - contains the date-time this location was created
      * $this->upated_at - str - contains the date-time this location was updated
-    */
+     */
 
     protected $fillable = ['name','geoLatitude','geoLongitude','country'];
 

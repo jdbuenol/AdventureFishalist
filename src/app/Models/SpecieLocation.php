@@ -20,7 +20,7 @@ class SpecieLocation extends Model
      * $this->specie - Specie - contains the specie this specie-location belongs to
      * $this->created_at - str - contains the date-time this specie was created
      * $this->upated_at - str - contains the date-time this specie was updated
-    */
+     */
 
     protected $fillable = ['poblationalDensity', 'location_id', 'specie_id'];
 

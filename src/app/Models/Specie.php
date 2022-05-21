@@ -19,7 +19,7 @@ class Specie extends Model
      * $this->specieLocations - SpecieLocation[] - contains all the the species locations that belong to this specie
      * $this->created_at - str - contains the date-time this specie was created
      * $this->upated_at - str - contains the date-time this specie was updated
-    */
+     */
 
     protected $fillable = ['name'];
 

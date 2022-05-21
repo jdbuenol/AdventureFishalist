@@ -20,7 +20,7 @@ class Order extends Model
      * $this->fishItems - FishOrder[] - contains an array of all the items that belongs to this order
      * $this->created_at - str - contains the date-time this order was created
      * $this->upated_at - str - contains the date-time this order was updated
-    */
+     */
 
     protected $fillable = [
         'user_id'

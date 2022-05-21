@@ -24,7 +24,7 @@ class User extends Authenticatable
      * $this->orders - Order[] - contains an array of all the orders that belongs to this user
      * $this->created_at - str - contains the date-time this specie was created
      * $this->upated_at - str - contains the date-time this specie was updated
-    */
+     */
 
     protected $fillable = [
         'name',

@@ -22,7 +22,7 @@ class FoodFishes extends Model
      * $this->fishItems - FishOrder[] - contains an array of all fish orders that belongs to this food fish
      * $this->created_at - str - contains the date-time this foodfish was created
      * $this->upated_at - str - contains the date-time this foodfish was updated
-    */
+     */
 
     protected $fillable = ['image','cut','pricePerKG','inventoryKG', 'specie_id', 'quantityBought'];
 

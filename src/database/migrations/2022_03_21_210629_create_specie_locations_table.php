@@ -14,13 +14,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('specie_locations', function (Blueprint $table) {
-            $table->id();
-            $table->float('poblationalDensity');
-            $table->foreignId('location_id')->constrained()->onDelete('cascade');
-            $table->foreignId('specie_id')->constrained()->onDelete('cascade');
-            $table->timestamps();
-        });
+        Schema::create(
+            'specie_locations', function (Blueprint $table) {
+                $table->id();
+                $table->float('poblationalDensity');
+                $table->foreignId('location_id')->constrained()->onDelete('cascade');
+                $table->foreignId('specie_id')->constrained()->onDelete('cascade');
+                $table->timestamps();
+            }
+        );
     }
 
     /**

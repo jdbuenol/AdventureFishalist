@@ -25,7 +25,7 @@ class FishOrder extends Model
      * $this->getTotalPrice() - float - returns the total price of this item (price of fish * quantity)
      * $this->created_at - str - contains the date-time this item was created
      * $this->upated_at - str - contains the date-time this item was updated
-    */
+     */
 
     protected $fillable = ['type', 'pet_fishes_id', 'food_fishes_id', 'order_id', 'quantityFish', 'quantityKG'];
 
@@ -126,7 +126,7 @@ class FishOrder extends Model
 
     public function getTotalPrice()
     {
-        if($this->getType() == 'PET'){
+        if($this->getType() == 'PET') {
             return $this->getPetFishes()->getPrice() * $this->getQuantityFish();
         }
         else{

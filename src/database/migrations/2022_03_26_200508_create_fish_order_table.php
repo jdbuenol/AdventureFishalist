@@ -13,16 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('fish_orders', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('order_id')->constrained()->onDelete('cascade');
-            $table->string('type');
-            $table->foreignId('pet_fishes_id')->nullable()->constrained()->onDelete('cascade');
-            $table->foreignId('food_fishes_id')->nullable()->constrained()->onDelete('cascade');
-            $table->integer('quantityFish');
-            $table->float('quantityKG');
-            $table->timestamps();
-        });
+        Schema::create(
+            'fish_orders', function (Blueprint $table) {
+                $table->id();
+                $table->foreignId('order_id')->constrained()->onDelete('cascade');
+                $table->string('type');
+                $table->foreignId('pet_fishes_id')->nullable()->constrained()->onDelete('cascade');
+                $table->foreignId('food_fishes_id')->nullable()->constrained()->onDelete('cascade');
+                $table->integer('quantityFish');
+                $table->float('quantityKG');
+                $table->timestamps();
+            }
+        );
     }
 
     /**

@@ -14,14 +14,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('locations', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->float('geoLatitude');
-            $table->float('geoLongitude');
-            $table->string('country');
-            $table->timestamps();
-        });
+        Schema::create(
+            'locations', function (Blueprint $table) {
+                $table->id();
+                $table->string('name');
+                $table->float('geoLatitude');
+                $table->float('geoLongitude');
+                $table->string('country');
+                $table->timestamps();
+            }
+        );
     }
 
     /**

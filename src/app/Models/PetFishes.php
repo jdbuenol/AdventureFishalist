@@ -22,7 +22,7 @@ class PetFishes extends Model
      * $this->fishItems - FishOrder[] - contains an array of all fish orders that belongs to this pet fish
      * $this->created_at - str - contains the date-time this petfish was created
      * $this->upated_at - str - contains the date-time this petfish was updated
-    */
+     */
 
     protected $fillable = ['image','size','price','inventory', 'specie_id', 'quantityBought'];
 

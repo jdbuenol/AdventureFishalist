@@ -13,16 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('food_fishes', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('specie_id')->constrained()->onDelete('cascade');
-            $table->string('image');
-            $table->string('cut');
-            $table->float('pricePerKG');
-            $table->float('inventoryKG');
-            $table->float('quantityBought');
-            $table->timestamps();
-        });
+        Schema::create(
+            'food_fishes', function (Blueprint $table) {
+                $table->id();
+                $table->foreignId('specie_id')->constrained()->onDelete('cascade');
+                $table->string('image');
+                $table->string('cut');
+                $table->float('pricePerKG');
+                $table->float('inventoryKG');
+                $table->float('quantityBought');
+                $table->timestamps();
+            }
+        );
     }
 
     /**
