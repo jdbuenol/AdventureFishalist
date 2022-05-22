@@ -26,6 +26,5 @@ class ProfileController extends Controller
         $format = $request->get('format');
         $generateHisoryInterface = app(GenerateHistory::class, ['format' => $format]);
         $generateHisoryInterface->generateHistory($request);
-        return back();
     }
 }

@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use App\Interfaces\GenerateHistory;
 use App\Util\GeneratePDFHistory;
+use App\Util\GenerateCSVHistory;
 
 class GenerateHistoryServiceProvider extends ServiceProvider{
 
@@ -13,6 +14,9 @@ class GenerateHistoryServiceProvider extends ServiceProvider{
             $format = $params['format'];
             if($format == 'pdf'){
                 return new GeneratePDFHistory();
+            }
+            else if($format == 'csv'){
+                return new GenerateCSVHistory();
             }
         });
     }

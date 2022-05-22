@@ -30,10 +30,17 @@
     </p>
 </div>
 <div class="PostsHeader Bordered">
-    <form action="{{ route('profile.history') }}" method="GET">
-    @csrf
-    <input name="format" class="d-none" value="pdf">
-    <button class="btn btn-danger">GENERATE PDF HISTORY</button>
-    </form>
+    <div class="d-flex justify-content-center btns-gap">
+        <form action="{{ route('profile.history') }}" method="GET">
+        @csrf
+        <input name="format" class="d-none" value="pdf">
+        <button class="btn btn-danger">GENERATE PDF HISTORY</button>
+        </form>
+        <form action="{{ route('profile.history') }}" method="GET">
+        @csrf
+        <input name="format" class="d-none" value="csv">
+        <button class="btn btn-warning">GENERATE CSV HISTORY</button>
+        </form>
+    </div>
 </div>
 @endsection

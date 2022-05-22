@@ -80,3 +80,7 @@ body{
 .bottom-navbar{
     background-color: blue;
 }
+
+.btns-gap{
+    gap: 25px;
+}
