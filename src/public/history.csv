@@ -1,0 +1,39 @@
+﻿"Order #1","Total Price: 3392.62"
+"Created At:","2022-05-21 16:18:26","Last Update At:","2022-05-21 16:18:26"
+ITEMS:
+TYPE,CUT/SIZE,SPECIE,QUANTITY,"ITEM PRICE"
+FOOD,"ABDOMEN MEAT","teal crab",2,$1230.58
+PET,BIG,"teal fish",3,$2162.04
+
+"Order #2","Total Price: 4183.166"
+"Created At:","2022-05-21 16:19:37","Last Update At:","2022-05-21 16:19:37"
+ITEMS:
+TYPE,CUT/SIZE,SPECIE,QUANTITY,"ITEM PRICE"
+FOOD,"ABDOMEN MEAT","Clown Fish",5.2,$2202.616
+PET,SMALL,"teal crab",5,$1980.55
+
+"Order #3","Total Price: 9614.5556"
+"Created At:","2022-05-22 17:03:54","Last Update At:","2022-05-22 17:03:54"
+ITEMS:
+TYPE,CUT/SIZE,SPECIE,QUANTITY,"ITEM PRICE"
+FOOD,"BACK MEAT","lime plankton",3,$1433.01
+PET,MEDIUM,"fuchsia squirrel",2,$1752.22
+PET,SMALL,"Clown Fish",1,$218.74
+FOOD,"TAIL MEAT","maroon squid",4,$3874.88
+PET,SMALL,"black whale",1,$815.24
+FOOD,"BACK MEAT","olive whale",5.23,$1520.4656
+
+"Order #4","Total Price: 1937.44"
+"Created At:","2022-05-22 17:04:32","Last Update At:","2022-05-22 17:04:32"
+ITEMS:
+TYPE,CUT/SIZE,SPECIE,QUANTITY,"ITEM PRICE"
+FOOD,"TAIL MEAT","maroon squid",2,$1937.44
+
+"Order #5","Total Price: 5190.32"
+"Created At:","2022-05-22 17:12:34","Last Update At:","2022-05-22 17:12:34"
+ITEMS:
+TYPE,CUT/SIZE,SPECIE,QUANTITY,"ITEM PRICE"
+FOOD,"BACK MEAT","olive whale",2,$581.44
+PET,SMALL,"teal crab",5,$1980.55
+PET,MEDIUM,"fuchsia squirrel",3,$2628.33
+

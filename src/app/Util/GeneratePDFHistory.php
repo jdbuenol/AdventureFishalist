@@ -27,7 +27,7 @@ class GeneratePDFHistory implements GenerateHistory{
             <th>CUT&frasl;SIZE</th>
             <th>SPECIE</th>
             <th>QUANTITY</th>
-            <th>TOTAL PRICE</th>
+            <th>ITEM PRICE</th>
             </tr>');
             for($j = 0; $j < count($items); $j++){
                 $item = $items[$j];
@@ -39,7 +39,7 @@ class GeneratePDFHistory implements GenerateHistory{
                     <td>{$pet->getSize()}</td>
                     <td>{$pet->getSpecie()->getName()}</td>
                     <td>{$item->getQuantityFish()}</td>
-                    <td>{$item->getTotalPrice()}</td>
+                    <td>&#36;{$item->getTotalPrice()}</td>
                     </tr>");
                 }
                 else if($type == "FOOD"){
@@ -48,8 +48,8 @@ class GeneratePDFHistory implements GenerateHistory{
                     <td>FOOD</td>
                     <td>{$food->getCut()}</td>
                     <td>{$food->getSpecie()->getName()}</td>
-                    <td>{$item->getQuantityKG()}</td>
-                    <td>{$item->getTotalPrice()}</td>
+                    <td>{$item->getQuantityKG()} KG</td>
+                    <td>&#36;{$item->getTotalPrice()}</td>
                     </tr>");
                 }
             }
