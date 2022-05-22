@@ -46,6 +46,10 @@ Route::get('/profile', 'App\Http\Controllers\ProfileController@profile')
     ->name("profile.profile")
     ->middleware(['auth']);
 
+Route::get('/profile/history', 'App\Http\Controllers\ProfileController@generateHistory')
+    ->name("profile.history")
+    ->middleware(['auth']);
+
 Route::get('/cart', 'App\Http\Controllers\OrderController@cart')
     ->name("order.cart")
     ->middleware(['auth']);

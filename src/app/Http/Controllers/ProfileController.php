@@ -6,6 +6,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Interfaces\GenerateHistory;
 
 /**
  * Controller of the users profiles 
@@ -19,5 +20,12 @@ class ProfileController extends Controller
     {
         return view('profile.Profile')
             ->with('viewData', ["user" => auth()->user()]);
+    }
+
+    function generateHistory(Request $request){
+        $format = $request->get('format');
+        $generateHisoryInterface = app(GenerateHistory::class, ['format' => $format]);
+        $generateHisoryInterface->generateHistory($request);
+        return back();
     }
 }

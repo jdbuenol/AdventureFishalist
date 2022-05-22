@@ -29,4 +29,11 @@
         </table>
     </p>
 </div>
+<div class="PostsHeader Bordered">
+    <form action="{{ route('profile.history') }}" method="GET">
+    @csrf
+    <input name="format" class="d-none" value="pdf">
+    <button class="btn btn-danger">GENERATE PDF HISTORY</button>
+    </form>
+</div>
 @endsection
