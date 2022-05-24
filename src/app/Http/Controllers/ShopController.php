@@ -24,8 +24,8 @@ class ShopController extends Controller
         ->with('viewData', ['popularPets' => $popularPets, 'popularFood' => $popularFood]);
     }
 
-    function changeLang($locale){
-    
+    function changeLang($locale)
+    {
         App::setLocale($locale);
         session()->put("locale",$locale);
         return redirect()->back();
