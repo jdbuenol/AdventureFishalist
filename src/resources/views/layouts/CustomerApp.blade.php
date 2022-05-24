@@ -25,8 +25,14 @@
         <li class="nav-item active">
             <a class="nav-link" href="{{ route('specie.index') }}">SPECIES</a>
         </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="{{ route('shop.changeLang', 'es') }}"> SPANISH</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="{{ route('shop.changeLang', 'en') }}"> ENGLISH</a>
+        </li>
         </ul>
-        <a class="navbar-brand" href="{{ route('shop.index') }}">ADVENTURE FISHALIST (DELUXE)</a>
+        <a class="navbar-brand" href="{{ route('shop.index') }}">{{ __('messages.welcome') }} ADVENTURE FISHALIST (DELUXE) </a>
         <ul class="navbar-nav mr-auto mx-4">
         @auth
         <li class="nav-item active">

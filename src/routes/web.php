@@ -14,8 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::group(['middleware' => 'localization'], function(){
 Route::get('/', 'App\Http\Controllers\ShopController@index')
 ->name('shop.index');
+
+Route::get('/change-language/{lang}',"App\Http\Controllers\ShopController@changeLang")
+->name('shop.changeLang');
 
 Route::get('/petshop', 'App\Http\Controllers\ShopController@petShop')
 ->name('shop.petShop');
@@ -261,3 +265,4 @@ Route::group(
 // Errors
 Route::get('/403', 'App\Http\Controllers\errorController@forbidden')
 ->name('error.forbidden');
+});

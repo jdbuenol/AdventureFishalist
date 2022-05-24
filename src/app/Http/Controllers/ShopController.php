@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use App\Models\FoodFishes;
 use App\Models\PetFishes;
 
@@ -22,6 +23,13 @@ class ShopController extends Controller
         return view('shop.Index')
         ->with('viewData', ['popularPets' => $popularPets, 'popularFood' => $popularFood]);
     }
+
+    function changeLang($locale){
+    
+        App::setLocale($locale);
+        session()->put("locale",$locale);
+        return redirect()->back();
+    }  
 
     function petShop()
     {
