@@ -1,5 +1,5 @@
 <?php
-
+//AUTHOR: Juan Jose Madrigal
 return [
 
     /*
