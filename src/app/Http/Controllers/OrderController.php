@@ -87,21 +87,21 @@ class OrderController extends Controller
                 $fish = PetFishes::find($cartItem["fishId"]);
                 if($fish->getInventory() < $cartItem["quantity"]) {
                     return view('order.NotEnoughBalance')
-                        ->with('viewData', ["message" => 'Whoops! We don\'t have enough of '.$fish->getSpecie()->getName().' '.$fish->getSize().' at the moment.']);
+                        ->with('viewData', ["message" => __('messages.insuf_invt1').$fish->getSpecie()->getName().' '.$fish->getSize(). __('messages.insuf_invt2')]);
                 }
             }
             else{
                 $fish = FoodFishes::find($cartItem["fishId"]);
                 if($fish->getInventoryKG() < $cartItem["quantity"]) {
                     return view('order.NotEnoughBalance')
-                        ->with('viewData', ["message" => 'Whoops! We don\'t have enough of '.$fish->getSpecie()->getName().' '.$fish->getCut().' at the moment.']);
+                        ->with('viewData', ["message" => __('messages.insuf_invt1').$fish->getSpecie()->getName().' '.$fish->getCut().__('messages.insuf_invt2')]);
                 }
             }
             $totalPrice += $cartItem['price'];
         }
         if(auth()->user()->getBalance() < $totalPrice) {
             return view('order.NotEnoughBalance')
-            ->with('viewData', ["message" => 'Whoops! It seems you don\'t have enough money, come back when you\'re a little Richer!']);
+            ->with('viewData', ["message" => __('messages.insuf_bal')]);
         }
         $newOrder = Order::create(
             [
@@ -142,6 +142,6 @@ class OrderController extends Controller
         auth()->user()->save();
         $request->session()->forget('cart');
         return view('order.NotEnoughBalance')
-        ->with('viewData', ["message" => 'THANKS FOR YOUR SHOPPING EXPERIENCE']);
+        ->with('viewData', ["message" => __('messages.succ_purch')]);
     }
 }

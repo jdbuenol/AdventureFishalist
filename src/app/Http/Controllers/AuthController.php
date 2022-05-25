@@ -81,7 +81,7 @@ class AuthController extends Controller
             ], $request->remember
         )
         ) {
-            return back()->with('viewData', ["message" => 'Invalid login details']);
+            return back()->with('viewData', ["message" => __('messages.invalid_log') ]);
         }
         return redirect()->route('shop.index');
     }

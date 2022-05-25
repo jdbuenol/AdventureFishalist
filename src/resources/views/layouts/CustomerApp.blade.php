@@ -17,43 +17,43 @@
     <div class="collapse navbar-collapse navlist" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto mx-4">
         <li class="nav-item active">
-            <a class="nav-link" href="{{ route('shop.petShop') }}">PET-SHOP</a>
+            <a class="nav-link" href="{{ route('shop.petShop') }}">{{__('messages.pet_shop')}}</a>
         </li>
         <li class="nav-item active">
-            <a class="nav-link" href="{{ route('shop.foodShop') }}">FOOD-SHOP</a>
+            <a class="nav-link" href="{{ route('shop.foodShop') }}">{{__('messages.food_shop')}}</a>
         </li>
         <li class="nav-item active">
-            <a class="nav-link" href="{{ route('specie.index') }}">SPECIES</a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" href="{{ route('shop.changeLang', 'es') }}"> SPANISH</a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" href="{{ route('shop.changeLang', 'en') }}"> ENGLISH</a>
+            <a class="nav-link" href="{{ route('specie.index') }}">{{__('messages.species')}}</a>
         </li>
         </ul>
-        <a class="navbar-brand" href="{{ route('shop.index') }}">{{ __('messages.welcome') }} ADVENTURE FISHALIST (DELUXE) </a>
+        <a class="navbar-brand" href="{{ route('shop.index') }}">{{__('messages.webname')}}</a>
         <ul class="navbar-nav mr-auto mx-4">
-        @auth
         <li class="nav-item active">
-            <a class="nav-link" href="{{ route('order.cart') }}">CART</a>
+            <a class="nav-link" href="{{ route('shop.changeLang', 'es') }}"> {{__('messages.esp')}}</a>
         </li>
         <li class="nav-item active">
-            <a class="nav-link" href="{{ route('profile.profile') }}">PROFILE</a>
+            <a class="nav-link" href="{{ route('shop.changeLang', 'en') }}"> {{__('messages.eng')}}</a>
+        </li>
+        @auth
+        <li class="nav-item active">
+            <a class="nav-link" href="{{ route('order.cart') }}">{{__('messages.upcase_cart')}}</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="{{ route('profile.profile') }}">{{__('messages.upcase_profile')}}</a>
         </li>
         <li class="nav-item active">
             <form action="{{ route('auth.logout') }}" method="POST">
                 @csrf
-                <button type="submit" class="nav-link logout-btn"><b>LOGOUT</b></button>
+                <button type="submit" class="nav-link logout-btn"><b>{{__('messages.upcase_logout')}}</b></button>
             </form>
         </li>
         @endauth
         @guest
         <li class="nav-item active">
-            <a class="nav-link" href="{{ route('auth.loginScreen') }}">LOGIN</a>
+            <a class="nav-link" href="{{ route('auth.loginScreen') }}">{{__('messages.upcase_login')}}</a>
         </li>
         <li class="nav-item active">
-            <a class="nav-link" href="{{ route('auth.registerScreen') }}">REGISTER</a>
+            <a class="nav-link" href="{{ route('auth.registerScreen') }}">{{__('messages.upcase_register')}}</a>
         </li>
         @endguest
         </ul>
@@ -62,7 +62,7 @@
     @yield('content')
     <footer class="mt-auto">
         <nav class="navbar navbar-light bg-light justify-content-center bottom-navbar">
-        <p class="display-5">powered by Laravel 9.2 - <a href="{{ route('allies.show') }}" class="text-black "> know our allies</a></p>
+        <p class="display-5">{{__('messages.footer')}} - <a href="{{ route('allies.show') }}" class="text-black "> {{__('messages.allies')}}</a></p>
         </nav>
     </footer>
 </body>

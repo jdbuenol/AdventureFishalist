@@ -1,20 +1,20 @@
 <!-- AUTHOR: JULIAN BUENO -->
 @extends('layouts.CustomerApp')
-@section('title', "PROFILE")
+@section('title', __('messages.upcase_profile'))
 @section('content')
 <div class="PostsHeader Bordered">
     <p class="display-2">{{ $viewData["user"]->getName() }}</p>
-    <p><b>BALANCE:</b> {{ $viewData["user"]->getBalance() }}</p>
-    <p><b>EMAIL:</b> {{ $viewData["user"]->getEmail() }}</p>
-    <p><b>LIFE LONG EXPENSES:</b> {{ $viewData["user"]->getLifeLongExpenses() }}</p>
-    <p><b>TOTAL ORDERS:</b> {{ count($viewData["user"]->getOrders()) }}</p>
-    <p><b>ORDERS:</b>
+    <p><b>{{__('messages.upcase_balance')}}:</b> {{ $viewData["user"]->getBalance() }}</p>
+    <p><b>{{__('messages.upcase_email')}}:</b> {{ $viewData["user"]->getEmail() }}</p>
+    <p><b>{{__('messages.upcase_life_lg_ex')}}:</b> {{ $viewData["user"]->getLifeLongExpenses() }}</p>
+    <p><b>{{__('messages.torders')}}:</b> {{ count($viewData["user"]->getOrders()) }}</p>
+    <p><b>{{__('messages.orders')}}:</b>
         <table class="table">
             <thead>
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">TotalPrice</th>
-                <th scope="col">DateTime</th>
+                <th scope="col">{{__('messages.tprice')}}</th>
+                <th scope="col">{{__('messages.datetime')}}</th>
               </tr>
             </thead>
             <tbody>
@@ -34,12 +34,12 @@
         <form action="{{ route('profile.history') }}" method="GET">
         @csrf
         <input name="format" class="d-none" value="pdf">
-        <button class="btn btn-danger">GENERATE PDF HISTORY</button>
+        <button class="btn btn-danger">{{__('messages.gen_pdfhist')}}</button>
         </form>
         <form action="{{ route('profile.history') }}" method="GET">
         @csrf
         <input name="format" class="d-none" value="csv">
-        <button class="btn btn-warning">GENERATE CSV HISTORY</button>
+        <button class="btn btn-warning">{{__('messages.gen_csvhist')}}</button>
         </form>
     </div>
 </div>

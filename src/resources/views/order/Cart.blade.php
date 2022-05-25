@@ -1,9 +1,9 @@
 <!-- AUTHOR: JULIAN BUENO -->
 @extends('layouts.CustomerApp')
-@section('title', "CART")
+@section('title', __('messages.upcase_cart'))
 @section('content')
 <div class="PostsHeader Bordered">
-<p class="display-1">CART</p>
+<p class="display-1">{{__('messages.upcase_cart')}}</p>
 @if(count($viewData['items']))
 @foreach ($viewData['items'] as $cartItem)
     <p class="CartItem">
@@ -16,22 +16,22 @@
         <a href="{{ route("shop.petshopshow", $cartItem["fish"]->getId()) }}" class="CartLink">
             <b>{{ $cartItem["fish"]->getSpecie()->getName() }}</b> 
             <b>{{ $cartItem["fish"]->getSize() }}</b>
-        </a>: {{ $cartItem["quantity"] }} <b>&dollar;{{$cartItem["price"]}}</b> (PET)
+        </a>: {{ $cartItem["quantity"] }} <b>&dollar;{{$cartItem["price"]}}</b> {{__('messages.cart_pet')}}
     @else
         <a href="{{ route("shop.foodshopshow", $cartItem["fish"]->getId()) }}" class="CartLink">
             <b>{{ $cartItem["fish"]->getSpecie()->getName() }}</b>
             <b>{{ $cartItem["fish"]->getCut() }}</b> 
-        </a>: {{ $cartItem["quantity"] }} <b>&dollar;{{$cartItem["price"]}}</b> (FOOD)
+        </a>: {{ $cartItem["quantity"] }} <b>&dollar;{{$cartItem["price"]}}</b> {{__('messages.cart_food')}}
     @endif
     </p>
 @endforeach
-<p class="display-6">TOTAL PRICE: &dollar;{{$viewData['price']}}</p>
+<p class="display-6">{{__('messages.upcase_tprice')}}: &dollar;{{$viewData['price']}}</p>
 <form action="{{ route('order.checkout') }}" method="POST">
     @csrf
-<button class="btn btn-primary">CHECKOUT</button>
+<button class="btn btn-primary">{{__('messages.cart_checkout')}}</button>
 </form>
 @else
-    <p>WOW, YOUR CART IS EMPTY! BUY MORE CAPITALISM!</p>
+    <p>{{__('messages.cart_empty')}}</p>
 @endif
 </div>
 @endsection

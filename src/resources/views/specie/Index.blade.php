@@ -1,6 +1,6 @@
 <!-- AUTHOR: JULIAN BUENO -->
 @extends('layouts.CustomerApp')
-@section('title', "SPECIES")
+@section('title', __('messages.species'))
 @section('content')
 <div class="row">
   @foreach ($viewData["species"] as $specie)
@@ -15,11 +15,11 @@
   @endforeach
   <ul class="pagination justify-content-center">
     @if($viewData["species"]->currentPage() > 1)
-    <li class="page-item"><a class="page-link" href="{{ route("specie.index", ['page' => $viewData["species"]->currentPage() - 1]) }}">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="{{ route("specie.index", ['page' => $viewData["species"]->currentPage() - 1]) }}">{{__('messages.prev')}}</a></li>
     @endif
     <li class="page-item disabled"><b class="page-link">{{ $viewData["species"]->currentPage() }}</b></li>
     @if($viewData["species"]->currentPage() < $viewData["species"]->lastPage())
-    <li class="page-item"><a class="page-link" href="{{ route("specie.index", ['page' => $viewData["species"]->currentPage() + 1]) }}">Next</a></li>
+    <li class="page-item"><a class="page-link" href="{{ route("specie.index", ['page' => $viewData["species"]->currentPage() + 1]) }}">{{__('messages.next')}}</a></li>
     @endif
   </ul>
 </div>

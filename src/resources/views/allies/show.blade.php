@@ -9,12 +9,12 @@
 <div class="card">
     <img src="{{ $mobile->imageUrl }}" class="card-img-top img-card FishImage">
     <div class="card-body text-center">
-    <p class="card-text"><b>Name:</b> {{ $mobile->name }}</p>
-    <p class="card-text"><b>Price:</b> {{ $mobile->price }}</p>
-    <p class="card-text"><b>Brand:</b> {{ $mobile->brand }}</p>
-    <p class="card-text"><b>Model:</b> {{ $mobile->model }}</p>
+    <p class="card-text"><b>{{__('messages.name')}}:</b> {{ $mobile->name }}</p>
+    <p class="card-text"><b>{{__('messages.price')}}:</b> {{ $mobile->price }}</p>
+    <p class="card-text"><b>{{__('messages.brand')}}:</b> {{ $mobile->brand }}</p>
+    <p class="card-text"><b>{{__('messages.model')}}:</b> {{ $mobile->model }}</p>
     <a href="{{ $mobile->linkToMobile }}"
-        class="btn btn-dark">Know more</a>
+        class="btn btn-dark">{{__('messages.kn_more')}}</a>
     </div>
 </div>
 </div>
