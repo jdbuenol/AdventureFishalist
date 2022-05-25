@@ -64,6 +64,10 @@ body{
     height: 457px;
 }
 
+.FishInfo{
+    border: 1px black solid;
+}
+
 .navlist{
     justify-content: space-between;
 }
@@ -83,4 +87,10 @@ body{
 
 .btns-gap{
     gap: 25px;
+}
+
+
+
+.CartForm{
+    height: 5vh;
 }
