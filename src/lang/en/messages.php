@@ -4,11 +4,11 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | messages Lineas de Lenguaje
+    | messages Lenguage Lines
     |--------------------------------------------------------------------------
     |
-    | Estas Lineas Correponden a los textos en español que se pueden
-    | ver en la pagina web 
+    | These lines correspond to the texts in Spanish that can be
+    | seen on the website
     |
     */
 
