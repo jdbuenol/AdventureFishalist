@@ -265,4 +265,9 @@ Route::group(
 // Errors
 Route::get('/403', 'App\Http\Controllers\errorController@forbidden')
 ->name('error.forbidden');
+
+// Allies
+Route::get('/allies', 'App\Http\Controllers\AlliesController@show')
+->name('allies.show');
+
 });

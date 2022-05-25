@@ -62,7 +62,7 @@
     @yield('content')
     <footer class="mt-auto">
         <nav class="navbar navbar-light bg-light justify-content-center bottom-navbar">
-        <p class="display-5">powered by Laravel 9.2</p>
+        <p class="display-5">powered by Laravel 9.2 - <a href="{{ route('allies.show') }}" class="text-black "> know our allies</a></p>
         </nav>
     </footer>
 </body>
